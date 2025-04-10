@@ -2,3 +2,4 @@
 // You can write your code in this editor
 move_to_target();
 face_target();
+calculate_weapon_angle();

@@ -97,7 +97,9 @@ function _check_cbox_collision(){
     collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, hits, false);
     if (ds_list_size(hits) > 0) {
         for(var i = 0; i < ds_list_size(hits); i++){
-            ds_list_find_value(hits, i).send_back_to_sender();
+            var bullet_instance = ds_list_find_value(hits, i);
+            bullet_instance.send_back_to_sender();
+            bullet_instance.set_object_to_damage(obj_enemy);
         }
         parry_cbox_hit = true;
     }
@@ -132,4 +134,8 @@ enum PARRY_DIRECTION{
     RIGHT,
     UP,
     DOWN
+}
+
+function damage(_amount){
+    
 }

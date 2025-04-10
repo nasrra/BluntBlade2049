@@ -6,9 +6,12 @@ weapon_angle = direction;
 weapon_swivel_speed = 0.1;
 weapon_offset_x = 16;
 weapon_offset_y = 16;
+weapon_length = 16; 
 
 function fire_bullet(){
-    var bullet_instance  = instance_create_layer(x, y, "Bullets", bullet_object);
+    var offset_x = lengthdir_x(weapon_length + weapon_offset_x, weapon_angle);
+    var offset_y = lengthdir_y(weapon_length + weapon_offset_y, weapon_angle);
+    var bullet_instance  = instance_create_layer(x + offset_x, y + offset_y, "Bullets", bullet_object);
     bullet_instance.sender = id;
 }
 
@@ -57,15 +60,21 @@ function face_target(){
 }
 
 function damage(_amount){
-    health -= _amount;
-    if(health <= 0){
+    id.health -= _amount;
+    show_debug_message(id.health);
+    if(id.health <= 0){
         instance_destroy();
     }
 }
 
+function calculate_weapon_angle(){
+    var true_angle = weapon_angle + angle_difference(direction, weapon_angle) * weapon_swivel_speed;
+    var clamped_angle = (true_angle % 360 + 360) % 360;
+    weapon_angle = clamped_angle;
+}
+
 function draw_weapon(){
     var weapon_y_scale = (direction > 90 && direction < 270)? -1 : 1;
-    weapon_angle = weapon_angle + angle_difference(direction, weapon_angle) * weapon_swivel_speed;
     var offset_x = lengthdir_x(weapon_offset_x, weapon_angle);
     var offset_y = lengthdir_y(weapon_offset_y, weapon_angle);
     draw_sprite_ext(spr_gun, 0, x + offset_x, y + offset_y, 1, weapon_y_scale, weapon_angle, c_white, 1); // draw weapon.
