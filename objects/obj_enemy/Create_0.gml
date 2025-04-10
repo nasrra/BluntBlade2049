@@ -1,0 +1,27 @@
+/// @description Insert description here
+// You can write your code in this editor
+
+function fire_bullet(){
+    var bullet_instance  = instance_create_layer(x, y, "Bullets", bullet_object);
+}
+
+fire_bullets_counter = 0;
+fire_bullets_interval = 0;
+fire_bullets_alarm_index = 0;
+function fire_bullets(_amount, _interval){
+    fire_bullets_counter = _amount;
+    fire_bullets_interval = _interval;
+    alarm_set(fire_bullets_alarm_index, 1);
+}
+
+function _fire_bullets(){
+    if(fire_bullets_counter > 0){
+        fire_bullet();
+        alarm_set(fire_bullets_alarm_index, fire_bullets_interval);
+        fire_bullets_counter -= 1;
+    }
+    else{
+        fire_bullets_counter    = 0;
+        fire_bullets_interval   = 0;
+    }
+}
