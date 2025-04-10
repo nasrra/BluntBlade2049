@@ -5,6 +5,7 @@ target = obj_player;
 
 function fire_bullet(){
     var bullet_instance  = instance_create_layer(x, y, "Bullets", bullet_object);
+    bullet_instance.sender = id;
 }
 
 fire_bullets_counter = 0;
