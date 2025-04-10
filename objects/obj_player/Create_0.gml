@@ -57,6 +57,8 @@ parry_cbox_timer = 0;
 parry_cbox_alarm_index = 0;
 parry_cbox_hit = false;
 parry_direction = undefined;
+parry_part_system = part_system_create(part_system_parry);
+parry_particle = particle_get_info(part_system_parry).emitters[0].parttype.ind;
 function enable_parry_collision_box(_parry_direction){
     if(parry_cbox_active == false){
         parry_direction = _parry_direction;
@@ -73,18 +75,22 @@ function _handle_cbox_position(){
     if (parry_direction == PARRY_DIRECTION.LEFT) {
         parry_cbox_x = x - parry_cbox_width;  // Position to the left of the player
         parry_cbox_y = y;
+        part_type_direction(parry_particle, 135, 225, 0, 0);
     }
     else if (parry_direction == PARRY_DIRECTION.RIGHT) {
         parry_cbox_x = x + parry_cbox_width;  // Position to the right of the player
         parry_cbox_y = y;
+        part_type_direction(parry_particle, 45, -45, 0, 0);
     }
     else if (parry_direction == PARRY_DIRECTION.UP) {
         parry_cbox_x = x;
         parry_cbox_y = y - parry_cbox_height;  // Position above the player
+        part_type_direction(parry_particle, 45, 135, 0, 0);
     }
     else if (parry_direction == PARRY_DIRECTION.DOWN) {
         parry_cbox_x = x;
         parry_cbox_y = y + parry_cbox_height;  // Position below the player
+        part_type_direction(parry_particle, 225, 315, 0, 0);
     }
 }
 
@@ -100,6 +106,7 @@ function _check_cbox_collision(){
             var bullet_instance = ds_list_find_value(hits, i);
             bullet_instance.send_back_to_sender();
             bullet_instance.set_object_to_damage(obj_enemy);
+            part_particles_create(parry_part_system, x, y, parry_particle, 10);
         }
         parry_cbox_hit = true;
     }

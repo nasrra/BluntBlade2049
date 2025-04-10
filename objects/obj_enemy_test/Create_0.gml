@@ -3,4 +3,4 @@
 
 // Inherit the parent event
 event_inherited();
-fire_bullets(10, 30);
+fire_bullets(10);
