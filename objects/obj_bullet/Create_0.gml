@@ -23,9 +23,14 @@ function send_back_to_sender(){
 }
 
 function check_collisions(){
-    if(place_meeting(x, y, obj_player)){
-        // stop moving once hit player.
-        direction = point_direction(0, 0, 0, 0);
+    var hit = instance_place(x,y,obj_player);
+    if(hit != noone){
+        hit.damage(damage);
+        instance_destroy();
+    }
+    hit = instance_place(x,y,obj_enemy);
+    if(hit != noone){
+        hit.damage(damage);
         instance_destroy();
     }
 }
