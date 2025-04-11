@@ -2,15 +2,14 @@
 // You can write your code in this editor
 
 target = obj_player;
-weapon_angle = direction;
 weapon_swivel_speed = 0.1;
-weapon = global.struct_weapon_revolver;
+weapon = struct_gun_shotgun();
 
 function fire_bullet(){
-    var offset_x = lengthdir_x(id.weapon.length + id.weapon.offset_x, weapon_angle);
-    var offset_y = lengthdir_y(id.weapon.length + id.weapon.offset_y, weapon_angle);
-    var bullet_instance  = instance_create_layer(x + offset_x, y + offset_y, "Bullets", bullet_object);
-    bullet_instance.sender = id;
+    var bullets = weapon.shoot();
+    for(var i = 0; i < array_length(bullets); i++){
+        bullets[i].sender = id;
+    }
 }
 
 fire_bullets_counter = 0;
@@ -43,6 +42,12 @@ function move_to_target(){
     y += lengthdir_y(move_speed, direction);
 }   
 
+function update_weapon(){
+    weapon.x        = x;
+    weapon.y        = y;
+    weapon.angle    = calculate_weapon_angle();
+}
+
 function face_target(){
     if(direction >= 330 || direction <= 45){
         // show_debug_message("face_right");        
@@ -67,14 +72,15 @@ function damage(_amount){
 }
 
 function calculate_weapon_angle(){
-    var true_angle = weapon_angle + angle_difference(direction, weapon_angle) * weapon_swivel_speed;
+    var true_angle = weapon.angle + angle_difference(direction, weapon.angle) * weapon_swivel_speed;
     var clamped_angle = (true_angle % 360 + 360) % 360;
-    weapon_angle = clamped_angle;
+    return clamped_angle;
 }
 
 function draw_weapon(){
     var weapon_y_scale = (direction > 90 && direction < 270)? -1 : 1;
-    var offset_x = lengthdir_x(id.weapon.offset_x, id.weapon_angle);
-    var offset_y = lengthdir_y(id.weapon.offset_y, id.weapon_angle);
-    draw_sprite_ext(id.weapon.sprite, 0, x + offset_x, y + offset_y, 1, weapon_y_scale, weapon_angle, c_white, 1); // draw weapon.
+    var offset_x = lengthdir_x(id.weapon.offset_x, id.weapon.angle);
+    var offset_y = lengthdir_y(id.weapon.offset_y, id.weapon.angle);
+    draw_sprite_ext(id.weapon.sprite, 0, x + offset_x, y + offset_y, 1, weapon_y_scale, id.weapon.angle, c_white, 1); // draw weapon.
 }
+update_weapon();
