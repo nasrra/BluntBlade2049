@@ -38,27 +38,28 @@ function update_position(){
 
 function handle_input(){
     if(keyboard_check_pressed(vk_alt)){
-        invoke_shake_camera();
+        shake_camera(33,1,6);
     }
 }
 
 
-shake_amount        = 75;
-shake_max_count     = 15;
-shake_current_count = 0;
-shake_interval      = 1;
+shake_amount        = undefined //75;
+shake_count         = undefined //0;
+shake_rate          = undefined //1;
 shake_alarm_index   = 0;
-function invoke_shake_camera(){
-    shake_current_count = shake_max_count;
+function shake_camera(_amount, _rate, _count){
+    shake_amount    = _amount;
+    shake_count     = _count;
+    shake_rate      = _rate;
     alarm_set(shake_alarm_index, 1);
 }
 
-function shake_camera(){
-    if(shake_current_count > 0){
-        shake_current_count -= 1;
+function _shake_camera(){
+    if(shake_count > 0){
+        shake_count -= 1;
         offset_x = random_range(-shake_amount, shake_amount);
         offset_y = random_range(-shake_amount, shake_amount);
-        alarm_set(shake_alarm_index, shake_interval);
+        alarm_set(shake_alarm_index, shake_rate);
     }
     else{
         offset_x = 0;

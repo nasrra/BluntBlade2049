@@ -101,13 +101,17 @@ function _check_cbox_collision(){
     var bottom = parry_cbox_y + parry_cbox_height / 2;
     var hits = ds_list_create();
     collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, hits, false);
+
+    // if we successfully pary a bullet.
     if (ds_list_size(hits) > 0) {
         for(var i = 0; i < ds_list_size(hits); i++){
             var bullet_instance = ds_list_find_value(hits, i);
             bullet_instance.send_back_to_sender();
             bullet_instance.set_object_to_damage(obj_enemy);
-            part_particles_create(parry_part_system, x, y, parry_particle, 10);
         }
+        obj_camera.shake_camera(33, 1, 12);
+        part_particles_create(parry_part_system, x, y, parry_particle, 9);
+        set_room_speed(9, 1);
         parry_cbox_hit = true;
     }
 }
@@ -145,4 +149,26 @@ enum PARRY_DIRECTION{
 
 function damage(_amount){
     
+}
+
+room_speed_timer = 0;
+room_speed_alarm_index = 1;
+room_speed_active = false;
+room_modified_speed = 1;
+function set_room_speed(_speed,_timer){
+    room_speed_timer    = _timer;
+    room_modified_speed = _speed;
+    room_speed_modified = true;
+    alarm_set(room_speed_alarm_index, 1);
+}
+
+function check_room_speed_timer(){
+    if(room_speed_modified == true){
+        room_speed = room_modified_speed;
+        room_speed_modified = false;
+        alarm_set(room_speed_alarm_index, room_speed_timer);
+    }
+    else{
+        room_speed = 60;
+    }
 }

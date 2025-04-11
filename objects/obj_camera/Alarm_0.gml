@@ -1,2 +1,2 @@
 /// @description Shake Camera
-shake_camera();
+_shake_camera();
