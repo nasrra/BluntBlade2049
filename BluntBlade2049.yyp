@@ -43,6 +43,7 @@
     {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_collision","path":"objects/obj_collision/obj_collision.yy",},},
+    {"id":{"name":"obj_death_ui","path":"objects/obj_death_ui/obj_death_ui.yy",},},
     {"id":{"name":"obj_enemy_test","path":"objects/obj_enemy_test/obj_enemy_test.yy",},},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
     {"id":{"name":"obj_gameplay_ui","path":"objects/obj_gameplay_ui/obj_gameplay_ui.yy",},},

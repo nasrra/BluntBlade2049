@@ -80,7 +80,7 @@ function _handle_cbox_position(){
     else if (parry_direction == PARRY_DIRECTION.RIGHT) {
         parry_cbox_x = x + parry_cbox_width;  // Position to the right of the player
         parry_cbox_y = y;
-        part_type_direction(parry_particle, 45, -45, 0, 0);
+        part_type_direction(parry_particle, -45, 45, 0, 0);
     }
     else if (parry_direction == PARRY_DIRECTION.UP) {
         parry_cbox_x = x;
