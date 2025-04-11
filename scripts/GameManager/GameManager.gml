@@ -1,4 +1,4 @@
-global.game_state = GameState.GAMEPLAY;
+global.game_state = undefined;
 
 enum GameState{
     DEATH,
@@ -6,14 +6,16 @@ enum GameState{
     MENU,
 }
 
-function death_state(){
+function gamemanager_death_state(){
     global.game_state = GameState.DEATH;
+    uimanager_enable_death_ui();
 }
 
-function gameplay_state(){
+function gamemanager_gameplay_state(){
     global.game_state = GameState.GAMEPLAY;
+    uimanager_enable_gameplay_ui();
 }
 
-function menu_state(){
+function gamemanager_menu_state(){
     global.game_state = GameState.MENU;
 }

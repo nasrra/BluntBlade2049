@@ -17,8 +17,8 @@ function move(){
 }
 
 function handle_input(){
-    input_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-    input_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+    var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+    var input_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
     
     if(input_x == 0 && input_y == 0){
         current_speed = lerp(current_speed,0,deceleration);
@@ -28,10 +28,10 @@ function handle_input(){
         move_dir = point_direction(0, 0, input_x, input_y);
     }
 
-    parry_up    = keyboard_check_pressed(vk_up);
-    parry_down  = keyboard_check_pressed(vk_down);
-    parry_left  = keyboard_check_pressed(vk_left);
-    parry_right = keyboard_check_pressed(vk_right);
+    var parry_up    = keyboard_check_pressed(vk_up);
+    var parry_down  = keyboard_check_pressed(vk_down);
+    var parry_left  = keyboard_check_pressed(vk_left);
+    var parry_right = keyboard_check_pressed(vk_right);
 
     if(parry_up == true){
         enable_parry_collision_box(PARRY_DIRECTION.UP);
@@ -44,6 +44,13 @@ function handle_input(){
     }
     else if(parry_left == true){
         enable_parry_collision_box(PARRY_DIRECTION.LEFT);
+    }
+
+
+    // here for debug...
+    var restart_room = keyboard_check_pressed(ord("R"));
+    if(restart_room == true){
+        room_restart();
     }
 }
 
@@ -149,8 +156,9 @@ enum PARRY_DIRECTION{
 
 function damage(_amount){
     id.health -= _amount;
-    obj_gameplay_ui.update_healthbar(id.health);
+    obj_ui_gameplay.update_healthbar(id.health);
     if(id.health <= 0){
+        gamemanager_death_state();
         instance_destroy();
     }
 }
