@@ -35,4 +35,7 @@ function check_collisions(){
         hit.damage(damage);
         instance_destroy();
     }
+    if(place_meeting(x, y, obj_wall)){
+        instance_destroy();
+    }
 }

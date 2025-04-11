@@ -38,8 +38,9 @@ function move_to_target(){
     }
     
     direction = point_direction(x,y,target.x,target.y);
-    x += lengthdir_x(move_speed, direction);
-    y += lengthdir_y(move_speed, direction);
+    var move_x = lengthdir_x(move_speed, direction);
+    var move_y = lengthdir_y(move_speed, direction);
+    move_and_collide(move_x, move_y, obj_solid_collision);
 }   
 
 function update_weapon(){
