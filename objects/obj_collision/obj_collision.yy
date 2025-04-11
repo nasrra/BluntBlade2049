@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_solid_collision",
+  "%Name":"obj_collision",
   "eventList":[],
   "managed":true,
-  "name":"obj_solid_collision",
+  "name":"obj_collision",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

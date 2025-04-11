@@ -12,7 +12,7 @@ function move(){
     // move_dir = point_direction(0,0,input_x, input_y);
     move_x = lengthdir_x(current_speed, move_dir);
     move_y = lengthdir_y(current_speed, move_dir);
-    move_and_collide(move_x, move_y, obj_solid_collision);
+    move_and_collide(move_x, move_y, obj_environment);
 }
 
 function handle_input(){

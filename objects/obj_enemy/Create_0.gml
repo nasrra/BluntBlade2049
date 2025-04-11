@@ -4,6 +4,7 @@
 target = obj_player;
 weapon_swivel_speed = 0.1;
 weapon = struct_gun_shotgun();
+current_move_speed = move_speed;
 
 function fire_bullet(){
     var bullets = weapon.shoot();
@@ -38,9 +39,9 @@ function move_to_target(){
     }
     
     direction = point_direction(x,y,target.x,target.y);
-    var move_x = lengthdir_x(move_speed, direction);
-    var move_y = lengthdir_y(move_speed, direction);
-    move_and_collide(move_x, move_y, obj_solid_collision);
+    var move_x = lengthdir_x(current_move_speed, direction);
+    var move_y = lengthdir_y(current_move_speed, direction);
+    var collision = move_and_collide(move_x, move_y, obj_collision);
 }   
 
 function update_weapon(){
