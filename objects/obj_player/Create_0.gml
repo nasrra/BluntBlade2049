@@ -115,7 +115,7 @@ function _check_cbox_collision(){
             bullet_instance.send_back_to_sender();
             bullet_instance.set_object_to_damage(obj_enemy);
         }
-        obj_camera.shake_camera(33, 1, 12);
+        obj_camera.shake_camera(44, 1, 12);
         part_particles_create(parry_part_system, x, y, parry_particle, 9);
         set_room_speed(9, 1);
         parry_cbox_hit = true;

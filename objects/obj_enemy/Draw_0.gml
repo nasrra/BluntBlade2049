@@ -9,3 +9,6 @@ if(weapon.angle >= 180 && weapon.angle < 360){
     // draw weapon in front enemy.
     draw_weapon();
 }
+
+draw_path(movement_path, x, y, 1);
+

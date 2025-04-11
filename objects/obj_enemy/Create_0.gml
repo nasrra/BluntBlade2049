@@ -41,7 +41,7 @@ function move_to_target(){
     direction = point_direction(x,y,target.x,target.y);
     var move_x = lengthdir_x(current_move_speed, direction);
     var move_y = lengthdir_y(current_move_speed, direction);
-    var collision = move_and_collide(move_x, move_y, obj_collision);
+    // var collision = move_and_collide(move_x, move_y, obj_collision);
 }   
 
 function update_weapon(){
@@ -86,3 +86,32 @@ function draw_weapon(){
     draw_sprite_ext(id.weapon.sprite, 0, x + offset_x, y + offset_y, 1, weapon_y_scale, id.weapon.angle, c_white, 1); // draw weapon.
 }
 update_weapon();
+
+
+
+// make it so the path stops when knocking back enemies as they are hit by bullet.
+movement_path = undefined;
+movement_path_alarm_index = 1;
+function _update_movement_path(){
+    if(instance_exists(target) == false)
+        exit;
+
+    if(movement_path!=undefined){
+        path_delete(movement_path);
+    }
+
+    movement_path = path_add();
+
+    // update target position.
+    var target_y = target.y;
+    var target_x = target.x;
+
+    // assign path to use for new pathing.
+    mp_grid_path(obj_enemy_path_manager.grid, movement_path, x, y, target_x, target_y, 1);
+
+    // path algoritm to generate path to point.
+    path_start(movement_path, move_speed, path_action_stop, true);
+
+    alarm_set(movement_path_alarm_index, 60);
+}
+alarm_set(movement_path_alarm_index, 1);

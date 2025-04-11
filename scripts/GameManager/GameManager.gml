@@ -19,3 +19,5 @@ function gamemanager_gameplay_state(){
 function gamemanager_menu_state(){
     global.game_state = GameState.MENU;
 }
+
+randomize();
