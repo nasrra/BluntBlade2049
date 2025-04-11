@@ -1,0 +1,1 @@
+draw_health_bar();

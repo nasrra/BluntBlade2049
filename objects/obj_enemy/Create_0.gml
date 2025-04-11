@@ -34,6 +34,10 @@ function _fire_bullets(){
 }
 
 function move_to_target(){
+    if(instance_exists(target)==false){
+        exit;
+    }
+    
     direction = point_direction(x,y,target.x,target.y);
     x += lengthdir_x(move_speed, direction);
     y += lengthdir_y(move_speed, direction);

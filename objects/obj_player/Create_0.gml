@@ -148,7 +148,11 @@ enum PARRY_DIRECTION{
 }
 
 function damage(_amount){
-    
+    id.health -= _amount;
+    obj_gameplay_ui.update_healthbar(id.health);
+    if(id.health <= 0){
+        instance_destroy();
+    }
 }
 
 room_speed_timer = 0;

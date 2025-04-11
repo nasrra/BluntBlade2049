@@ -10,8 +10,10 @@ function move_in_direction(_move_dir){
     direction = _move_dir;
 }
 
-function move_to_point(_point){
-    direction = point_direction(x,y,_point.x, _point.y);
+function move_to_object(_object){
+    if(instance_exists(_object) == true){
+        direction = point_direction(x,y,_object.x, _object.y);
+    }
 }
 
 function move(){
@@ -20,7 +22,7 @@ function move(){
 }
 
 function send_back_to_sender(){
-    move_to_point(sender);
+    move_to_object(sender);
 }
 
 function set_object_to_damage(_object){

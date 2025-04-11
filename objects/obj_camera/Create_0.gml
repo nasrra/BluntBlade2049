@@ -15,6 +15,10 @@ offset_x = 0;
 offset_y = 0;
 
 function update_position(){
+    if(instance_exists(target)==false){
+        exit; // return but for gml.
+    }
+
     // set position to centre in on the target.
     target_x = target.x - (camera_width * 0.5);
     target_y = target.y - (camera_height * 0.5);
