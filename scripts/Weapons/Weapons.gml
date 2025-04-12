@@ -12,6 +12,7 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
     multi_shot_spread   = 0;
     // function that should be called.
 	shoot = undefined;
+    play_sound = undefined;
     // functions to choose from to assign shoot to.
 
     function set_shoot_single(){
@@ -22,6 +23,9 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
             var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
+            if(play_sound != undefined){
+                play_sound();
+            }
             return bullets;
         }
     }
@@ -42,6 +46,9 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
                 bullet_instance.move_in_direction(angle_offset);
                 array_push(bullets, bullet_instance);
             }
+            if(play_sound != undefined){
+                play_sound();
+            }
             return bullets;
         }
     }
@@ -60,6 +67,7 @@ function struct_gun_revolver(){
         0,
     );
     base.set_shoot_single();
+    base.play_sound = audiomanager_revolver_shot;
     return base;
 }
 
@@ -75,5 +83,6 @@ function struct_gun_shotgun(){
     );
     // base.set_shoot_single();
     base.set_shoot_multi(5, 45);
+    base.play_sound = audiomanager_shotgun_shot;
     return base;
 }

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Alarms",
+  "%Name":"AudioManager",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Alarms",
+  "name":"AudioManager",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
