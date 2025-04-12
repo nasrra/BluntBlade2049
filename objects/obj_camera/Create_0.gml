@@ -40,6 +40,13 @@ function update_position(){
     camera_set_view_pos(view_camera[0], target_x, target_y);
 }
 
+function snap_to_target(){
+    var _smooth_factor = smooth_factor;
+    smooth_factor = 1;
+    update_position(); // here for the room bounds check.
+    smooth_factor = _smooth_factor;
+}
+
 function handle_input(){
     if(keyboard_check_pressed(vk_alt)){
         shake_camera(33,1,6);
