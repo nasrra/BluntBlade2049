@@ -71,7 +71,7 @@ function enable_parry_collision_box(_parry_direction){
         _handle_cbox_position();
         parry_cbox_timer = 20;
         parry_cbox_active = true;
-        show_debug_message("parry!");
+        // show_debug_message("parry!");
         alarm_set(parry_cbox_alarm_index, 1);
     }
 }
@@ -143,7 +143,7 @@ function _check_parry_collision_box(){
 function _parry_cbox_finish(){
     parry_cbox_active = false;
     parry_cbox_hit = false;
-    show_debug_message("finished parry!");        
+    // show_debug_message("finished parry!");        
 }
 
 enum PARRY_DIRECTION{
@@ -156,6 +156,7 @@ enum PARRY_DIRECTION{
 function damage(_amount){
     id.health -= _amount;
     obj_ui_gameplay.update_healthbar(id.health);
+    damage_flash.invoke(0.1);
     if(id.health <= 0){
         gamemanager_death_state();
         instance_destroy();
@@ -183,3 +184,5 @@ function check_room_speed_timer(){
         room_speed = 60;
     }
 }
+
+damage_flash = new sh_damage_flash_controller(id, c_white);

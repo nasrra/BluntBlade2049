@@ -91,7 +91,7 @@ function face_target(){
 
 function damage(_amount){
     id.health -= _amount;
-    show_debug_message(id.health);
+    damage_flash.invoke(0.05);
     if(id.health <= 0){
         instance_destroy();
     }
@@ -151,3 +151,5 @@ function _update_movement_path(){
     alarm_set(movement_path_alarm_index, 60);
 }
 alarm_set(movement_path_alarm_index, 1);
+
+damage_flash = new sh_damage_flash_controller(id, c_white);

@@ -13,4 +13,6 @@ if(parry_cbox_active == true){
     draw_rectangle(left, top, right, bottom, true);
     draw_set_color(c_white);  // Set the color to yellow for visibility
 }
+
 draw_self();
+damage_flash.draw();
