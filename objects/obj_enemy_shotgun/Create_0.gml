@@ -4,4 +4,3 @@
 // Inherit the parent event
 event_inherited();
 id.weapon = struct_gun_shotgun();
-fire_bullets(10);

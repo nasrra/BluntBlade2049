@@ -1,2 +1,2 @@
-/// @description fire_bullets
-_fire_bullets();
+/// @description shoot loop
+shoot_loop();
