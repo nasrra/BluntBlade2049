@@ -6,8 +6,8 @@
   "name":"obj_environment",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"environment",
+    "path":"folders/Objects/environment.yy",
   },
   "parentObjectId":{
     "name":"obj_collision",

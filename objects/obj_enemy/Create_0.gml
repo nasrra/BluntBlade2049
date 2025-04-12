@@ -108,9 +108,7 @@ function _update_movement_path(){
     if(instance_exists(target) == false)
         exit;
 
-    if(movement_path!=undefined){
-        path_delete(movement_path);
-    }
+    delete_movement_path();
 
     movement_path = path_add();
 
@@ -137,14 +135,20 @@ function _update_movement_path(){
     alarm_set(movement_path_alarm_index, 60);
 }
 
+function delete_movement_path(){
+    if(movement_path!=undefined){
+        path_delete(movement_path);
+    }
+}
+
 damage_flash = new sh_damage_flash_controller(id, c_white);
+
 
 function can_see_target(){
     if(instance_exists(target) == false){
         exit;
     }
     var flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
-    show_debug_message(flag);
     return flag;
 }
 

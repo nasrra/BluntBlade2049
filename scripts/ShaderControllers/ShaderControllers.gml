@@ -12,7 +12,6 @@ function sh_damage_flash_controller(_id, _color) constructor{
 
     // lerp the flash, used in the alarm function.
     function decay(){
-        show_debug_message(alpha);
         alpha -= speed;
     }
 

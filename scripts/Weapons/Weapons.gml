@@ -38,7 +38,6 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
             var bullets = [];
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
-            show_debug_message(multi_shot_spread);
             var start_angle_offset = angle - multi_shot_spread * 0.5;
             var step = multi_shot_spread / max(1,multi_shot_amount - 1);
             for(var i = 0; i<multi_shot_amount; i++){
