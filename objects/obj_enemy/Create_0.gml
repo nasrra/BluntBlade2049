@@ -33,15 +33,39 @@ function _fire_bullets(){
     }
 }
 
-function move_to_target(){
-    if(instance_exists(target)==false){
+function move(){
+    if(movement_path_points == undefined || movement_path_point_index >= array_length(movement_path_points)){
         exit;
     }
+
+    var point = movement_path_points[movement_path_point_index];
+    var px = point[0];
+    var py = point[1];
+
+    var avoidance = 16;
     
+    var other_enemy = instance_place(px, py, obj_enemy);
+    if(other_enemy != noone && other_enemy.id != id && point_distance(other_enemy.x, other_enemy.y, px, py) <= avoidance){
+        exit;
+    } 
+
+    var dir = point_direction(x,y,px,py);
+    var dist = point_distance(x,y,px,py);
+
+    var movement = min(move_speed, dist);
+
+    x+=lengthdir_x(movement, dir);
+    y+=lengthdir_y(movement, dir);
+    if(dist < 1.0){
+        movement_path_point_index += 1;
+    }
+}
+
+function set_direction_to_target(){
+    if(instance_exists(target)==false){
+        exit;
+    }    
     direction = point_direction(x,y,target.x,target.y);
-    var move_x = lengthdir_x(current_move_speed, direction);
-    var move_y = lengthdir_y(current_move_speed, direction);
-    // var collision = move_and_collide(move_x, move_y, obj_collision);
 }   
 
 function update_weapon(){
@@ -91,6 +115,8 @@ update_weapon();
 
 // make it so the path stops when knocking back enemies as they are hit by bullet.
 movement_path = undefined;
+movement_path_points = [];
+movement_path_point_index = 1;
 movement_path_alarm_index = 1;
 function _update_movement_path(){
     if(instance_exists(target) == false)
@@ -110,7 +136,17 @@ function _update_movement_path(){
     mp_grid_path(obj_enemy_path_manager.grid, movement_path, x, y, target_x, target_y, 1);
 
     // path algoritm to generate path to point.
-    path_start(movement_path, move_speed, path_action_stop, true);
+    // path_start(movement_path, current_move_speed, path_action_stop, true);
+
+    movement_path_points = [];
+    var points_count = path_get_number(movement_path);
+    for(var i = 0; i < points_count; i++){
+        var px = path_get_point_x(movement_path,i);
+        var py = path_get_point_y(movement_path,i);
+        array_push(movement_path_points, [px,py]);
+    }
+
+    movement_path_point_index = 1;
 
     alarm_set(movement_path_alarm_index, 60);
 }
