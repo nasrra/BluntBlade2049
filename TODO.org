@@ -1,0 +1,4 @@
+* TODO damage flash when an entity is hit.
+* TODO knockback when entities are hit.
+* TODO camera effects when player is hit, (shake, etc..).
+* TODO room transitions and room swapping.

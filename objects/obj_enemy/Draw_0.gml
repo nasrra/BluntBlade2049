@@ -10,5 +10,7 @@ if(weapon.angle >= 180 && weapon.angle < 360){
     draw_weapon();
 }
 
+draw_set_alpha(0.1);
 draw_path(movement_path, x, y, 1);
+draw_set_alpha(1);
 
