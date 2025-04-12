@@ -3,7 +3,7 @@ function audiomanager_revolver_shot(){
 }
 
 function audiomanager_shotgun_shot(){
-    var i = irandom_range(0,2);
+    var i = irandom_range(0,1);
     switch(i){
         case 0:
             audio_play_sound(snd_shotgun_1,0,false,1,0,random_range(0.8,1.1));

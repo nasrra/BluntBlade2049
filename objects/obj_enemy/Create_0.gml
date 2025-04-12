@@ -6,13 +6,6 @@ weapon_swivel_speed = 0.1;
 weapon = struct_gun_shotgun();
 current_move_speed = move_speed;
 
-function fire_bullet(){
-    var bullets = weapon.shoot();
-    for(var i = 0; i < array_length(bullets); i++){
-        bullets[i].sender = id;
-    }
-}
-
 fire_bullets_counter = 0;
 fire_bullets_alarm_index = 0;
 function fire_bullets(_amount){
@@ -21,8 +14,12 @@ function fire_bullets(_amount){
 }
 
 function _fire_bullets(){
+    if(can_see_target() == 0){
+        alarm_set(fire_bullets_alarm_index, id.weapon.fire_rate);
+        exit;
+    }
     if(fire_bullets_counter > 0){
-        fire_bullet();
+        weapon.shoot(id);
         alarm_set(fire_bullets_alarm_index, id.weapon.fire_rate);
         if(infinite_fire == false){
             fire_bullets_counter -= 1;
@@ -153,3 +150,9 @@ function _update_movement_path(){
 alarm_set(movement_path_alarm_index, 1);
 
 damage_flash = new sh_damage_flash_controller(id, c_white);
+
+function can_see_target(){
+    var flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
+    show_debug_message(flag);
+    return flag;
+}

@@ -16,13 +16,14 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
     // functions to choose from to assign shoot to.
 
     function set_shoot_single(){
-        shoot = function shoot_single(){
+        shoot = function shoot_single(_id){
             var bullets = [];
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
             var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
+            bullet_instance.sender = _id;
             if(play_sound != undefined){
                 play_sound();
             }
@@ -33,7 +34,7 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
     function set_shoot_multi(_amount, _spread_angle){
         multi_shot_amount = _amount;
         multi_shot_spread = _spread_angle;
-        shoot = function shoot_multi(){
+        shoot = function shoot_multi(_id){
             var bullets = [];
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
@@ -44,6 +45,7 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
                 var angle_offset = start_angle_offset + i * step;
                 var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
                 bullet_instance.move_in_direction(angle_offset);
+                bullet_instance.sender = _id;
                 array_push(bullets, bullet_instance);
             }
             if(play_sound != undefined){
