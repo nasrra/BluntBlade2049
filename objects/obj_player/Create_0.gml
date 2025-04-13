@@ -155,7 +155,7 @@ enum PARRY_DIRECTION{
 
 function damage(_amount){
     id.health -= _amount;
-    obj_ui_gameplay.update_healthbar(id.health);
+    obj_ui_manager.update_healthbar(id.health);
     damage_flash.invoke(0.1);
     if(id.health <= 0){
         gamemanager_death_state();
