@@ -5,6 +5,7 @@ current_speed = 0;
 acceleration = 0.25;
 deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
+input_blocker = false;
 
 
 function move(){
@@ -15,7 +16,16 @@ function move(){
     move_and_collide(move_x, move_y, obj_environment);
 }
 
+function block_input(){
+    input_blocker = true;
+}
+
 function handle_input(){
+    if(input_blocker == true){
+        move_dir = 0;
+        current_speed = 0;
+        exit;
+    }
     var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
     var input_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
     

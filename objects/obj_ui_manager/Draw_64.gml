@@ -2,13 +2,15 @@
 // You can write your code in this editor
 switch(global.game_state){
     case GameState.GAMEPLAY:
-        healthbar_hearts();
-        show_debug_message(0); 
+        draw_healthbar_hearts();
         break;
     case GameState.DEATH:
-        death_background();
-        death_text();
+        draw_death_background();
+        draw_death_text();
         death_input();
-        show_debug_message(1); 
         break;
+}
+
+if(room_transition_active == true){
+    draw_room_transition();
 }

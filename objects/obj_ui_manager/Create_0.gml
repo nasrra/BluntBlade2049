@@ -5,8 +5,6 @@ gui_h = display_get_gui_height();
 
 
 
-
-
 // healthbar draw calls.
 
 healthbar_heart_amount = 0;
@@ -19,7 +17,7 @@ function update_healthbar(_amount){
     healthbar_heart_amount = _amount;
 }
 
-function healthbar_hearts(){
+function draw_healthbar_hearts(){
     for(var i = 0; i < healthbar_heart_amount; i++){
         var x_offset = (healthbar_start_x * healthbar_heart_scale) + healthbar_heart_spacing * i * healthbar_heart_scale;
         var y_offset = healthbar_start_y * healthbar_heart_scale;
@@ -43,14 +41,14 @@ function healthbar_hearts(){
 
 // death draw calls.
 
-function death_background(){
+function draw_death_background(){
     draw_set_alpha(0.75);
     draw_set_color(c_black);
     draw_rectangle(0, 0, gui_w, gui_h, false);
     draw_set_color(c_white);
 }
 
-function death_text(){
+function draw_death_text(){
     var text = "[DEATH]";
     var size = 10;
 
@@ -90,5 +88,183 @@ function death_input(){
     if(input == true){
         room_restart();
         gamemanager_gameplay_state();
+    }
+}
+
+
+
+
+
+// room transition draw calls.
+
+room_transition_desired_offset_x   = undefined;
+room_transition_desired_offset_y   = undefined;
+room_transition_current_offset_x   = undefined;
+room_transition_current_offset_y   = undefined;
+room_transition_alarm_index        = 0;
+room_transition_speed              = 60;
+room_transition_current_speed      = 0;
+room_transtion_speed_aspect_ratio_factor = 1.78; // keep a consitent speed when going left or right.
+room_transition_active             = false;
+
+enum RoomTransitionMovement{
+    LEFT_TO_RIGHT,
+    RIGHT_TO_LEFT,
+    TOP_TO_BOT,
+    BOT_TO_TOP,
+}
+
+enum RoomTransitionSetup{
+    EXIT,
+    ENTER,
+}
+
+function draw_room_transition(){
+    draw_set_alpha(1);
+    draw_set_color(c_black);
+    draw_rectangle(
+        room_transition_current_offset_x, 
+        room_transition_current_offset_y, 
+        room_transition_current_offset_x + gui_w, 
+        room_transition_current_offset_y + gui_h, 
+        false
+    );
+    draw_set_color(c_white);   
+}
+
+// on room_start event.
+function check_room_transition(){
+    show_debug_message(global.current_room_transition_movement);
+    var set_up = global.current_room_transition_setup == RoomTransitionSetup.EXIT? RoomTransitionSetup.ENTER : RoomTransitionSetup.EXIT;
+    switch(global.current_room_transition_movement){
+        case RoomTransitionMovement.LEFT_TO_RIGHT:
+            start_room_transition(RoomTransitionMovement.RIGHT_TO_LEFT, set_up);
+            break;
+        case RoomTransitionMovement.RIGHT_TO_LEFT:
+            start_room_transition(RoomTransitionMovement.LEFT_TO_RIGHT, set_up);
+            break;
+        case RoomTransitionMovement.TOP_TO_BOT:
+            start_room_transition(RoomTransitionMovement.BOT_TO_TOP, set_up);
+            break;
+        case RoomTransitionMovement.BOT_TO_TOP:
+            start_room_transition(RoomTransitionMovement.TOP_TO_BOT, set_up);
+            break;
+    } 
+}
+
+function start_room_transition(_room_transition_movement, _room_transition_setup){
+    room_transition_active = true;
+    if(_room_transition_setup == RoomTransitionSetup.EXIT){
+        set_exit_room_transition(_room_transition_movement);
+    }
+    if(_room_transition_setup == RoomTransitionSetup.ENTER){
+        set_enter_room_transition(_room_transition_movement);
+    }
+    global.current_room_transition_movement = _room_transition_movement;
+    global.current_room_transition_setup = _room_transition_setup;
+    show_debug_message("start room transition!");
+    alarm_set(room_transition_alarm_index, 1);
+}
+
+function set_exit_room_transition(_room_transition_movement){
+    switch(_room_transition_movement){
+        case RoomTransitionMovement.LEFT_TO_RIGHT:
+            room_transition_current_offset_x = -gui_w;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
+            break;
+        case RoomTransitionMovement.RIGHT_TO_LEFT:
+            room_transition_current_offset_x = gui_w;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
+            break;
+        case RoomTransitionMovement.BOT_TO_TOP:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = gui_h;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed;
+            break;
+        case RoomTransitionMovement.TOP_TO_BOT:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = -gui_h;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed;
+            break;
+    }
+}
+
+function set_enter_room_transition(_room_transition_movement){
+    switch(_room_transition_movement){
+        case RoomTransitionMovement.LEFT_TO_RIGHT:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = -gui_w;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
+            break;
+        case RoomTransitionMovement.RIGHT_TO_LEFT:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = gui_w;
+            room_transition_desired_offset_y = 0;
+            room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
+            break;
+        case RoomTransitionMovement.BOT_TO_TOP:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = gui_h;
+            room_transition_current_speed = room_transition_speed;
+            break;
+        case RoomTransitionMovement.TOP_TO_BOT:
+            room_transition_current_offset_x = 0;
+            room_transition_current_offset_y = 0;
+            room_transition_desired_offset_x = 0;
+            room_transition_desired_offset_y = -gui_h;
+            room_transition_current_speed = room_transition_speed;
+            break;
+    }
+}
+
+
+function update_room_transition_position(){
+    var dir = point_direction(  
+        room_transition_current_offset_x,
+        room_transition_current_offset_y,
+        room_transition_desired_offset_x,
+        room_transition_desired_offset_y
+    );
+    
+    var dist = point_distance(
+        room_transition_current_offset_x,
+        room_transition_current_offset_y,
+        room_transition_desired_offset_x,
+        room_transition_desired_offset_y
+    );
+
+    var movement = min(room_transition_current_speed, dist);
+
+    room_transition_current_offset_x+=lengthdir_x(movement, dir);
+    room_transition_current_offset_y+=lengthdir_y(movement, dir);
+    show_debug_message(room_transition_current_offset_x);
+    show_debug_message(room_transition_current_offset_y);
+    if(dist <= 1){
+        show_debug_message("room transition completed!");
+        // if we are entering a room, dont transition;
+        if(global.current_room_transition_setup == RoomTransitionSetup.ENTER){
+            exit;
+        }
+        roommanager_goto_room();
+        room_transition_active = false;
+        exit;
+    }
+    else{
+        alarm_set(room_transition_alarm_index, 1);
     }
 }

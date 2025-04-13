@@ -70,6 +70,7 @@
     {"id":{"name":"GameManager","path":"scripts/GameManager/GameManager.yy",},},
     {"id":{"name":"RoomManager","path":"scripts/RoomManager/RoomManager.yy",},},
     {"id":{"name":"ShaderControllers","path":"scripts/ShaderControllers/ShaderControllers.yy",},},
+    {"id":{"name":"UiManager","path":"scripts/UiManager/UiManager.yy",},},
     {"id":{"name":"Weapons","path":"scripts/Weapons/Weapons.yy",},},
     {"id":{"name":"sh_damage_flash","path":"shaders/sh_damage_flash/sh_damage_flash.yy",},},
     {"id":{"name":"snd_revolver_1","path":"sounds/snd_revolver_1/snd_revolver_1.yy",},},
