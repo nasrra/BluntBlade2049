@@ -1,21 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_enemy_manager_test",
+  "%Name":"obj_room_door_bot",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_enemy_manager_test",
+  "name":"obj_room_door_bot",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Room Doors",
+    "path":"folders/Objects/Room Doors.yy",
   },
   "parentObjectId":{
-    "name":"obj_enemy_manager",
-    "path":"objects/obj_enemy_manager/obj_enemy_manager.yy",
+    "name":"obj_room_door",
+    "path":"objects/obj_room_door/obj_room_door.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -30,11 +29,17 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"room_to_goto","filters":[],"listItems":[],"multiselect":false,"name":"room_to_goto","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"point_to_spawn_at","filters":[],"listItems":[],"multiselect":false,"name":"point_to_spawn_at","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_door",
+    "path":"sprites/spr_door/spr_door.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

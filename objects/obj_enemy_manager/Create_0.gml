@@ -6,11 +6,6 @@ alive_enemies = 0;
 current_wave = 0;
 loop_waves = false;
 
-function add_spawner(_spawner){
-    show_debug_message(_spawner.spawner_id);
-    spawners[_spawner.spawner_id] = _spawner;
-}
-
 function add_enemy(){
     alive_enemies += 1;
 }

@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_collision",
+  "%Name":"obj_door_manager",
   "eventList":[],
   "managed":true,
-  "name":"obj_collision",
+  "name":"obj_door_manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"Environment",
-    "path":"folders/Objects/Environment.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,18 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"obj_room_transition_door",
+  "%Name":"obj_room_door_right",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_room_transition_door",
+  "name":"obj_room_door_right",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Room Doors",
+    "path":"folders/Objects/Room Doors.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_room_door",
+    "path":"objects/obj_room_door/obj_room_door.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

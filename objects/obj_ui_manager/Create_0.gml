@@ -134,22 +134,12 @@ function draw_room_transition(){
 
 // on room_start event.
 function check_room_transition(){
+    if(global.current_room_transition_movement == undefined){
+        exit;
+    }
     show_debug_message(global.current_room_transition_movement);
     var set_up = global.current_room_transition_setup == RoomTransitionSetup.EXIT? RoomTransitionSetup.ENTER : RoomTransitionSetup.EXIT;
-    switch(global.current_room_transition_movement){
-        case RoomTransitionMovement.LEFT_TO_RIGHT:
-            start_room_transition(RoomTransitionMovement.RIGHT_TO_LEFT, set_up);
-            break;
-        case RoomTransitionMovement.RIGHT_TO_LEFT:
-            start_room_transition(RoomTransitionMovement.LEFT_TO_RIGHT, set_up);
-            break;
-        case RoomTransitionMovement.TOP_TO_BOT:
-            start_room_transition(RoomTransitionMovement.BOT_TO_TOP, set_up);
-            break;
-        case RoomTransitionMovement.BOT_TO_TOP:
-            start_room_transition(RoomTransitionMovement.TOP_TO_BOT, set_up);
-            break;
-    } 
+    start_room_transition(global.current_room_transition_movement, set_up);
 }
 
 function start_room_transition(_room_transition_movement, _room_transition_setup){
@@ -201,28 +191,28 @@ function set_exit_room_transition(_room_transition_movement){
 
 function set_enter_room_transition(_room_transition_movement){
     switch(_room_transition_movement){
-        case RoomTransitionMovement.LEFT_TO_RIGHT:
+        case RoomTransitionMovement.RIGHT_TO_LEFT:
             room_transition_current_offset_x = 0;
             room_transition_current_offset_y = 0;
             room_transition_desired_offset_x = -gui_w;
             room_transition_desired_offset_y = 0;
             room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
             break;
-        case RoomTransitionMovement.RIGHT_TO_LEFT:
+        case RoomTransitionMovement.LEFT_TO_RIGHT:
             room_transition_current_offset_x = 0;
             room_transition_current_offset_y = 0;
             room_transition_desired_offset_x = gui_w;
             room_transition_desired_offset_y = 0;
             room_transition_current_speed = room_transition_speed * room_transtion_speed_aspect_ratio_factor;
             break;
-        case RoomTransitionMovement.BOT_TO_TOP:
+        case RoomTransitionMovement.TOP_TO_BOT:
             room_transition_current_offset_x = 0;
             room_transition_current_offset_y = 0;
             room_transition_desired_offset_x = 0;
             room_transition_desired_offset_y = gui_h;
             room_transition_current_speed = room_transition_speed;
             break;
-        case RoomTransitionMovement.TOP_TO_BOT:
+        case RoomTransitionMovement.BOT_TO_TOP:
             room_transition_current_offset_x = 0;
             room_transition_current_offset_y = 0;
             room_transition_desired_offset_x = 0;

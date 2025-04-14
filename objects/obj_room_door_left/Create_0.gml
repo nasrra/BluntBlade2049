@@ -3,3 +3,5 @@
 
 // Inherit the parent event
 event_inherited();
+room_transition_movement = RoomTransitionMovement.LEFT_TO_RIGHT;
+
