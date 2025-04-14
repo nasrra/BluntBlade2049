@@ -196,3 +196,9 @@ function check_room_speed_timer(){
 }
 
 damage_flash = new sh_damage_flash_controller(id, c_white);
+
+function snap_to_position(_x, _y){
+    x = _x;
+    y = _y;
+    obj_camera.snap_to_target();
+}

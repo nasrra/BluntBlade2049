@@ -55,8 +55,6 @@ function gun_base(_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_
     }
 }
 
-
-
 function struct_gun_revolver(){
     var base = new gun_base(
         spr_weapon_revolver,

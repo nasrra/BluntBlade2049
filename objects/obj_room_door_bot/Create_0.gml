@@ -4,3 +4,4 @@
 // Inherit the parent event
 event_inherited();
 room_transition_movement = RoomTransitionMovement.BOT_TO_TOP;
+room_to_goto_enter_point = DoorId.TOP;

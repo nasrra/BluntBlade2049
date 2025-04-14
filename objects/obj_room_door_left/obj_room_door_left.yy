@@ -3,11 +3,12 @@
   "%Name":"obj_room_door_left",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_room_door_left",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_room_door","path":"objects/obj_room_door/obj_room_door.yy",},"propertyId":{"name":"exit_position_x","path":"objects/obj_room_door/obj_room_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"16",},
+  ],
   "parent":{
     "name":"Room Doors",
     "path":"folders/Objects/Room Doors.yy",
@@ -29,10 +30,7 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"room_to_goto","filters":[],"listItems":[],"multiselect":false,"name":"room_to_goto","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
-    {"$GMObjectProperty":"v1","%Name":"point_to_spawn_at","filters":[],"listItems":[],"multiselect":false,"name":"point_to_spawn_at","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

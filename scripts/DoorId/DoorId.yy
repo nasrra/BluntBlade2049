@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DoorId",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DoorId",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
