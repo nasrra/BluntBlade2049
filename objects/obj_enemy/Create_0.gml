@@ -75,14 +75,6 @@ function face_target(){
     }
 }
 
-function damage(_amount){
-    id.health -= _amount;
-    damage_flash.invoke(0.05);
-    if(id.health <= 0){
-        instance_destroy();
-    }
-}
-
 function calculate_weapon_angle(){
     var true_angle = weapon.angle + angle_difference(direction, weapon.angle) * weapon_swivel_speed;
     var clamped_angle = (true_angle % 360 + 360) % 360;
@@ -152,7 +144,9 @@ function can_see_target(){
     return flag;
 }
 
-
+hp = new HealthPoints(health_max_value, health_max_value);
+hp.on_damage.set(function(){damage_flash.invoke(0.1);});
+hp.on_death.set(function(){instance_destroy();});
 
 start_shoot_loop();
 alarm_set(movement_path_alarm_index, 1);

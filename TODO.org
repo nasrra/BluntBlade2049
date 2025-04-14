@@ -1,8 +1,10 @@
 * DONE damage flash when an entity is hit.
 * DONE room transitions and room swapping.
 * TODO player i-frames when hit.
-* TODO animation locking furing parry (parry window only last for half the time)
-* TODO door enter system.
+    * TODO timer for i-frames.
+    * TODO damage flashing for duration of i-frames.
+    * TODO camera effects when player is hit, (shake, etc..).
+* TODO animation locking during parry (parry window only last for half the time)
+* DONE door enter system.
 * TODO locked doors.
 * TODO knockback when entities are hit.
-* TODO camera effects when player is hit, (shake, etc..).

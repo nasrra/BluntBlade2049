@@ -6,6 +6,7 @@ acceleration = 0.25;
 deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
+damage_flash = new sh_damage_flash_controller(id, c_white);
 
 
 function move(){
@@ -163,16 +164,6 @@ enum PARRY_DIRECTION{
     DOWN
 }
 
-function damage(_amount){
-    id.health -= _amount;
-    obj_ui_manager.update_healthbar(id.health);
-    damage_flash.invoke(0.1);
-    if(id.health <= 0){
-        gamemanager_death_state();
-        instance_destroy();
-    }
-}
-
 room_speed_timer = 0;
 room_speed_alarm_index = 1;
 room_speed_active = false;
@@ -195,7 +186,20 @@ function check_room_speed_timer(){
     }
 }
 
-damage_flash = new sh_damage_flash_controller(id, c_white);
+hp = new HealthPoints(4,4);
+
+function on_health_death(){
+    gamemanager_death_state();
+    instance_destroy();
+}
+
+function on_health_damage(){
+    obj_ui_manager.update_healthbar(hp.current_value);
+    damage_flash.invoke(0.1);
+}
+
+hp.on_damage.set(function(){on_health_damage();});
+hp.on_death.set(function(){on_health_death();});
 
 function snap_to_position(_x, _y){
     x = _x;

@@ -32,7 +32,7 @@ function set_object_to_damage(_object){
 function check_collisions(){
     var hit = instance_place(x,y,object_to_damage);
     if(hit != noone){
-        hit.damage(damage);
+        hit.hp.damage(damage);
         instance_destroy();
     }
     if(place_meeting(x, y, obj_environment)){
