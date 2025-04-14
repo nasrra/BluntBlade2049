@@ -187,19 +187,18 @@ function check_room_speed_timer(){
 }
 
 hp = new HealthPoints(4,4);
-
-function on_health_death(){
+i_frame_alarm_index = 2;
+i_frame_time = 120;
+hp.on_damage.set(function(){
+    hp.now_invincible();
+    alarm_set(i_frame_alarm_index, i_frame_time);
+    obj_ui_manager.update_healthbar(hp.current_value);
+    damage_flash.invoke(6,2);
+});
+hp.on_death.set(function(){
     gamemanager_death_state();
     instance_destroy();
-}
-
-function on_health_damage(){
-    obj_ui_manager.update_healthbar(hp.current_value);
-    damage_flash.invoke(0.1);
-}
-
-hp.on_damage.set(function(){on_health_damage();});
-hp.on_death.set(function(){on_health_death();});
+});
 
 function snap_to_position(_x, _y){
     x = _x;

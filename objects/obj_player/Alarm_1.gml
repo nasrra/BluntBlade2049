@@ -1,3 +1,2 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description check_room_speed_timer
 check_room_speed_timer();

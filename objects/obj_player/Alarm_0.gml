@@ -1,3 +1,2 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description _check_parry_collision_box
 _check_parry_collision_box();
