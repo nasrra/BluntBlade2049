@@ -190,8 +190,7 @@ hp = new HealthPoints(4,4);
 i_frame_alarm_index = 2;
 i_frame_time = 120;
 hp.on_damage.set(function(){
-    hp.now_invincible();
-    alarm_set(i_frame_alarm_index, i_frame_time);
+    enter_damaged_state();
     obj_ui_manager.update_healthbar(hp.current_value);
     damage_flash.invoke(6,2);
 });
@@ -199,6 +198,21 @@ hp.on_death.set(function(){
     gamemanager_death_state();
     instance_destroy();
 });
+
+function enter_damaged_state(){
+    hp.now_invincible();
+    obj_effect_layer_manager.turn_on_desaturate(0.1);
+    obj_effect_layer_manager.turn_on_vignette(0.25);
+    obj_effect_layer_manager.turn_on_rgb_noise(0.045);
+    alarm_set(i_frame_alarm_index, i_frame_time);
+}
+
+function exit_damaged_state(){
+    hp.not_invincible();
+    obj_effect_layer_manager.turn_off_desaturate(0.15);
+    obj_effect_layer_manager.turn_off_vignette(0.25);
+    obj_effect_layer_manager.turn_off_rgb_noise(0.045);
+}
 
 function snap_to_position(_x, _y){
     x = _x;

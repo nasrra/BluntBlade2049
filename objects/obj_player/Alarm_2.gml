@@ -1,2 +1,2 @@
 /// @description i-frames.
-hp.not_invincible();
+exit_damaged_state();

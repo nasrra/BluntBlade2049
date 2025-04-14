@@ -55,6 +55,7 @@
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_collision","path":"objects/obj_collision/obj_collision.yy",},},
     {"id":{"name":"obj_door_manager","path":"objects/obj_door_manager/obj_door_manager.yy",},},
+    {"id":{"name":"obj_effect_layer_manager","path":"objects/obj_effect_layer_manager/obj_effect_layer_manager.yy",},},
     {"id":{"name":"obj_enemy_manager","path":"objects/obj_enemy_manager/obj_enemy_manager.yy",},},
     {"id":{"name":"obj_enemy_path_manager","path":"objects/obj_enemy_path_manager/obj_enemy_path_manager.yy",},},
     {"id":{"name":"obj_enemy_revolver","path":"objects/obj_enemy_revolver/obj_enemy_revolver.yy",},},
