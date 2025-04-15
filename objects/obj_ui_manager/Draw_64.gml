@@ -11,9 +11,9 @@ switch(global.game_state){
         break;
 }
 
+draw_crt_lines();
+
 if(room_transition_active == true){
     draw_room_transition();
 }
 
-
-draw_crt_lines();
