@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_revolver_1",
+  "%Name":"snd_hit_glitch_2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":8,
   "compression":1,
   "conversionMode":0,
-  "duration":0.552,
-  "name":"snd_revolver_1",
+  "duration":6.552,
+  "name":"snd_hit_glitch_2",
   "parent":{
-    "name":"revolver",
-    "path":"folders/Sounds/revolver.yy",
+    "name":"hit_glitch",
+    "path":"folders/Sounds/hit_glitch.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":5512,
-  "soundFile":"snd_revolver_1.mp3",
-  "type":1,
+  "soundFile":"snd_hit_glitch_2.mp3",
+  "type":0,
   "volume":1.0,
 }

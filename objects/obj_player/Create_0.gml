@@ -119,13 +119,14 @@ function _check_cbox_collision(){
     var hits = ds_list_create();
     collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, hits, false);
 
-    // if we successfully pary a bullet.
+    // if we successfully parry a bullet.
     if (ds_list_size(hits) > 0) {
         for(var i = 0; i < ds_list_size(hits); i++){
             var bullet_instance = ds_list_find_value(hits, i);
             bullet_instance.send_back_to_sender();
             bullet_instance.set_object_to_damage(obj_enemy);
         }
+        audiomanager_parry();
         obj_camera.shake_camera(44, 1, 12);
         part_particles_create(parry_part_system, x, y, parry_particle, 9);
         set_room_speed(9, 1);
@@ -188,8 +189,9 @@ function check_room_speed_timer(){
 
 hp = new HealthPoints(4,4);
 i_frame_alarm_index = 2;
-i_frame_time = 120;
+i_frame_time = 240;
 hp.on_damage.set(function(){
+    audiomanager_play_hit_glitch();
     enter_damaged_state();
     set_room_speed(5, 1);
     obj_ui_manager.update_healthbar(hp.current_value);
@@ -211,6 +213,7 @@ function enter_damaged_state(){
 
 function exit_damaged_state(){
     hp.not_invincible();
+    audiomanager_stop_hit_glitch();
     obj_effect_layer_manager.turn_off_desaturate(0.15);
     obj_effect_layer_manager.turn_off_vignette(0.25);
     obj_effect_layer_manager.turn_off_rgb_noise(0.045);

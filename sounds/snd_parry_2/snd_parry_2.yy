@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_revolver_1",
+  "%Name":"snd_parry_2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":8,
   "compression":1,
   "conversionMode":0,
-  "duration":0.552,
-  "name":"snd_revolver_1",
+  "duration":1.968,
+  "name":"snd_parry_2",
   "parent":{
-    "name":"revolver",
-    "path":"folders/Sounds/revolver.yy",
+    "name":"parry",
+    "path":"folders/Sounds/parry.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":5512,
-  "soundFile":"snd_revolver_1.mp3",
+  "soundFile":"snd_parry_2.mp3",
   "type":1,
   "volume":1.0,
 }
