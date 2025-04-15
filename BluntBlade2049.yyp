@@ -87,6 +87,7 @@
     {"id":{"name":"ShaderControllers","path":"scripts/ShaderControllers/ShaderControllers.yy",},},
     {"id":{"name":"UiManager","path":"scripts/UiManager/UiManager.yy",},},
     {"id":{"name":"Weapons","path":"scripts/Weapons/Weapons.yy",},},
+    {"id":{"name":"sh_crt","path":"shaders/sh_crt/sh_crt.yy",},},
     {"id":{"name":"sh_damage_flash","path":"shaders/sh_damage_flash/sh_damage_flash.yy",},},
     {"id":{"name":"snd_hit_glitch_1","path":"sounds/snd_hit_glitch_1/snd_hit_glitch_1.yy",},},
     {"id":{"name":"snd_hit_glitch_2","path":"sounds/snd_hit_glitch_2/snd_hit_glitch_2.yy",},},

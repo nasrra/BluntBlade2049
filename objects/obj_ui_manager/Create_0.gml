@@ -258,3 +258,34 @@ function update_room_transition_position(){
         alarm_set(room_transition_alarm_index, 1);
     }
 }
+
+// disable application drawing.
+application_surface_draw_enable(false);
+
+// surface variable.
+surface = -1;
+
+// handle
+surface_width = shader_get_uniform(sh_crt, "surface_width");
+surface_height = shader_get_uniform(sh_crt, "surface_height");
+
+function draw_crt_lines(){
+    if(surface_exists(surface) == false){
+        surface =  surface_create(room_width, room_height);
+    }
+
+    surface_copy(surface, 0,0,application_surface);
+
+    shader_set(sh_crt);
+
+    shader_set_uniform_f(
+        surface_width,
+        surface_get_width(surface)
+    );
+    shader_set_uniform_f(
+        surface_height,
+        surface_get_height(surface)
+    );
+    draw_surface(surface,0,0);
+    shader_reset();
+}
