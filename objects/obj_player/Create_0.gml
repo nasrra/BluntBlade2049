@@ -191,7 +191,9 @@ i_frame_alarm_index = 2;
 i_frame_time = 120;
 hp.on_damage.set(function(){
     enter_damaged_state();
+    set_room_speed(5, 1);
     obj_ui_manager.update_healthbar(hp.current_value);
+    obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
 });
 hp.on_death.set(function(){
