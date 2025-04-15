@@ -7,7 +7,7 @@
   },
   "bitDepth":0,
   "bitRate":8,
-  "compression":1,
+  "compression":2,
   "conversionMode":0,
   "duration":1.968,
   "name":"snd_parry_2",

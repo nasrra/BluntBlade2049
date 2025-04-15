@@ -7,7 +7,7 @@
   },
   "bitDepth":0,
   "bitRate":8,
-  "compression":1,
+  "compression":2,
   "conversionMode":0,
   "duration":6.552,
   "name":"snd_hit_glitch_1",

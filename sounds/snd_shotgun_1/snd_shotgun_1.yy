@@ -7,7 +7,7 @@
   },
   "bitDepth":0,
   "bitRate":8,
-  "compression":1,
+  "compression":2,
   "conversionMode":0,
   "duration":2.064,
   "name":"snd_shotgun_1",
