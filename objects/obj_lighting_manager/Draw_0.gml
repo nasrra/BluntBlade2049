@@ -1,43 +1,50 @@
 /// @description Insert description here
 // You can write your code in this editor
 var _light_u_position = light_u_position;
+var _light_u_size = light_u_size;
+var _light_u_strength = light_u_strength;
 var _shadow_u_position = shadow_u_position;
-var _light_u_layer = light_u_layer;
-var _shadow_u_layer = shadow_u_layer;
-var _current_draw_layer = 0;
 var _vb = vb;
 var _scale_factor = scale_factor;
-
-// enabling z coordinates to simulate light and shadow layers.
-// Layer order: Light->Shadow.
-gpu_set_ztestenable(1);
-gpu_set_zwriteenable(1);
+var _view_x = view_xview[0];
+var _view_y = view_yview[0];
 
 // the application_surface.
 // var previous_surface = surface_get_target();
+// draw_clear_alpha(c_black, 0); 
+if(!instance_exists(lighting_surface)){
+    lighting_surface = surface_create(960, 540);
+}
+
+matrix_set(matrix_world, matrix_build(-_view_x,-_view_y,0,0,0,0,1,1,1));
 surface_set_target(lighting_surface);
-draw_clear_alpha(c_black, 0);
 with(obj_light){
-    // submit the quad vertex buffer for drawing. 
+    
+    // setting pixels covered by shadow to black with an opacity of 1, 
+    // settings pixels not covered to be the source pixel colour with an opacity of 0 (where the light will draw).
+    gpu_set_blendmode_ext_sepalpha(bm_zero, bm_one, bm_one, bm_zero);
     shader_set(sh_shadow);
     shader_set_uniform_f(_shadow_u_position, x *_scale_factor, y*_scale_factor);
-    shader_set_uniform_f(_shadow_u_layer, _current_draw_layer);
+    // submit the quad vertex buffer for drawing. 
     vertex_submit(_vb, pr_trianglelist,-1); // <-- computers draw triangles lol :)
 
-    // set blend mode to additive as lights add/stack on top of eachother.
-    gpu_set_blendmode(bm_add);
+    // bm_inv_des_alpha: targeting pixels with an alpha of 0.
+
+    gpu_set_blendmode_ext_sepalpha(bm_inv_dest_alpha, bm_one, bm_zero, bm_zero);
     shader_set(sh_light);
     // setting the shader light position to this light instance.
     shader_set_uniform_f(_light_u_position, x*_scale_factor, y*_scale_factor);
-    shader_set_uniform_f(_light_u_layer, _current_draw_layer);
-    draw_rectangle(0,0, room_width, room_height, 0);
-    gpu_set_blendmode(bm_normal);
-
-
-    // draw the next light and shadow ontop of the previous ones.
-    _current_draw_layer--;
+    shader_set_uniform_f(_light_u_size, size);
+    shader_set_uniform_f(_light_u_strength, strength);
+    draw_rectangle_color(_view_x,_view_y, _view_x+960, _view_y+540, colour, colour, colour, colour, 0);
 }
 surface_reset_target();
+
+matrix_set(matrix_world, matrix_build(0,0,0,0,0,0,1,1,1));
+
+gpu_set_blendmode_ext(bm_zero, bm_src_color);
+shader_set(sh_shadow_surface);;
+draw_surface_ext(lighting_surface, 0, 0, 2, 2, 0, c_white, 0.95);
+gpu_set_blendmode(bm_normal);
+
 shader_reset();
-gpu_set_ztestenable(0);
-gpu_set_zwriteenable(0)

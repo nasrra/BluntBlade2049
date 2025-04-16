@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_shadow_surface",
+  "name":"sh_shadow_surface",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}
