@@ -22,3 +22,12 @@ vertex_format_add_position_3d();
 
 vf = vertex_format_end();
 vb = vertex_create_buffer();
+
+
+function create_light_source(_x,_y,_size,_strength,_colour){
+    var instance = instance_create_layer(_x,_y,"Lighting",obj_light);
+    instance.size = _size;
+    instance.strength = _strength;
+    instance.colour = _colour;
+    return instance;
+}

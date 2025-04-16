@@ -15,6 +15,7 @@ function move(){
     move_x = lengthdir_x(current_speed, move_dir);
     move_y = lengthdir_y(current_speed, move_dir);
     move_and_collide(move_x, move_y, obj_environment);
+    update_ambient_light();
 }
 
 function block_input(){
@@ -223,4 +224,14 @@ function snap_to_position(_x, _y){
     x = _x;
     y = _y;
     obj_camera.snap_to_target();
+}
+
+ambient_light = undefined;
+function create_ambient_light(){
+    ambient_light = obj_lighting_manager.create_light_source(x,y,20,20,c_white);
+}
+
+function update_ambient_light(){
+    ambient_light.x = x;
+    ambient_light.y = y;
 }

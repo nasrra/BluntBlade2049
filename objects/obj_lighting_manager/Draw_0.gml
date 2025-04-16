@@ -18,6 +18,8 @@ if(!instance_exists(lighting_surface)){
 
 matrix_set(matrix_world, matrix_build(-_view_x,-_view_y,0,0,0,0,1,1,1));
 surface_set_target(lighting_surface);
+draw_clear_alpha(c_black, 0);
+
 with(obj_light){
     
     // setting pixels covered by shadow to black with an opacity of 1, 

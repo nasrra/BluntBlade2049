@@ -45,6 +45,8 @@ function move(){
     if(dist < 1.0){
         movement_path_point_index += 1;
     }
+
+    update_ambient_light();
 }
 
 function set_direction_to_target(){
@@ -150,3 +152,18 @@ hp.on_death.set(function(){instance_destroy();});
 
 start_shoot_loop();
 alarm_set(movement_path_alarm_index, 1);
+
+ambient_light = undefined;
+function create_ambient_light(){
+    ambient_light = obj_lighting_manager.create_light_source(x,y,20,20,c_red);
+}
+
+function update_ambient_light(){
+    if(!instance_exists(ambient_light)){
+        exit;
+    }
+    ambient_light.x = x;
+    ambient_light.y = y;
+}
+
+create_ambient_light();
