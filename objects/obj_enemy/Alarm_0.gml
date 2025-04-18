@@ -1,2 +1,2 @@
 /// @description shoot loop
-shoot_loop();
+weapon.shoot_loop();

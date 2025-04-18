@@ -4,7 +4,10 @@
     * DONE timer for i-frames.
     * DONE multi damage flashing for duration of i-frames.
     * TODO camera effects when player is hit, (shake, etc..).
+    * TODO Red tint.
+    * TODO Dithering.
 * TODO animation locking during parry (parry window only last for half the time)
 * DONE door enter system.
 * TODO locked doors.
 * TODO knockback when entities are hit.
+* TODO multi shot enemies.

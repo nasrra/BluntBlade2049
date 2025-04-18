@@ -2,22 +2,8 @@
 // You can write your code in this editor
 
 target = obj_player;
-weapon_swivel_speed = 0.1;
-weapon = struct_gun_shotgun();
+weapon = undefined;
 current_move_speed = move_speed;
-
-start_shoot_loop_alarm_index = 3;
-function start_shoot_loop(){
-    alarm_set(start_shoot_loop_alarm_index, irandom_range(60, 110));
-}
-
-shoot_loop_alarm_index = 0;
-function shoot_loop(){
-    if(can_see_target() == 1){
-        weapon.shoot(id);
-    }
-    alarm_set(shoot_loop_alarm_index, id.weapon.fire_rate);
-}
 
 function move(){
     if(movement_path_points == undefined || movement_path_point_index >= array_length(movement_path_points)){
@@ -57,9 +43,11 @@ function set_direction_to_target(){
 }   
 
 function update_weapon(){
-    weapon.x        = x;
-    weapon.y        = y;
-    weapon.angle    = calculate_weapon_angle();
+    weapon.set_position(x,y);
+    weapon.point_in_direction(direction);
+    weapon.update_angle();
+    weapon.draw();
+	weapon.can_shoot = can_see_target();
 }
 
 function face_target(){
@@ -76,21 +64,6 @@ function face_target(){
         // show_debug_message("face_down");
     }
 }
-
-function calculate_weapon_angle(){
-    var true_angle = weapon.angle + angle_difference(direction, weapon.angle) * weapon_swivel_speed;
-    var clamped_angle = (true_angle % 360 + 360) % 360;
-    return clamped_angle;
-}
-
-function draw_weapon(){
-    var weapon_y_scale = (direction > 90 && direction < 270)? -1 : 1;
-    var offset_x = lengthdir_x(id.weapon.offset_x, id.weapon.angle);
-    var offset_y = lengthdir_y(id.weapon.offset_y, id.weapon.angle);
-    draw_sprite_ext(id.weapon.sprite, 0, x + offset_x, y + offset_y, 1, weapon_y_scale, id.weapon.angle, c_white, 1); // draw weapon.
-}
-update_weapon();
-
 
 
 // make it so the path stops when knocking back enemies as they are hit by bullet.
@@ -150,7 +123,6 @@ hp = new HealthPoints(health_max_value, health_max_value);
 hp.on_damage.set(function(){damage_flash.invoke(1,0.5);});
 hp.on_death.set(function(){instance_destroy();});
 
-start_shoot_loop();
 alarm_set(movement_path_alarm_index, 1);
 
 ambient_light = undefined;

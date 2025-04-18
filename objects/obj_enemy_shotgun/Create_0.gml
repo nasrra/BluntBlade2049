@@ -3,4 +3,6 @@
 
 // Inherit the parent event
 event_inherited();
-id.weapon = struct_gun_shotgun();
+id.weapon = GunShotgun(id,0);
+id.weapon.swivel_speed = 0.1;
+id.weapon.start_shoot_loop();
