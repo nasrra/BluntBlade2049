@@ -47,7 +47,7 @@ function check_collisions(){
 
 light = undefined;
 function create_light(){
-    light = obj_lighting_manager.create_light_source(x,y,5,5,c_yellow);
+    light = obj_lighting_manager.create_light_source(x,y,5,c_yellow);
 }
 
 create_light();

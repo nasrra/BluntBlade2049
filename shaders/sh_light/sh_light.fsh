@@ -7,8 +7,6 @@ uniform vec2 u_position;
 
 uniform float u_size;
 
-uniform float u_strength;
-
 void main(){
     vec2 distance = position - u_position;
 

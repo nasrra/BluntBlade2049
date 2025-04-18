@@ -127,7 +127,7 @@ alarm_set(movement_path_alarm_index, 1);
 
 ambient_light = undefined;
 function create_ambient_light(){
-    ambient_light = obj_lighting_manager.create_light_source(x,y,20,20,c_red);
+    ambient_light = obj_lighting_manager.create_light_source(x,y,20,c_red);
 }
 
 function update_ambient_light(){

@@ -75,8 +75,8 @@ parry_cbox_timer = 0;
 parry_cbox_alarm_index = 0;
 parry_cbox_hit = false;
 parry_direction = undefined;
-parry_part_system = part_system_create(part_system_parry);
-parry_particle = particle_get_info(part_system_parry).emitters[0].parttype.ind;
+parry_part_system = part_system_create(prt_parry);
+parry_particle = particle_get_info(prt_parry).emitters[0].parttype.ind;
 function enable_parry_collision_box(_parry_direction){
     if(parry_cbox_active == false){
         parry_direction = _parry_direction;
@@ -127,7 +127,7 @@ function _check_cbox_collision(){
             bullet_instance.send_back_to_sender();
             bullet_instance.set_object_to_damage(obj_enemy);
         }
-        audiomanager_parry();
+        audiomanager_play_parry();
         obj_camera.shake_camera(44, 1, 12);
         part_particles_create(parry_part_system, x, y, parry_particle, 9);
         set_room_speed(9, 1);
@@ -228,7 +228,7 @@ function snap_to_position(_x, _y){
 
 ambient_light = undefined;
 function create_ambient_light(){
-    ambient_light = obj_lighting_manager.create_light_source(x,y,20,20,c_white);
+    ambient_light = obj_lighting_manager.create_light_source(x,y,20,c_white);
 }
 
 function update_ambient_light(){

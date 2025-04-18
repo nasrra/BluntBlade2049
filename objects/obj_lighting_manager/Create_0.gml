@@ -6,7 +6,6 @@
 light_u_position = shader_get_uniform(sh_light, "u_position");
 shadow_u_position = shader_get_uniform(sh_shadow, "u_position");
 light_u_size = shader_get_uniform(sh_light, "u_size");
-light_u_strength = shader_get_uniform(sh_light, "u_strength");
 
 // surface to draw the lighting to, low resolution for performance and crunshy look.
 lighting_surface = surface_create(960, 540);
@@ -24,10 +23,9 @@ vf = vertex_format_end();
 vb = vertex_create_buffer();
 
 
-function create_light_source(_x,_y,_size,_strength,_colour){
+function create_light_source(_x,_y,_size,_colour){
     var instance = instance_create_layer(_x,_y,"Lighting",obj_light);
     instance.size = _size;
-    instance.strength = _strength;
     instance.colour = _colour;
     return instance;
 }

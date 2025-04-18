@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_burst_rifle_3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "bitRate":8,
+  "compression":1,
+  "conversionMode":0,
+  "duration":2.976,
+  "name":"snd_burst_rifle_3",
+  "parent":{
+    "name":"burst_rifle",
+    "path":"folders/Sounds/burst_rifle.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":5512,
+  "soundFile":"snd_burst_rifle_3.mp3",
+  "type":1,
+  "volume":0.9,
+}
