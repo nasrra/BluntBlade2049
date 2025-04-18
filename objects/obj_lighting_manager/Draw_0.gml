@@ -9,13 +9,6 @@ var _scale_factor = scale_factor;
 var _view_x = view_xview[0];
 var _view_y = view_yview[0];
 
-// the application_surface.
-// var previous_surface = surface_get_target();
-// draw_clear_alpha(c_black, 0); 
-if(!instance_exists(lighting_surface)){
-    lighting_surface = surface_create(960, 540);
-}
-
 matrix_set(matrix_world, matrix_build(-_view_x,-_view_y,0,0,0,0,1,1,1));
 surface_set_target(lighting_surface);
 draw_clear_alpha(c_black, 0);

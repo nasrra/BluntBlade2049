@@ -62,7 +62,7 @@ function struct_gun_revolver(){
         16,
         16,
         16,
-        60,
+        40,
         0,
     );
     base.set_shoot_single();
@@ -77,7 +77,7 @@ function struct_gun_shotgun(){
         16,
         16,
         16,
-        120,
+        100,
         0,
     );
     // base.set_shoot_single();

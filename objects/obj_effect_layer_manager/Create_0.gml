@@ -138,9 +138,9 @@ function reset_old_film(){
     fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 3);
     fx_set_parameter(old_film_fx, "g_OldFilmSaturation", 1);
     fx_set_parameter(old_film_fx, "g_OldFilmSpeckIntensity", 0);
-    fx_set_parameter(old_film_fx, "g_OldFilmBarScale", 0);
-    fx_set_parameter(old_film_fx, "g_OldFilmBarSpeed", 0);
-    fx_set_parameter(old_film_fx, "g_OldFilmBarFrequency",128);
+    fx_set_parameter(old_film_fx, "g_OldFilmBarScale", 0); // 20
+    fx_set_parameter(old_film_fx, "g_OldFilmBarSpeed", 0); // 20
+    fx_set_parameter(old_film_fx, "g_OldFilmBarFrequency",128); // 4
     fx_set_parameter(old_film_fx, "g_OldFilmRingScale", 0);
     fx_set_parameter(old_film_fx, "g_OldFilmRingSharpness", 0);
     fx_set_parameter(old_film_fx, "g_OldFilmRingIntensity", 0);

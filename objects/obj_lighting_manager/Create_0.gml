@@ -9,7 +9,7 @@ light_u_size = shader_get_uniform(sh_light, "u_size");
 light_u_strength = shader_get_uniform(sh_light, "u_strength");
 
 // surface to draw the lighting to, low resolution for performance and crunshy look.
-lighting_surface = noone;
+lighting_surface = surface_create(960, 540);
 scale_factor = 0.5; // 0.5 because 960x540 is half of 1080p.
 
 // creating a vertex buffer for shadows.
