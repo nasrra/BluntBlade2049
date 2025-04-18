@@ -199,7 +199,7 @@ function GunBurstRifle(_holder_id, _shoot_alarm_index){
         16,
         100,
         _shoot_alarm_index,
-        6,
+        10,
         6
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;

@@ -58,3 +58,18 @@ function audiomanager_play_burst_rifle_shot(){
             break;
     }
 }
+
+function audiomanager_play_explosion(){
+    var i = irandom_range(0,2);
+    switch(i){
+        case 0:
+            audio_play_sound(snd_explosion_1,0,false,1,0,random_range(0.8,1));
+            break;
+        case 1:
+            audio_play_sound(snd_explosion_2,0,false,1,0,random_range(0.8,1));
+            break;
+        case 2:
+            audio_play_sound(snd_explosion_3,0,false,1,0,random_range(0.8,1));
+            break;
+    }
+}

@@ -21,5 +21,5 @@
   "sampleRate":5512,
   "soundFile":"snd_burst_rifle_3.mp3",
   "type":1,
-  "volume":0.9,
+  "volume":0.5,
 }

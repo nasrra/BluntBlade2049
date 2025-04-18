@@ -32,7 +32,14 @@ function set_object_to_damage(_object){
 }
 
 function check_collisions(){
-    var hit = instance_place(x,y,object_to_damage);
+    var hit = undefined;    
+    hit = instance_place(x,y,obj_explosive_barrel);
+    if(hit != noone){
+        hit.hp.damage(damage);
+        destroy_light();
+        instance_destroy();
+    }
+    hit = instance_place(x,y,object_to_damage);
     if(hit != noone){
         hit.hp.damage(damage);
         destroy_light();
