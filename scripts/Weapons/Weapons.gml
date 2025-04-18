@@ -28,7 +28,7 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
     }
 
     function shoot_loop(){
-        show_debug_message("shooot!");
+        show_debug_message("shoot!");
         if(can_shoot == true){
             shoot(holder_id);
         }
@@ -82,7 +82,7 @@ function GunSingleShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y
     return base;
 }
 
-function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate, _shot_amount, _shot_spread, _shoot_alarm_index){
+function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate,_shoot_alarm_index, _shot_amount, _shot_spread){
     var base = new BaseGun(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate, _shoot_alarm_index);    
     with(base){
         spread_shot_amount      = _shot_amount;
@@ -109,12 +109,52 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
     return base;
 }
 
-function GunBurstShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate, _burst_fire_rate, _burst_alarm_index, _shoot_alarm_index){
+function GunBurstShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate, _shoot_alarm_index, _burst_fire_rate, _burst_amount){
     var base = new BaseGun(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y, _length, _fire_rate, _shoot_alarm_index);
     with(base){
         burst_fire_rate = _burst_fire_rate;
-        shoot = undefined;
+        is_shooting = false; 
+        burst_amount = _burst_amount;
+        current_burst_shot = 0;
+        shoot = function shoot(){
+            var bullets = [];
+            var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
+            var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
+            var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
+            bullet_instance.move_in_direction(angle);
+            array_push(bullets, bullet_instance);
+            bullet_instance.sender = holder_id;
+            if(play_sound != undefined){
+                play_sound();
+            }
+            return bullets;
+        }
+        shoot_loop = function shoot_loop(){
+            var _fire_rate = undefined;
+            var _index = shoot_loop_alarm_index;
+            if(can_shoot == true){
+                shoot(holder_id);
+                if(current_burst_shot < burst_amount){
+                    _fire_rate = burst_fire_rate;
+                    current_burst_shot++;
+                    is_shooting = true;
+                }
+                else{
+                    is_shooting = false;
+                    _fire_rate = fire_rate;
+                    current_burst_shot = 0;
+                }
+            }
+            else{
+                _fire_rate = fire_rate;
+            }
+            with(holder_id){
+                alarm_set(_index, _fire_rate);
+            }
+        }
+
     }
+    return base;
 }
 
 function GunRevolver(_holder_id, _shoot_alarm_index){
@@ -125,7 +165,7 @@ function GunRevolver(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        40,
+        60,
         _shoot_alarm_index
     );
     base.play_sound = audiomanager_revolver_shot;
@@ -141,10 +181,27 @@ function GunShotgun(_holder_id, _shoot_alarm_index){
         16,
         16,
         100,
+        _shoot_alarm_index,
         5,
-        45,
-        _shoot_alarm_index
+        45
     );
     base.play_sound = audiomanager_shotgun_shot;
+    return base;
+}
+
+function GunBurstRifle(_holder_id, _shoot_alarm_index){
+    var base = GunBurstShot(
+        _holder_id,
+        spr_weapon_burst_rifle,
+        obj_bullet_default,
+        16,
+        16,
+        16,
+        100,
+        _shoot_alarm_index,
+        6,
+        6
+    );
+    base.play_sound = audiomanager_revolver_shot;
     return base;
 }

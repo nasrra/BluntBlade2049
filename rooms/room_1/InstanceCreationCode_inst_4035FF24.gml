@@ -1,4 +1,4 @@
-waves = enemy_waves_room_2();
+waves = enemy_waves_room_1();
 spawners = [
 	inst_6B00243A,
 	inst_7CDE3D76,
