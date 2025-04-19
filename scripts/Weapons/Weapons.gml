@@ -205,3 +205,18 @@ function GunBurstRifle(_holder_id, _shoot_alarm_index){
     base.play_sound = audiomanager_play_burst_rifle_shot;
     return base;
 }
+
+function GunGrenadeLauncher(_holder_id, _shoot_alarm_index){
+    var base = GunSingleShot(
+        _holder_id,
+        spr_weapon_grenade_launcher,
+        obj_bullet_explosive,
+        20,
+        20,
+        26,
+        150,
+        _shoot_alarm_index,
+    );
+    base.play_sound = audiomanager_play_burst_rifle_shot;
+    return base;
+}
