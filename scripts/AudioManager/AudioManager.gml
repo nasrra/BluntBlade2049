@@ -73,3 +73,11 @@ function audiomanager_play_explosion(){
             break;
     }
 }
+
+function audiomanager_play_player_damaged(){
+    audio_play_sound(snd_player_damaged, 0,false, 1,0, random_range(0.85,1.05));
+}
+
+function audiomanager_play_pickup_health(){
+    audio_play_sound(snd_pickup_health, 0, false, 1, 0, random_range(0.85,1.05));
+}

@@ -192,6 +192,7 @@ hp = new HealthPoints(4,4);
 i_frame_alarm_index = 2;
 i_frame_time = 240;
 hp.on_damage.set(function(){
+    audiomanager_play_player_damaged();
     audiomanager_play_hit_glitch();
     enter_damaged_state();
     set_room_speed(5, 1);
@@ -203,6 +204,9 @@ hp.on_death.set(function(){
     gamemanager_death_state();
     instance_destroy();
 });
+hp.on_heal.set(function(){
+    obj_ui_manager.update_healthbar(hp.current_value);
+})
 
 function enter_damaged_state(){
     hp.now_invincible();

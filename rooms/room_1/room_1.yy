@@ -46,6 +46,7 @@
     {"name":"inst_51C0B7BC","path":"rooms/room_1/room_1.yy",},
     {"name":"inst_7D8EE29D","path":"rooms/room_1/room_1.yy",},
     {"name":"inst_4FC16A1D","path":"rooms/room_1/room_1.yy",},
+    {"name":"inst_148CFA1C","path":"rooms/room_1/room_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -150,6 +151,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"bullet_object","path":"objects/obj_enemy/obj_enemy.yy",},"resource":{"name":"obj_bullet_default","path":"objects/obj_bullet_default/obj_bullet_default.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_bullet_default",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1280.0,"y":848.0,},
         {"$GMRInstance":"v1","%Name":"inst_15DF4416","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_15DF4416","objectId":{"name":"obj_enemy_burst_rifle","path":"objects/obj_enemy_burst_rifle/obj_enemy_burst_rifle.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1056.0,"y":256.0,},
+        {"$GMRInstance":"v1","%Name":"inst_148CFA1C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_148CFA1C","objectId":{"name":"obj_pickup_health","path":"objects/obj_pickup_health/obj_pickup_health.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":864.0,"y":672.0,},
       ],"layers":[],"name":"Enemies","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Spawners","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_6B00243A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6B00243A","objectId":{"name":"obj_spawner_enemy","path":"objects/obj_spawner_enemy/obj_spawner_enemy.yy",},"properties":[

@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"snd_hit_glitch_1",
+  "%Name":"snd_player_damaged",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":0,
   "bitRate":8,
-  "compression":2,
+  "compression":1,
   "conversionMode":0,
-  "duration":6.552,
-  "name":"snd_hit_glitch_1",
+  "duration":0.432,
+  "name":"snd_player_damaged",
   "parent":{
     "name":"hit_glitch",
     "path":"folders/Sounds/hit_glitch.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":5512,
-  "soundFile":"snd_hit_glitch_1.mp3",
-  "type":0,
-  "volume":0.33,
+  "soundFile":"snd_player_damaged.mp3",
+  "type":1,
+  "volume":1.0,
 }

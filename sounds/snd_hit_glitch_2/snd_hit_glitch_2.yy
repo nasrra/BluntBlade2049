@@ -21,5 +21,5 @@
   "sampleRate":5512,
   "soundFile":"snd_hit_glitch_2.mp3",
   "type":0,
-  "volume":1.0,
+  "volume":0.33,
 }
