@@ -8,6 +8,7 @@ object_to_damage = obj_player;
 
 function move_in_direction(_move_dir){
     direction = _move_dir;
+    set_trail_particle_direction();
 }
 
 function move_to_object(_object){
@@ -40,17 +41,14 @@ function check_collisions(){
     hit = instance_place(x,y,obj_explosive_barrel);
     if(hit != noone){
         hit.hp.damage(damage);
-        destroy_light();
         instance_destroy();
     }
     hit = instance_place(x,y,object_to_damage);
     if(hit != noone){
         hit.hp.damage(damage);
-        destroy_light();
         instance_destroy();
     }
     if(place_meeting(x, y, obj_environment)){
-        destroy_light();
         instance_destroy();
     }
 }
@@ -58,20 +56,46 @@ function check_collisions(){
 
 light = undefined;
 function create_light(){
-    light = obj_lighting_manager.create_light_source(x,y,5,c_yellow);
+    light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_height/2),light_size,c_yellow);
 }
 
 create_light();
 
 function update_light(){
     if(instance_exists(light)){
-        light.x = x;
-        light.y = y;
+        light.x = x+(sprite_width/2);
+        light.y = y+(sprite_height/2);
     }
 }
 
-function destroy_light(){
-    if(instance_exists(light)){
-        instance_destroy(light);
+// part_system = part_system_create(prt_parry);
+// particle = particle_get_info(prt_parry).emitters[0].parttype.ind;
+trail_part_system = undefined;
+trail_particle = undefined;
+trail_emitter = undefined;
+
+
+function set_trail_particles(_particle_type){
+    trail_part_system = part_system_create();
+    trail_particle = _particle_type;
+    trail_emitter = part_emitter_create(trail_part_system);
+    part_emitter_stream(trail_part_system, trail_emitter, trail_particle, 3);
+}
+
+function emit_trail_particles(){
+    with(id){
+        if(trail_part_system == undefined){
+            exit;    
+        }
+        part_emitter_region(trail_part_system, trail_emitter, x, x+sprite_width, y+sprite_height,y, ps_shape_ellipse, ps_distr_linear);
+    }
+}
+
+function set_trail_particle_direction(){
+    with(id){
+        if(trail_part_system != undefined){
+            // particle_system_orientation(trail_part_system, image_angle, ((direction+180) % 360));
+            part_type_direction(trail_particle, ((direction+180) % 360) - 20, ((direction+180) % 360) + 20, 0, 0);
+        }
     }
 }

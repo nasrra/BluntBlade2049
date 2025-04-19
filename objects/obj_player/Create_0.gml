@@ -7,6 +7,7 @@ deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
+element_status = undefined;
 
 
 function move(){
@@ -80,6 +81,7 @@ parry_particle = particle_get_info(prt_parry).emitters[0].parttype.ind;
 function enable_parry_collision_box(_parry_direction){
     if(parry_cbox_active == false){
         parry_direction = _parry_direction;
+        _handle_element_status();
         _handle_cbox_position();
         parry_cbox_timer = 20;
         parry_cbox_active = true;
@@ -117,22 +119,30 @@ function _check_cbox_collision(){
     var top = parry_cbox_y - parry_cbox_height / 2;
     var right = parry_cbox_x + parry_cbox_width / 2;
     var bottom = parry_cbox_y + parry_cbox_height / 2;
-    var hits = ds_list_create();
-    collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, hits, false);
+    var collisions = ds_list_create();
+    var parried = false;
+    collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, collisions, false);
 
     // if we successfully parry a bullet.
-    if (ds_list_size(hits) > 0) {
-        for(var i = 0; i < ds_list_size(hits); i++){
-            var bullet_instance = ds_list_find_value(hits, i);
-            bullet_instance.send_back_to_sender();
-            bullet_instance.set_object_to_damage(obj_enemy);
+    if (ds_list_size(collisions) > 0) {
+        for(var i = 0; i < ds_list_size(collisions); i++){
+            var instance = ds_list_find_value(collisions, i);
+            show_debug_message(instance.light.colour);
+            if(instance.sender != id){
+                instance.send_back_to_sender();
+                instance.set_object_to_damage(obj_enemy);
+                parried = true;
+            }
         }
-        audiomanager_play_parry();
-        obj_camera.shake_camera(44, 1, 12);
-        part_particles_create(parry_part_system, x, y, parry_particle, 9);
-        set_room_speed(9, 1);
-        parry_cbox_hit = true;
+        if(parried == true){
+            audiomanager_play_parry();
+            obj_camera.shake_camera(44, 1, 12);
+            part_particles_create(parry_part_system, x, y, parry_particle, 9);
+            set_room_speed(9, 1);
+            parry_cbox_hit = true;
+        }
     }
+    ds_list_destroy(collisions);
 }
 
 function _check_parry_collision_box(){
@@ -238,4 +248,46 @@ function create_ambient_light(){
 function update_ambient_light(){
     ambient_light.x = x;
     ambient_light.y = y;
+}
+
+function _handle_element_status(){
+    if(element_status == undefined){
+        exit;
+    }
+    
+    var angle = undefined;
+    var parry_gun = undefined;
+
+    switch(parry_direction){
+        case PARRY_DIRECTION.UP:
+            angle = 90;
+            break;
+        case PARRY_DIRECTION.DOWN:
+            angle = 270;
+            break;
+        case PARRY_DIRECTION.LEFT:
+            angle = 180;
+            break;
+        case PARRY_DIRECTION.RIGHT:
+            angle = 0;
+            break;
+    }
+    switch(element_status){
+        case ElementType.FIRE:
+            show_debug_message("PARRY TYPE: [FIRE]");
+            parry_gun = GunParryElementFire(id);
+            break;
+        case ElementType.ICE:
+            show_debug_message("PARRY TYPE: [ICE]");
+            parry_gun = GunParryElementFire(id);
+            break;
+    }
+    parry_gun.angle = angle;
+    parry_gun.set_position(x,y);
+    var bullets = parry_gun.shoot();
+    for(var i = 0; i < array_length(bullets); i++){
+        bullets[i].light.colour = c_white;
+        bullets[i].object_to_damage = obj_enemy; 
+    }
+    element_status = undefined;
 }

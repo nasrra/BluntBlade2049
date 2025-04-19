@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ParticleHelper",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ParticleHelper",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

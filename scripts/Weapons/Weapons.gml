@@ -89,6 +89,10 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
         spread_shot_spread      = _shot_spread;
         shoot = function shoot(){
             var bullets = [];
+            show_debug_message(x);
+            show_debug_message(length);
+            show_debug_message(offset_x);
+            show_debug_message(angle);
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
             var start_angle_offset = angle - spread_shot_spread * 0.5;
@@ -218,5 +222,22 @@ function GunGrenadeLauncher(_holder_id, _shoot_alarm_index){
         _shoot_alarm_index,
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;
+    return base;
+}
+
+function GunParryElementFire(_holder_id, _shoot_alarm_index){
+    var base = GunSpreadShot(
+        _holder_id,
+        undefined,
+        obj_bullet_fire,
+        16,
+        16,
+        10,
+        0,
+        _shoot_alarm_index,
+        3,
+        90
+    );
+    base.play_sound = audiomanager_play_parry_element_fire;
     return base;
 }

@@ -4,3 +4,4 @@
 
 move();
 check_collisions();
+emit_trail_particles();

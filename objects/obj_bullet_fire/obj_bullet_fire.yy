@@ -1,14 +1,14 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bullet_explosive",
+  "%Name":"obj_bullet_fire",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_bullet_explosive",
-  "overriddenProperties":[],
+  "name":"obj_bullet_fire",
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"light_size","path":"objects/obj_bullet/obj_bullet.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"12",},
+  ],
   "parent":{
     "name":"Bullets",
     "path":"folders/Objects/Bullets.yy",
@@ -31,14 +31,14 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"speed","filters":[],"listItems":[],"multiselect":false,"name":"speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"speed","filters":[],"listItems":[],"multiselect":false,"name":"speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bullet_explosive",
-    "path":"sprites/spr_bullet_explosive/spr_bullet_explosive.yy",
+    "name":"spr_bullet_fire",
+    "path":"sprites/spr_bullet_fire/spr_bullet_fire.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -81,3 +81,11 @@ function audiomanager_play_player_damaged(){
 function audiomanager_play_pickup_health(){
     audio_play_sound(snd_pickup_health, 0, false, 1, 0, random_range(0.85,1.05));
 }
+
+function audiomanager_play_parry_element_fire(){
+    audio_play_sound(snd_parry_element_fire, 0, false, 1, 0, random_range(0.9,1.05));
+}
+
+function audiomanager_play_pick_up_power_up(){
+    audio_play_sound(snd_pickup_power_up, 0, false, 1, 0, random_range(0.9,1.05));
+}
