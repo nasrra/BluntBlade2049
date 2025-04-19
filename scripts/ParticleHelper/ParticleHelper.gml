@@ -7,7 +7,7 @@ function particletype_fire_trail() {
     part_type_scale(_new_type, 0.1, 0.1);  // Scale
     part_type_size(_new_type, 1.0, 1.0, -0.075, 0);  // Size range
     part_type_alpha3(_new_type, 1, 0.25, 0);  // Alpha values (transparency)
-    part_type_speed(_new_type,5, 7,0,0);  // Speed range
+    part_type_speed(_new_type,1, 2,0,0);  // Speed range
     part_type_direction(_new_type, 80, 100, 0, 0);  // Direction range
     part_type_life(_new_type, 40, 40);  // Life span
 

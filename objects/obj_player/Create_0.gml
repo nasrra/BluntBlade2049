@@ -7,8 +7,8 @@ deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
-element_status = undefined;
-
+element_status = instance_create_layer(0,0,"Characters",obj_element_status);
+element_status.entity_id = id;
 
 function move(){
     // calc move direction, normalising the vector so we dont go faster diagonally.
@@ -242,16 +242,16 @@ function snap_to_position(_x, _y){
 
 ambient_light = undefined;
 function create_ambient_light(){
-    ambient_light = obj_lighting_manager.create_light_source(x,y,20,c_white);
+    ambient_light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_width/2),20,c_white);
 }
 
 function update_ambient_light(){
-    ambient_light.x = x;
-    ambient_light.y = y;
+    ambient_light.x = x+(sprite_width/2);
+    ambient_light.y = y+(sprite_width/2);
 }
 
 function _handle_element_status(){
-    if(element_status == undefined){
+    if(element_status.status == undefined){
         exit;
     }
     
@@ -272,7 +272,7 @@ function _handle_element_status(){
             angle = 0;
             break;
     }
-    switch(element_status){
+    switch(element_status.status){
         case ElementType.FIRE:
             show_debug_message("PARRY TYPE: [FIRE]");
             parry_gun = GunParryElementFire(id);
@@ -289,5 +289,5 @@ function _handle_element_status(){
         bullets[i].light.colour = c_white;
         bullets[i].object_to_damage = obj_enemy; 
     }
-    element_status = undefined;
+    element_status.status = undefined;
 }

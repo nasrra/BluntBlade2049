@@ -26,6 +26,7 @@ function update_emitter_position(){
 function initialise(_particle_type, _emitter_region_right_offset, _emitter_region_top_offset){
     particle_system = part_system_create();
     particle_type = _particle_type;
+    show_debug_message(particle_type);
     emitter = part_emitter_create(particle_system);
     emitter_region_right_offset = _emitter_region_right_offset; 
     emitter_region_top_offset = _emitter_region_top_offset;
@@ -37,6 +38,11 @@ function start_stream(_amount){
 
 function stop_stream(){
 	part_emitter_stream(particle_system, emitter, particle_type, 0);
+}
+
+function smooth_destroy(_smooth_destroy_time){
+    stop_stream();
+    alarm_set(0,_smooth_destroy_time);
 }
 
 function emit(_amount){

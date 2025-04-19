@@ -5,5 +5,5 @@ if(instance_exists(light) == true){
 }
 
 if(instance_exists(particles) == true){
-	instance_destroy(particles);
+	particles.smooth_destroy(60);
 }
