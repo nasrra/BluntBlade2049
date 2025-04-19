@@ -1,20 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_pickup_health",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_pickup",
+  "eventList":[],
   "managed":true,
-  "name":"obj_pickup_health",
+  "name":"obj_pickup",
   "overriddenProperties":[],
   "parent":{
     "name":"Pickups",
     "path":"folders/Objects/Environment/Pickups.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_environment",
+    "path":"objects/obj_environment/obj_environment.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_pickup_health",
-    "path":"sprites/spr_pickup_health/spr_pickup_health.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

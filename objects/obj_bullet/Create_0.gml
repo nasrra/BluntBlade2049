@@ -14,6 +14,10 @@ function move_to_object(_object){
     if(instance_exists(_object) == true){
         direction = point_direction(x,y,_object.x, _object.y);
     }
+    else{
+        // go the opposite direction
+        direction = (direction+180) % 360; //<-- clamp into 360 degrees
+    }
 }
 
 function move(){
