@@ -4,4 +4,5 @@
 
 move();
 check_collisions();
-emit_trail_particles();
+update_particles();
+update_light();

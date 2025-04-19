@@ -24,7 +24,6 @@ function move_to_object(_object){
 function move(){
     x += lengthdir_x(speed, direction);
     y += lengthdir_y(speed, direction);
-    update_light();
 }
 
 function send_back_to_sender(){
@@ -54,12 +53,7 @@ function check_collisions(){
 }
 
 
-light = undefined;
-function create_light(){
-    light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_height/2),light_size,c_yellow);
-}
-
-create_light();
+light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_height/2),light_size,c_yellow);
 
 function update_light(){
     if(instance_exists(light)){
@@ -68,34 +62,17 @@ function update_light(){
     }
 }
 
-// part_system = part_system_create(prt_parry);
-// particle = particle_get_info(prt_parry).emitters[0].parttype.ind;
-trail_part_system = undefined;
-trail_particle = undefined;
-trail_emitter = undefined;
+particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),"Bullets",obj_particle_system);
 
-
-function set_trail_particles(_particle_type){
-    trail_part_system = part_system_create();
-    trail_particle = _particle_type;
-    trail_emitter = part_emitter_create(trail_part_system);
-    part_emitter_stream(trail_part_system, trail_emitter, trail_particle, 3);
-}
-
-function emit_trail_particles(){
-    with(id){
-        if(trail_part_system == undefined){
-            exit;    
-        }
-        part_emitter_region(trail_part_system, trail_emitter, x, x+sprite_width, y+sprite_height,y, ps_shape_ellipse, ps_distr_linear);
+function update_particles(){
+    if(instance_exists(particles) == true){
+        particles.x = x;
+        particles.y = y;
     }
 }
 
 function set_trail_particle_direction(){
-    with(id){
-        if(trail_part_system != undefined){
-            // particle_system_orientation(trail_part_system, image_angle, ((direction+180) % 360));
-            part_type_direction(trail_particle, ((direction+180) % 360) - 20, ((direction+180) % 360) + 20, 0, 0);
-        }
+    if(instance_exists(particles) == true){
+        particles.set_emission_angle(((direction+180) % 360) - 20, ((direction+180) % 360) + 20);
     }
 }

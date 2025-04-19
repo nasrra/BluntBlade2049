@@ -1,22 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_element_zone_fire",
+  "%Name":"obj_particle_system",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_element_zone_fire",
+  "name":"obj_particle_system",
   "overriddenProperties":[],
   "parent":{
-    "name":"Element Zone",
-    "path":"folders/Objects/Environment/Element Zone.yy",
+    "name":"Environment",
+    "path":"folders/Objects/Environment.yy",
   },
-  "parentObjectId":{
-    "name":"obj_element_zone",
-    "path":"objects/obj_element_zone/obj_element_zone.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_status_effect_area_fire",
-    "path":"sprites/spr_status_effect_area_fire/spr_status_effect_area_fire.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
