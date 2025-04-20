@@ -1,4 +1,4 @@
-
+on_status_set = new EventAction();
 entity_id = undefined;
 particles = noone;
 particle_offset_x = 0;
@@ -14,12 +14,13 @@ function set_status(_element_status){
     particles = instance_create_layer(entity_id.x,entity_id.y,entity_id.layer,obj_particle_system);
     switch(_element_status){
         case ElementType.FIRE:
-            particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height, entity_id);
+            particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height);
             show_debug_message(_element_status);
             break;
     }
     particles.start_stream(5);
     start_status_loop();
+    on_status_set.invoke();
 }    
 
 
@@ -29,7 +30,7 @@ function start_status_loop(){
 }
 
 function _status_loop(){
-    if(current_status_loop_frame > 120){
+    if(current_status_loop_frame > 360){
         particles.smooth_destroy(60);
         exit;
     }

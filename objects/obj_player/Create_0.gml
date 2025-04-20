@@ -7,10 +7,14 @@ deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
+
 element_status = instance_create_layer(0,0,"Characters",obj_element_status);
 element_status.entity_id = id;
 element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
+element_status.on_status_set.set(function(){
+    hp.start_tick_damage_loop(1, 3, 120);
+});
 
 function move(){
     // calc move direction, normalising the vector so we dont go faster diagonally.
@@ -290,4 +294,5 @@ function _handle_element_status(){
         bullets[i].object_to_damage = obj_enemy; 
     }
     element_status.clear_status();
+    hp.stop_tick_damage_loop();
 }

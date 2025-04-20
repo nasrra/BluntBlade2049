@@ -14,4 +14,12 @@ function check_collisions(){
 	else{
 		player_entered = false;
 	}
+	// var enemy = instance_place(x,y,obj_enemy);
+	// if(enemy != noone){
+	// 	if(player_entered == false){
+	// 		obj_player.element_status.set_status(element_type);
+	// 		audiomanager_play_pick_up_power_up();
+	// 		player_entered = true;
+	// 	}
+    // }
 }
