@@ -8,7 +8,7 @@ emitter_region_top_offset   = 0;
 lock_emitter_position       = false;
 
 function update_emitter_position(){
-    if(lock_emitter_position == true){
+    if(particle_system == undefined || lock_emitter_position == true){
         exit;
     }
     part_emitter_region(
@@ -24,9 +24,15 @@ function update_emitter_position(){
 }
 
 function initialise(_particle_type, _emitter_region_right_offset, _emitter_region_top_offset){
+    // if(particle_system != undefined){
+    //     // wipe this one for reuse;
+    //     emitter = undefined;
+    //     part_emitter_destroy_all(particle_system);
+    //     part_type_destroy(particle_type);
+    //     part_system_destroy(particle_system);
+    // }
     particle_system = part_system_create();
     particle_type = _particle_type;
-    show_debug_message(particle_type);
     emitter = part_emitter_create(particle_system);
     emitter_region_right_offset = _emitter_region_right_offset; 
     emitter_region_top_offset = _emitter_region_top_offset;

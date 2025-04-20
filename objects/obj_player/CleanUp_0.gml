@@ -1,5 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
-surface_free(lighting_surface);
-vertex_format_delete(vf);
-vertex_delete_buffer(vb);
+instance_destroy(ambient_light);
+instance_destroy(parry_particles);

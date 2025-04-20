@@ -94,6 +94,7 @@
     {"id":{"name":"obj_room_door_right","path":"objects/obj_room_door_right/obj_room_door_right.yy",},},
     {"id":{"name":"obj_room_door_top","path":"objects/obj_room_door_top/obj_room_door_top.yy",},},
     {"id":{"name":"obj_room_door","path":"objects/obj_room_door/obj_room_door.yy",},},
+    {"id":{"name":"obj_room_manager","path":"objects/obj_room_manager/obj_room_manager.yy",},},
     {"id":{"name":"obj_spawner_enemy","path":"objects/obj_spawner_enemy/obj_spawner_enemy.yy",},},
     {"id":{"name":"obj_ui_manager","path":"objects/obj_ui_manager/obj_ui_manager.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},

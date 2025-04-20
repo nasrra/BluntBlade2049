@@ -14,3 +14,7 @@ fire_light_crackle_range = 66;
 decrease_fire_light_size = true;
 fire_light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_width/2),fire_light_target_size , c_orange);
 alarm_set(0,1);
+
+function update_fire_light(){
+    fire_light.size = lerp(fire_light.size, fire_light_target_size, 0.5);
+}

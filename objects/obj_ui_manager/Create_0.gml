@@ -263,29 +263,25 @@ function update_room_transition_position(){
 application_surface_draw_enable(false);
 
 // surface variable.
-surface = -1;
+crt_surface =  surface_create(room_width, room_height);
 
 // handle
 surface_width = shader_get_uniform(sh_crt, "surface_width");
 surface_height = shader_get_uniform(sh_crt, "surface_height");
 
 function draw_crt_lines(){
-    if(surface_exists(surface) == false){
-        surface =  surface_create(room_width, room_height);
-    }
-
-    surface_copy(surface, 0,0,application_surface);
+    surface_copy(crt_surface, 0,0,application_surface);
 
     shader_set(sh_crt);
 
     shader_set_uniform_f(
         surface_width,
-        surface_get_width(surface)
+        surface_get_width(crt_surface)
     );
     shader_set_uniform_f(
         surface_height,
-        surface_get_height(surface)
+        surface_get_height(crt_surface)
     );
-    draw_surface(surface,0,0);
+    draw_surface(crt_surface,0,0);
     shader_reset();
 }

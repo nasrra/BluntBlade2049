@@ -4,8 +4,8 @@ spawners = [];
 waves = [];
 alive_enemies = 0;
 current_wave = 0;
-loop_waves = false;
-
+// loop_waves = false;
+loop_waves = true;
 function add_enemy(){
     alive_enemies += 1;
 }
