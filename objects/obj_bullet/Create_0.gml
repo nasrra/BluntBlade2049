@@ -3,7 +3,7 @@
 direction = point_direction(0,0,0,0);
 
 // whom this bullet was sent from.
-sender = undefined;
+sender = noone;
 object_to_damage = obj_player;
 
 function move_in_direction(_move_dir){
@@ -62,7 +62,7 @@ function update_light(){
     }
 }
 
-particles = undefined;
+particles = noone;
 function create_particles(){
     particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),"Bullets",obj_particle_system);
 }

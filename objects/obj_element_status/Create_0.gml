@@ -1,6 +1,6 @@
 
 entity_id = undefined;
-particles = undefined;
+particles = noone;
 particle_offset_x = 0;
 particle_offset_y = 0;
 status = undefined;
@@ -14,7 +14,7 @@ function set_status(_element_status){
     particles = instance_create_layer(entity_id.x,entity_id.y,entity_id.layer,obj_particle_system);
     switch(_element_status){
         case ElementType.FIRE:
-            particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height);
+            particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height, entity_id);
             show_debug_message(_element_status);
             break;
     }
