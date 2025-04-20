@@ -5,4 +5,5 @@ with(id){
 	if(instance_exists(ambient_light) == true){
 		instance_destroy(ambient_light);
 	}
+	instance_destroy(hp);
 }

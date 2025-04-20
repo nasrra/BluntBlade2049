@@ -3,3 +3,4 @@
 instance_destroy(parry_particles);
 instance_destroy(ambient_light);
 instance_destroy(element_status);
+instance_destroy(hp);

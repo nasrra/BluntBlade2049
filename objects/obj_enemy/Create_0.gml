@@ -119,7 +119,8 @@ function can_see_target(){
     return flag;
 }
 
-hp = new HealthPoints(health_max_value, health_max_value);
+hp = instance_create_layer(0,0,"Characters",obj_health);
+hp.initialise(health, health);
 hp.on_damage.set(function(){damage_flash.invoke(1,0.5);});
 hp.on_death.set(function(){instance_destroy();});
 

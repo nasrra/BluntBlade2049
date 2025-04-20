@@ -38,3 +38,13 @@ function _status_loop(){
     particles.y = entity_id.y + particle_offset_y;
     alarm_set(0,1);
 }
+
+function clear_status(){
+    status = undefined;
+    stop_status_loop();
+}
+
+function stop_status_loop(){
+    particles.smooth_destroy(60);
+    alarm_set(0,0);
+}

@@ -195,15 +195,19 @@ function check_room_speed_timer(){
     }
 }
 
-hp = new HealthPoints(4,4);
-i_frame_alarm_index = 2;
-i_frame_time = 240;
+hp = instance_create_layer(0,0,"Characters",obj_health);
+hp.initialise(4,4);
 hp.on_damage.set(function(){
-    audiomanager_play_player_damaged();
-    audiomanager_play_hit_glitch();
-    enter_damaged_state();
-    set_room_speed(5, 1);
+    hp.set_invincible_timed(240);
     obj_ui_manager.update_healthbar(hp.current_value);
+    set_room_speed(5, 1);
+    obj_camera.shake_camera(75, 1, 12);
+    damage_flash.invoke(6,2);
+});
+hp.on_tick_damage.set(function(){
+    audiomanager_play_player_damaged();
+    obj_ui_manager.update_healthbar(hp.current_value);
+    set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
 });
@@ -214,22 +218,21 @@ hp.on_death.set(function(){
 hp.on_heal.set(function(){
     obj_ui_manager.update_healthbar(hp.current_value);
 })
-
-function enter_damaged_state(){
-    hp.now_invincible();
+hp.on_invincible.set(function(){
+    // enter damaged state.
+    audiomanager_play_player_damaged();
+    audiomanager_play_hit_glitch();
     obj_effect_layer_manager.turn_on_desaturate(0.1);
     obj_effect_layer_manager.turn_on_vignette(0.25);
     obj_effect_layer_manager.turn_on_rgb_noise(0.045);
-    alarm_set(i_frame_alarm_index, i_frame_time);
-}
-
-function exit_damaged_state(){
-    hp.not_invincible();
+});
+hp.on_vincible.set(function(){
+    // exit damaged state.
     audiomanager_stop_hit_glitch();
     obj_effect_layer_manager.turn_off_desaturate(0.15);
     obj_effect_layer_manager.turn_off_vignette(0.25);
     obj_effect_layer_manager.turn_off_rgb_noise(0.045);
-}
+});
 
 function snap_to_position(_x, _y){
     x = _x;
@@ -286,5 +289,5 @@ function _handle_element_status(){
         bullets[i].light.colour = c_white;
         bullets[i].object_to_damage = obj_enemy; 
     }
-    element_status.status = undefined;
+    element_status.clear_status();
 }
