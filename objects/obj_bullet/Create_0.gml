@@ -62,7 +62,10 @@ function update_light(){
     }
 }
 
-particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),"Bullets",obj_particle_system);
+particles = undefined;
+function create_particles(){
+    particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),"Bullets",obj_particle_system);
+}
 
 function update_particles(){
     if(instance_exists(particles) == true){

@@ -9,6 +9,8 @@ input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
 element_status = instance_create_layer(0,0,"Characters",obj_element_status);
 element_status.entity_id = id;
+element_status.particle_offset_x = -sprite_width*0.5;
+element_status.particle_offset_y = -sprite_height*0.5;
 
 function move(){
     // calc move direction, normalising the vector so we dont go faster diagonally.
@@ -246,8 +248,8 @@ function create_ambient_light(){
 }
 
 function update_ambient_light(){
-    ambient_light.x = x+(sprite_width/2);
-    ambient_light.y = y+(sprite_width/2);
+    ambient_light.x = x;
+    ambient_light.y = y;
 }
 
 function _handle_element_status(){

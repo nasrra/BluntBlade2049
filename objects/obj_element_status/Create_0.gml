@@ -1,6 +1,8 @@
 
     entity_id = undefined;
     particles = undefined;
+    particle_offset_x = 0;
+    particle_offset_y = 0;
     status = undefined;
     current_status_loop_frame = 0;
 
@@ -29,7 +31,7 @@ function _status_loop(){
         exit;
     }
     current_status_loop_frame++;
-    particles.x = entity_id.x;
-    particles.y = entity_id.y;
+    particles.x = entity_id.x + particle_offset_x;
+    particles.y = entity_id.y + particle_offset_y;
     alarm_set(0,1);
 }
