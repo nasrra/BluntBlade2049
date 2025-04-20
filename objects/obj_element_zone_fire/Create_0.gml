@@ -5,7 +5,7 @@
 event_inherited();
 element_type = ElementType.FIRE;
 particles = instance_create_layer(x,y,"Environment",obj_particle_system);
-particles.initialise(particletype_fire_trail(), sprite_width, sprite_height);
+particles.initialise(part_type_fire_trail(), sprite_width, sprite_height);
 particles.start_stream(10);
 
 fire_light_start_size = 100;

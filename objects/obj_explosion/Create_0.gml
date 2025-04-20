@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-part_system = part_system_create(prt_eplosion);
-particle = particle_get_info(part_system).emitters[0].parttype.ind;
+particles = instance_create_layer(x,y,"Bullets",obj_particle_system);
+particles.initialise(part_type_explosion(), x,y);
+particles.set_emission_angle(0,360);
 light = obj_lighting_manager.create_light_source(x,y,light_size,c_orange);
 current_hurt_frame = 0;
 hit_objects = ds_map_create();
@@ -51,7 +52,7 @@ function decay_light(){
 
 function fx(){
     obj_camera.shake_camera(240,1,15);
-    part_particles_create(part_system, x, y, particle, 60);    
+    particles.emit(60);
     audiomanager_play_explosion();
 }
 

@@ -72,7 +72,7 @@ parry_cbox_alarm_index = 0;
 parry_cbox_hit = false;
 parry_direction = undefined;
 parry_particles = instance_create_layer(x,y,id.layer, obj_particle_system);
-parry_particles.initialise(particletype_parry(),sprite_width*0.5,sprite_height*0.5);
+parry_particles.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5);
 function enable_parry_collision_box(_parry_direction){
     if(parry_cbox_active == false){
         parry_direction = _parry_direction;
