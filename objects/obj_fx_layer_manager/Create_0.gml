@@ -11,6 +11,7 @@ function handle_value(_val_string, _target_val, _speed, _alarm_index, _fx){
     val = abs(val-_target_val) < 0.025 ? _target_val : calc_val;
     fx_set_parameter(_fx, _val_string, val);
     if(val != _target_val){
+        alarm_set(_alarm_index, 1);
     }
 }
 
