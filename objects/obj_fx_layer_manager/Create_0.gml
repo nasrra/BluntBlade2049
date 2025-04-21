@@ -195,12 +195,12 @@ reset_old_film();
 
 
 heat_haze_alarm_index = 4;
-heat_haze_fx = fx_create("_filter_heathaze");
-layer_set_fx("HeatHazeFX", heat_haze_fx);
+heat_haze_fx = layer_get_fx("HeatHazeFX");
 heat_haze_target_amount = undefined;
 heat_haze_transition_speed = undefined;
 
 function reset_heat_haze(){
+    layer_set_visible("HeatHazeFX", true);
     fx_set_parameter(heat_haze_fx, "g_Distort1Speed", 0.1);
     fx_set_parameter(heat_haze_fx, "g_Distort2Speed", 0.1);
     fx_set_parameter(heat_haze_fx, "g_Distort1Scale", [50,25]);

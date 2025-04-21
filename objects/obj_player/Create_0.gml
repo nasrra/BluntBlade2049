@@ -285,8 +285,8 @@ function _handle_element_status(){
             show_debug_message("PARRY TYPE: [FIRE]");
             parry_gun = GunParryElementFire(id);
             break;
-        case ElementType.ICE:
-            show_debug_message("PARRY TYPE: [ICE]");
+        case ElementType.ELECTRIC:
+            show_debug_message("PARRY TYPE: [ELECTRIC]");
             parry_gun = GunParryElementFire(id);
             break;
     }
@@ -300,3 +300,13 @@ function _handle_element_status(){
     element_status.clear_status();
     hp.stop_tick_damage_loop();
 }
+
+line_drawer = instance_create_layer(x,y,"Characters",obj_line_drawer);
+line_drawer.initialise(4,-10,10);
+
+function update_line_drawer(){
+    line_drawer.x = x;
+    line_drawer.y = y;
+}
+
+line_drawer.draw_segmented(100,5,x+500,y+500,1920);

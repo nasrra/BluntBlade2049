@@ -16,8 +16,11 @@ function set_status(_element_status){
     switch(_element_status){
         case ElementType.FIRE:
             particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height);
-            show_debug_message(_element_status);
             break;
+        case ElementType.ELECTRIC:
+            particles.initialise(part_type_electricity(), entity_id.sprite_width, entity_id.sprite_height);
+            break;
+
     }
     particles.start_stream(5);
     start_status_loop();

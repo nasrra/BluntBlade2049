@@ -1,5 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
-handle_input();
-move();
-update_line_drawer();
+event_inherited();
+update_fire_light();

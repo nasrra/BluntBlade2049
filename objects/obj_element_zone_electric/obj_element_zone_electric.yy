@@ -1,6 +1,6 @@
 {
   "$GMObject":"",
-  "%Name":"obj_element_zone_fire",
+  "%Name":"obj_element_zone_electric",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
@@ -8,7 +8,7 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_element_zone_fire",
+  "name":"obj_element_zone_electric",
   "overriddenProperties":[],
   "parent":{
     "name":"Element Zone",
@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_element_zone_fire",
-    "path":"sprites/spr_element_zone_fire/spr_element_zone_fire.yy",
+    "name":"spr_element_zone_electicity",
+    "path":"sprites/spr_element_zone_electicity/spr_element_zone_electicity.yy",
   },
   "spriteMaskId":null,
   "visible":true,

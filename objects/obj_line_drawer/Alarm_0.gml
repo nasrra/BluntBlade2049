@@ -1,5 +1,3 @@
 /// @description Insert description here
 // You can write your code in this editor
-handle_input();
-move();
-update_line_drawer();
+_segmented_loop();
