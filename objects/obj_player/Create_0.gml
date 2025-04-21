@@ -14,6 +14,10 @@ element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
     hp.start_tick_damage_loop(1, 3, 120);
+    obj_fx_layer_manager.turn_on_heat_haze(0.25);
+});
+element_status.on_clear_status.set(function(){
+    obj_fx_layer_manager.turn_off_heat_haze(0.25);
 });
 
 function move(){
@@ -226,16 +230,16 @@ hp.on_invincible.set(function(){
     // enter damaged state.
     audiomanager_play_player_damaged();
     audiomanager_play_hit_glitch();
-    obj_effect_layer_manager.turn_on_desaturate(0.1);
-    obj_effect_layer_manager.turn_on_vignette(0.25);
-    obj_effect_layer_manager.turn_on_rgb_noise(0.045);
+    obj_fx_layer_manager.turn_on_desaturate(0.1);
+    obj_fx_layer_manager.turn_on_vignette(0.25);
+    obj_fx_layer_manager.turn_on_rgb_noise(0.045);
 });
 hp.on_vincible.set(function(){
     // exit damaged state.
     audiomanager_stop_hit_glitch();
-    obj_effect_layer_manager.turn_off_desaturate(0.15);
-    obj_effect_layer_manager.turn_off_vignette(0.25);
-    obj_effect_layer_manager.turn_off_rgb_noise(0.045);
+    obj_fx_layer_manager.turn_off_desaturate(0.15);
+    obj_fx_layer_manager.turn_off_vignette(0.25);
+    obj_fx_layer_manager.turn_off_rgb_noise(0.045);
 });
 
 function snap_to_position(_x, _y){

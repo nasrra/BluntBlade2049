@@ -6,16 +6,59 @@
 // GENERIC.
 
 function handle_value(_val_string, _target_val, _speed, _alarm_index, _fx){
-    show_debug_message(_val_string);
     var val = fx_get_parameter(_fx, _val_string);
     var calc_val = lerp(val, _target_val, _speed);
     val = abs(val-_target_val) < 0.025 ? _target_val : calc_val;
     fx_set_parameter(_fx, _val_string, val);
     if(val != _target_val){
+    }
+}
+
+function _handle_values(_fx, _alarm_index, _val_strings, _target_vals, _transition_speeds){
+    loop = false;
+    for(var i = 0; i < array_length(_val_strings); i++){
+        var val_string = _val_strings[i]
+        var val = fx_get_parameter(_fx,_val_strings[i]);
+        var target_val = _target_vals[i];
+        var transition_speed  = _transition_speeds[i];
+
+        var calc_val = lerp(val, target_val, transition_speed);
+        val = abs(val - target_val) < 0.025 ? target_val : calc_val;
+        fx_set_parameter(_fx, val_string, val);
+        if(val != target_val){
+            loop = true;
+        }
+    }
+    if(loop == true){
         alarm_set(_alarm_index, 1);
     }
 }
 
+function _handle_values_array(_fx, _alarm_index, _val_strings, _target_vals, _transition_speeds){
+    loop = false;
+    for(var i1 = 0; i1 < array_length(_val_strings); i1++){
+        var val_string = _val_strings[i1]
+        var val_array = fx_get_parameter(_fx,val_string);
+        var target_val_array = _target_vals[i1];
+        var transition_speed  = _transition_speeds[i1];
+
+        for(var i2 = 0; i2 < array_length(val_array); i2++){
+            show_debug_message("val_array_index");
+            var val = val_array[i2];
+            var target_val = target_val_array[i2];
+            var calc_val = lerp(val, target_val, transition_speed);
+            val_array[i2] = abs(val - target_val) < 0.025 ? target_val : calc_val;
+            if(val != target_val){
+                loop = true;
+            }
+        }
+        
+        fx_set_parameter(_fx, val_string, val_array);
+    }
+    if(loop == true){
+        alarm_set(_alarm_index, 1);
+    }
+}
 
 
 
@@ -147,3 +190,55 @@ function reset_old_film(){
 }
 
 reset_old_film();
+
+
+
+heat_haze_alarm_index = 4;
+heat_haze_fx = fx_create("_filter_heathaze");
+layer_set_fx("HeatHazeFX", heat_haze_fx);
+heat_haze_target_amount = undefined;
+heat_haze_transition_speed = undefined;
+
+function reset_heat_haze(){
+    fx_set_parameter(heat_haze_fx, "g_Distort1Speed", 0.1);
+    fx_set_parameter(heat_haze_fx, "g_Distort2Speed", 0.1);
+    fx_set_parameter(heat_haze_fx, "g_Distort1Scale", [50,25]);
+    fx_set_parameter(heat_haze_fx, "g_Distort2Scale", [25,50]);
+    fx_set_parameter(heat_haze_fx, "g_Distort1Amount", 0);
+    fx_set_parameter(heat_haze_fx, "g_Distort2Amount", 0);
+    fx_set_parameter(heat_haze_fx, "g_ChromaSpreadAmount", 10);
+    fx_set_parameter(heat_haze_fx, "g_CamOffsetScale", 0);
+}
+
+reset_heat_haze();
+
+function turn_on_heat_haze(_speed){
+    heat_haze_transition_speed = _speed;
+    heat_haze_target_amount = 4;
+    alarm_set(heat_haze_alarm_index,1);
+}
+
+function _handle_heat_haze(){
+    _handle_values(
+        heat_haze_fx,
+        heat_haze_alarm_index, 
+        [
+            "g_Distort1Amount",
+            "g_Distort2Amount",
+        ], 
+        [
+            heat_haze_target_amount,
+            heat_haze_target_amount
+        ],
+        [
+            heat_haze_transition_speed,
+            heat_haze_transition_speed,
+        ]
+    );
+}
+
+function turn_off_heat_haze(_speed){
+    heat_haze_transition_speed = _speed;
+    heat_haze_target_amount = 0;
+    alarm_set(heat_haze_alarm_index,1);
+}

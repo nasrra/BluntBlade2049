@@ -1,4 +1,5 @@
 on_status_set = new EventAction();
+on_clear_status = new EventAction();
 entity_id = undefined;
 particles = noone;
 particle_offset_x = 0;
@@ -31,7 +32,7 @@ function start_status_loop(){
 
 function _status_loop(){
     if(current_status_loop_frame > 360){
-        particles.smooth_destroy(60);
+        clear_status();
         exit;
     }
     current_status_loop_frame++;
@@ -43,6 +44,7 @@ function _status_loop(){
 function clear_status(){
     status = undefined;
     stop_status_loop();
+    on_clear_status.invoke();
 }
 
 function stop_status_loop(){
