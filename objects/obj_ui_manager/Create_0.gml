@@ -263,7 +263,7 @@ function update_room_transition_position(){
 application_surface_draw_enable(false);
 
 // surface variable.
-crt_surface =  surface_create(room_width, room_height);
+crt_surface =  surface_create(1920, 1080);
 
 // handle
 surface_width = shader_get_uniform(sh_crt, "surface_width");

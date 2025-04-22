@@ -9,7 +9,7 @@ input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
 
 element_status = instance_create_layer(0,0,"Characters",obj_element_status);
-element_status.entity_id = id;
+element_status.initialise(id);
 element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
@@ -19,6 +19,10 @@ element_status.on_status_set.set(function(){
 element_status.on_clear_status.set(function(){
     obj_fx_layer_manager.turn_off_heat_haze(0.25);
 });
+function update_element_status(){
+    element_status.x = x;
+    element_status.y = y;
+}
 
 function move(){
     // calc move direction, normalising the vector so we dont go faster diagonally.
@@ -57,15 +61,19 @@ function handle_input(){
 
     if(parry_up == true){
         enable_parry_collision_box(PARRY_DIRECTION.UP);
+        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_down == true){
         enable_parry_collision_box(PARRY_DIRECTION.DOWN);
+        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_right == true){
         enable_parry_collision_box(PARRY_DIRECTION.RIGHT);
+        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_left == true){
         enable_parry_collision_box(PARRY_DIRECTION.LEFT);
+        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
 }
 
@@ -300,13 +308,3 @@ function _handle_element_status(){
     element_status.clear_status();
     hp.stop_tick_damage_loop();
 }
-
-line_drawer = instance_create_layer(x,y,"Characters",obj_line_drawer);
-line_drawer.initialise(4,-10,10);
-
-function update_line_drawer(){
-    line_drawer.x = x;
-    line_drawer.y = y;
-}
-
-line_drawer.draw_segmented(100,5,x+500,y+500,1920);

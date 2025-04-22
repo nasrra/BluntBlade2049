@@ -33,7 +33,7 @@ with(obj_light){
     shader_set_uniform_f(_light_u_position, x*_scale_factor, y*_scale_factor);
     shader_set_uniform_f(_light_u_size, size);
     shader_set_uniform_f(_light_u_fov, fov);
-    shader_set_uniform_f(_light_u_direction, direction);
+    shader_set_uniform_f(_light_u_direction, dir);
     shader_set_uniform_f(_light_u_strength, strength);
     draw_rectangle_color(_view_x,_view_y, _view_x+960, _view_y+540, colour, colour, colour, colour, 0);
 }

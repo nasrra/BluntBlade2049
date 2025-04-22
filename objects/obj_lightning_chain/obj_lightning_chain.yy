@@ -1,19 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_line_drawer",
+  "%Name":"obj_lightning_chain",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_line_drawer",
+  "name":"obj_lightning_chain",
   "overriddenProperties":[],
   "parent":{
     "name":"Components",
     "path":"folders/Objects/Components.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_lightning",
+    "path":"objects/obj_lightning/obj_lightning.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
