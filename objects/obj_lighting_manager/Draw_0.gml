@@ -2,6 +2,9 @@
 // You can write your code in this editor
 var _light_u_position = light_u_position;
 var _light_u_size = light_u_size;
+var _light_u_fov = light_u_fov;
+var _light_u_direction = light_u_direction;
+var _light_u_strength = light_u_strength;
 var _shadow_u_position = shadow_u_position;
 var _vb = vb;
 var _scale_factor = scale_factor;
@@ -29,6 +32,9 @@ with(obj_light){
     // setting the shader light position to this light instance.
     shader_set_uniform_f(_light_u_position, x*_scale_factor, y*_scale_factor);
     shader_set_uniform_f(_light_u_size, size);
+    shader_set_uniform_f(_light_u_fov, fov);
+    shader_set_uniform_f(_light_u_direction, direction);
+    shader_set_uniform_f(_light_u_strength, strength);
     draw_rectangle_color(_view_x,_view_y, _view_x+960, _view_y+540, colour, colour, colour, colour, 0);
 }
 surface_reset_target();
