@@ -52,16 +52,15 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
 	var start_y = y;
     var current_instance = entity_id;
 	var all_hits = ds_map_create();
+    var all_hits_array = [];
     while(true){
         var current_hits = ds_list_create();
         var hit = false;
         collision_circle_list(start_x, start_y, 240, _obj_to_hit, false, true, current_hits, true);
         if(ds_list_size(current_hits) <= 0){
-            show_debug_message("false");
             exit;      
         }
         for(var i = 0; i < ds_list_size(current_hits); i++){
-            show_debug_message(i);
             var instance = ds_list_find_value(current_hits,i);
             if(ds_map_find_value(all_hits, instance.id) != undefined){
                 continue;
@@ -74,14 +73,18 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
             start_y = instance.y;
             current_instance = instance;
             ds_map_add(all_hits, instance.id, true);
+            array_push(all_hits_array, instance.id);
         }
         ds_list_destroy(current_hits);
         if(hit == false){
-            exit;
+            ds_list_destroy(current_hits);
+            ds_map_destroy(all_hits);
+            start_death_timer(_time_in_frames);
+            show_debug_message("hits");
+            show_debug_message(array_length(all_hits_array));
+            return all_hits_array;
         }
     }
-    ds_list_destroy(current_hits);
-    ds_map_destroy(all_hits);
 }
 
 function _set_point_offsets(){
@@ -100,8 +103,10 @@ function _set_point_offsets(){
 }
 
 function update_position(){
-    x = entity_id.x;
-    y = entity_id.y;
+    if(instance_exists(entity_id)){
+        x = entity_id.x;
+        y = entity_id.y;
+    }
 }
 
 function _segmented_loop_to_point(){
@@ -109,7 +114,11 @@ function _segmented_loop_to_point(){
 }
 
 function _segmented_loop_to_object(){
-    _segmented_loop(end_object_id.x, end_object_id.y, 1);
+	if(instance_exists(end_object_id)){
+		end_x = end_object_id.x;
+		end_y = end_object_id.y;
+	}
+    _segmented_loop(end_x, end_y, 1);
 }
 
 function _segmented_loop(_end_x, _end_y, _alarm_index){
@@ -187,8 +196,12 @@ function _create_light(_x1,_y1,_x2,_y2){
     var light = instance_create_layer(_x1,_y1,"Lighting",obj_light);
     light.colour = colour;
     light.fov = 15;
-    light.size = 0.001;
-    light.strength = 10;
+    light.size = 40;
+    light.strength = 1;
     light.dir = dir;
     array_push(lights, light);
+}
+
+function start_death_timer(_time_in_frames){
+	alarm_set(2,_time_in_frames);
 }

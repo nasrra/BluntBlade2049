@@ -28,7 +28,7 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
     }
 
     function shoot_loop(){
-        show_debug_message("shoot!");
+        // show_debug_message("shoot!");
         if(can_shoot == true){
             shoot(holder_id);
         }
@@ -89,10 +89,10 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
         spread_shot_spread      = _shot_spread;
         shoot = function shoot(){
             var bullets = [];
-            show_debug_message(x);
-            show_debug_message(length);
-            show_debug_message(offset_x);
-            show_debug_message(angle);
+            // show_debug_message(x);
+            // show_debug_message(length);
+            // show_debug_message(offset_x);
+            // show_debug_message(angle);
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
             var start_angle_offset = angle - spread_shot_spread * 0.5;
@@ -246,7 +246,7 @@ function GunElementElectric(_holder_id, _shoot_alarm_index){
     var base = GunSingleShot(
         _holder_id,
         undefined,
-        obj_lightning,
+        obj_bullet_electric,
         16,
         16,
         10,
@@ -255,12 +255,6 @@ function GunElementElectric(_holder_id, _shoot_alarm_index){
         3,
         90
     );
-    base.shoot = function(){
-        var instances = base.shoot();
-        for(var i = 0; i < array_length(instances); i++){
-            instances[i].emit_chain_lightning();
-        }
-    }
     base.play_sound = audiomanager_play_parry_element_fire;
     return base;
 }

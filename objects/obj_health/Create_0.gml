@@ -23,6 +23,7 @@ function damage(_amount){
     if(invincible == true){
         return;
     }
+    show_debug_message(current_value);
     current_value -= _amount;
     on_damage.invoke();
     if(current_value <= 0){

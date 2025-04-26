@@ -61,19 +61,15 @@ function handle_input(){
 
     if(parry_up == true){
         enable_parry_collision_box(PARRY_DIRECTION.UP);
-        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_down == true){
         enable_parry_collision_box(PARRY_DIRECTION.DOWN);
-        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_right == true){
         enable_parry_collision_box(PARRY_DIRECTION.RIGHT);
-        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
     else if(parry_left == true){
         enable_parry_collision_box(PARRY_DIRECTION.LEFT);
-        element_status.emit_chain_lightning(50,5,15,obj_enemy);
     }
 }
 
@@ -138,7 +134,6 @@ function _check_cbox_collision(){
     if (ds_list_size(collisions) > 0) {
         for(var i = 0; i < ds_list_size(collisions); i++){
             var instance = ds_list_find_value(collisions, i);
-            show_debug_message(instance.light.colour);
             if(instance.sender != id){
                 instance.send_back_to_sender();
                 instance.set_object_to_damage(obj_enemy);
@@ -295,7 +290,7 @@ function _handle_element_status(){
             break;
         case ElementType.ELECTRIC:
             show_debug_message("PARRY TYPE: [ELECTRIC]");
-            parry_gun = GunElementFire(id);
+            parry_gun = GunElementElectric(id);
             break;
     }
     parry_gun.angle = angle;

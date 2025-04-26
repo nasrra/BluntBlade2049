@@ -44,7 +44,6 @@ function _handle_values_array(_fx, _alarm_index, _val_strings, _target_vals, _tr
         var transition_speed  = _transition_speeds[i1];
 
         for(var i2 = 0; i2 < array_length(val_array); i2++){
-            show_debug_message("val_array_index");
             var val = val_array[i2];
             var target_val = target_val_array[i2];
             var calc_val = lerp(val, target_val, transition_speed);
