@@ -41,3 +41,5 @@ check_collisions = function(){
         instance_destroy();
     }
 }
+
+audiomanager_play_electric_loop();

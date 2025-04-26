@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_electric_loop",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "bitRate":8,
+  "compression":1,
+  "conversionMode":0,
+  "duration":5.01551,
+  "name":"snd_electric_loop",
+  "parent":{
+    "name":"electricity",
+    "path":"folders/Sounds/electricity.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":5512,
+  "soundFile":"snd_electric_loop.mp3",
+  "type":1,
+  "volume":0.75,
+}

@@ -57,9 +57,9 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
         var current_hits = ds_list_create();
         var hit = false;
         collision_circle_list(start_x, start_y, 240, _obj_to_hit, false, true, current_hits, true);
-        if(ds_list_size(current_hits) <= 0){
-            exit;      
-        }
+        // if(ds_list_size(current_hits) <= 0){
+        //     exit;      
+        // }
         for(var i = 0; i < ds_list_size(current_hits); i++){
             var instance = ds_list_find_value(current_hits,i);
             if(ds_map_find_value(all_hits, instance.id) != undefined){
@@ -67,7 +67,7 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
             }
             hit = true;
 		    var lightning_instance = instance_create_layer(start_x, start_y, "Particles", obj_lightning);
-            lightning_instance.initialise(current_instance, 4,-10,10);
+            lightning_instance.initialise(current_instance, 2,-6,6);
             lightning_instance.emit_to_instance(_segment_length, _points_per_segment, instance, _time_in_frames);    
             start_x = instance.x;
             start_y = instance.y;
@@ -76,12 +76,15 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
             array_push(all_hits_array, instance.id);
         }
         ds_list_destroy(current_hits);
+        
+        if(hit==true){
+            audiomanager_play_thunder();
+        }
+        
         if(hit == false){
             ds_list_destroy(current_hits);
             ds_map_destroy(all_hits);
             start_death_timer(_time_in_frames);
-            show_debug_message("hits");
-            show_debug_message(array_length(all_hits_array));
             return all_hits_array;
         }
     }

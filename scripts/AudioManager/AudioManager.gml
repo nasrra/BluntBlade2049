@@ -89,3 +89,39 @@ function audiomanager_play_parry_element_fire(){
 function audiomanager_play_pick_up_power_up(){
     audio_play_sound(snd_pickup_power_up, 0, false, 1, 0, random_range(0.9,1.05));
 }
+
+function audiomanager_play_electric_loop(){
+    audio_play_sound(snd_electric_loop, 0, true, 1, 0, random_range(0.8,1));
+}
+
+function audiomanager_stop_electric_loop(){
+    audio_stop_sound(snd_electric_loop);
+}
+
+function audiomanager_play_electric_burst(){
+    // if( audio_exists(snd_electric_burst_1) == true ||
+    //     audio_exists(snd_electric_burst_2) == true){
+    //         exit;
+    // }
+    var i = irandom_range(0,1);
+    switch(i){
+        case 0:
+            audio_play_sound(snd_electric_burst_1, 0, false, 1, 0, random_range(0.8, 1));
+            break;
+        case 1:
+            audio_play_sound(snd_electric_burst_2, 0, false, 1, 0, random_range(0.8, 1));
+            break;
+    }
+}
+
+function audiomanager_play_thunder(){
+    var i = irandom_range(0,1);
+    switch(i){
+        case 0:
+            audio_play_sound(snd_thunder_1, 0, false, 1, 0, random_range(0.8, 1));
+            break;
+        case 1:
+            audio_play_sound(snd_thunder_2, 0, false, 1, 0, random_range(0.8, 1));
+            break;
+    }
+}
