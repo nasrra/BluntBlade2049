@@ -2,6 +2,9 @@
 // You can write your code in this editor
 direction = point_direction(0,0,0,0);
 
+hit = noone;
+on_hit = new EventAction();
+
 // whom this bullet was sent from.
 sender = noone;
 object_to_damage = obj_player;
@@ -36,22 +39,23 @@ function set_object_to_damage(_object){
 }
 
 function check_collisions(){
-    var hit = undefined;    
+    hit = noone;    
     hit = instance_place(x,y,obj_explosive_barrel);
     if(hit != noone){
         hit.hp.damage(damage);
+        on_hit.invoke();
         instance_destroy();
     }
     hit = instance_place(x,y,object_to_damage);
     if(hit != noone){
         hit.hp.damage(damage);
+        on_hit.invoke();
         instance_destroy();
     }
     if(place_meeting(x, y, obj_environment)){
         instance_destroy();
     }
 }
-
 
 light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_height/2),light_size,c_yellow);
 

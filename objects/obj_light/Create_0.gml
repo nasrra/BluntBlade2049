@@ -10,6 +10,8 @@ mod_size_max_frame     = undefined;
 mod_size_frame_change  = undefined;
 mod_size_lerp_speed    = undefined;
 mod_size_decrease      = undefined;
+mod_size_current_cycle = 0;
+mod_size_max_cycle     = 0;
 mod_size_current_frame = 0;
 mod_size_alarm_index   = 0;
 
@@ -45,6 +47,8 @@ function reset_mod_size(){
     mod_size_frame_change  = undefined;
     mod_size_lerp_speed    = undefined;
     mod_size_decrease      = undefined;
+    mod_size_current_cycle = 0;
+    mod_size_max_cycle     = 0;
     mod_size_current_frame = 0;
     mod_size_alarm_index   = 0;
 }
@@ -176,6 +180,20 @@ function start_pulse_size_timed(_size_min, _size_max, _size_frame_change, _size_
     _start_mod_size_alarm(2);
 }
 
+function start_pulse_size_cycled(_size_min, _size_max, _size_frame_change, _size_lerp_speed, _size_max_cycles){
+    mod_size_min           = _size_min;
+    mod_size_max           = _size_max;
+    mod_size_frame_change  = _size_frame_change;
+    mod_size_lerp_speed    = _size_lerp_speed;
+    mod_size_target_size   = _size_max;
+    mod_size_infinite      = true;
+    mod_size_max_cycle     = _size_max_cycle;
+    // start on the lowest size.
+    mod_size_decrease      = false;
+    size                   = _size_min;
+    _start_mod_size_alarm(2);
+}
+
 function _alarm_pulse_size_loop(){
     if(mod_size_infinite == false && mod_size_current_frame == mod_size_max_frame){
         exit;
@@ -190,7 +208,7 @@ function _alarm_pulse_size_loop(){
             mod_size_target_size = mod_size_min;
         }
         else{
-            mod_size_target_size = mod_size_max;
+            mod_size_target_size = mod_size_maxs;
         }
         mod_size_decrease = !mod_size_decrease;
     }

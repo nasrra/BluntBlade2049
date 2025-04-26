@@ -31,7 +31,7 @@ function _update_chain_lightning(){
 }
 
 check_collisions = function(){
-    var hit = undefined;    
+    hit = undefined;    
     hit = instance_place(x,y,obj_explosive_barrel);
     if(hit != noone){
         hit.hp.damage(damage);

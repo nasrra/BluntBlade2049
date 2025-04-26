@@ -9,6 +9,7 @@ alarm_set(0, 1);
 
 function explode(){
     instance_create_layer(x+8,y+8,"Environment",obj_explosion);
+    instance_create_layer(x+8,y+8,"Environment",obj_element_zone_fire);
     instance_destroy();
 }
 

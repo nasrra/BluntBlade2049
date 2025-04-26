@@ -178,7 +178,7 @@ function reset_old_film(){
     layer_set_visible("OldFilmFX", true);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerIntensity", .15);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerSpeed", 30);
-    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 3);
+    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 6);
     fx_set_parameter(old_film_fx, "g_OldFilmSaturation", 1);
     fx_set_parameter(old_film_fx, "g_OldFilmSpeckIntensity", 0);
     fx_set_parameter(old_film_fx, "g_OldFilmBarScale", 0); // 20
@@ -214,7 +214,7 @@ reset_heat_haze();
 
 function turn_on_heat_haze(_speed){
     heat_haze_transition_speed = _speed;
-    heat_haze_target_amount = 4;
+    heat_haze_target_amount = 2;
     alarm_set(heat_haze_alarm_index,1);
 }
 
