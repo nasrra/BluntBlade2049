@@ -1,0 +1,6 @@
+#macro LAYER_LIGHTING     "Lighting"
+#macro LAYER_ENVIRONMENT  "Environment"
+#macro LAYER_BULLET       "Bullet"
+#macro LAYER_CHARACTER    "Character"
+#macro LAYER_ENEMY        "Enemy"
+#macro LAYER_PARTTICLE    "Particle"

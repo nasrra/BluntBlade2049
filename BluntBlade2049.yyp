@@ -115,6 +115,7 @@
     {"id":{"name":"EnemyWaves","path":"scripts/EnemyWaves/EnemyWaves.yy",},},
     {"id":{"name":"EventAction","path":"scripts/EventAction/EventAction.yy",},},
     {"id":{"name":"GameManager","path":"scripts/GameManager/GameManager.yy",},},
+    {"id":{"name":"Layers","path":"scripts/Layers/Layers.yy",},},
     {"id":{"name":"Math","path":"scripts/Math/Math.yy",},},
     {"id":{"name":"ParticleHelper","path":"scripts/ParticleHelper/ParticleHelper.yy",},},
     {"id":{"name":"RoomManager","path":"scripts/RoomManager/RoomManager.yy",},},

@@ -69,7 +69,7 @@ function GunSingleShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y
             var bullets = [];
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
-            var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
+            var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, LAYER_BULLET, bullet_object);
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
             bullet_instance.sender = holder_id;
@@ -99,7 +99,7 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
             var step = spread_shot_spread / max(1,spread_shot_amount - 1);
             for(var i = 0; i<spread_shot_amount; i++){
                 var angle_offset = start_angle_offset + i * step;
-                var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
+                var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, LAYER_BULLET, bullet_object);
                 bullet_instance.move_in_direction(angle_offset);
                 bullet_instance.sender = holder_id;
                 array_push(bullets, bullet_instance);
@@ -124,7 +124,7 @@ function GunBurstShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y,
             var bullets = [];
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
-            var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, "Bullets", bullet_object);
+            var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, LAYER_BULLET, bullet_object);
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
             bullet_instance.sender = holder_id;

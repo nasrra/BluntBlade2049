@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-particles = instance_create_layer(x,y,"Bullets",obj_particle_system);
+particles = instance_create_layer(x,y,LAYER_BULLET,obj_particle_system);
 particles.initialise(part_type_explosion(), x,y);
 particles.set_emission_angle(0,360);
-light = obj_lighting_manager.create_light_source(x,y,light_size,c_orange);
+light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
+light.initialise(light_size,c_orange);
 current_hurt_frame = 0;
 hit_objects = ds_map_create();
 

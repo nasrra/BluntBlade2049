@@ -7,4 +7,5 @@ function check_collisions(){
         instance_destroy();
     }
 }
-light = obj_lighting_manager.create_light_source(x+8,y+8,20,c_green);
+light = instance_create_layer(x+8,y+8,LAYER_LIGHTING,obj_light);
+light.initialise(20,c_green);

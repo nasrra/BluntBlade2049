@@ -32,7 +32,7 @@ function spawn_wave(_wave_index){
             var spawner = spawners[i];
             show_debug_message(i);
             show_debug_message(spawner.spawner_id);
-            instance_create_layer(spawner.x, spawner.y, "Enemies", wave[i]);
+            instance_create_layer(spawner.x, spawner.y, LAYER_ENEMY, wave[i]);
             add_enemy();
         }
     }

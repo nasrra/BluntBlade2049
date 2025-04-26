@@ -8,7 +8,7 @@ move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
 damage_flash = new sh_damage_flash_controller(id, c_white);
 
-element_status = instance_create_layer(0,0,"Characters",obj_element_status);
+element_status = instance_create_layer(0,0,LAYER_CHARACTER,obj_element_status);
 element_status.initialise(id);
 element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
@@ -206,7 +206,7 @@ function check_room_speed_timer(){
     }
 }
 
-hp = instance_create_layer(0,0,"Characters",obj_health);
+hp = instance_create_layer(0,0,LAYER_CHARACTER,obj_health);
 hp.initialise(4,4);
 hp.on_damage.set(function(){
     hp.set_invincible_timed(240);
@@ -251,10 +251,8 @@ function snap_to_position(_x, _y){
     obj_camera.snap_to_target();
 }
 
-ambient_light = undefined;
-function create_ambient_light(){
-    ambient_light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_width/2),20,c_white);
-}
+ambient_light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
+ambient_light.initialise(20,c_white);
 
 function update_ambient_light(){
     ambient_light.x = x;

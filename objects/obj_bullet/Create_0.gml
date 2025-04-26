@@ -57,7 +57,8 @@ function check_collisions(){
     }
 }
 
-light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_height/2),light_size,c_yellow);
+light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
+light.initialise(light_size,c_yellow);
 
 function update_light(){
     if(instance_exists(light)){
@@ -68,7 +69,7 @@ function update_light(){
 
 particles = noone;
 function create_particles(){
-    particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),"Bullets",obj_particle_system);
+    particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),LAYER_BULLET,obj_particle_system);
 }
 
 function update_particles(){
