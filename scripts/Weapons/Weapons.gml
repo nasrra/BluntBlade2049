@@ -225,7 +225,7 @@ function GunGrenadeLauncher(_holder_id, _shoot_alarm_index){
     return base;
 }
 
-function GunParryElementFire(_holder_id, _shoot_alarm_index){
+function GunElementFire(_holder_id, _shoot_alarm_index){
     var base = GunSpreadShot(
         _holder_id,
         undefined,
@@ -238,6 +238,29 @@ function GunParryElementFire(_holder_id, _shoot_alarm_index){
         3,
         90
     );
+    base.play_sound = audiomanager_play_parry_element_fire;
+    return base;
+}
+
+function GunElementElectric(_holder_id, _shoot_alarm_index){
+    var base = GunSingleShot(
+        _holder_id,
+        undefined,
+        obj_lightning,
+        16,
+        16,
+        10,
+        0,
+        _shoot_alarm_index,
+        3,
+        90
+    );
+    base.shoot = function(){
+        var instances = base.shoot();
+        for(var i = 0; i < array_length(instances); i++){
+            instances[i].emit_chain_lightning();
+        }
+    }
     base.play_sound = audiomanager_play_parry_element_fire;
     return base;
 }

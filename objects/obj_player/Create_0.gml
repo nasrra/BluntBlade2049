@@ -291,11 +291,11 @@ function _handle_element_status(){
     switch(element_status.status){
         case ElementType.FIRE:
             show_debug_message("PARRY TYPE: [FIRE]");
-            parry_gun = GunParryElementFire(id);
+            parry_gun = GunElementFire(id);
             break;
         case ElementType.ELECTRIC:
             show_debug_message("PARRY TYPE: [ELECTRIC]");
-            parry_gun = GunParryElementFire(id);
+            parry_gun = GunElementFire(id);
             break;
     }
     parry_gun.angle = angle;

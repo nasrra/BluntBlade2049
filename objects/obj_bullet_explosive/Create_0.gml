@@ -1,4 +1,2 @@
 event_inherited();
-light_max_size = 60;
-light_target_size = light_max_size;
-light.size = light_max_size;
+light.start_pulse_size(0,30,6,0.95);

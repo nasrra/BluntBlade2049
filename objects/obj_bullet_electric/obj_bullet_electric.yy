@@ -1,21 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_element_zone_fire",
+  "%Name":"obj_bullet_electric",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_element_zone_fire",
+  "name":"obj_bullet_electric",
   "overriddenProperties":[],
   "parent":{
-    "name":"Element Zone",
-    "path":"folders/Objects/Environment/Element Zone.yy",
+    "name":"Bullets",
+    "path":"folders/Objects/Bullets.yy",
   },
-  "parentObjectId":{
-    "name":"obj_element_zone",
-    "path":"objects/obj_element_zone/obj_element_zone.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_element_zone_fire",
-    "path":"sprites/spr_element_zone_fire/spr_element_zone_fire.yy",
+    "name":"spr_element_zone_electicity",
+    "path":"sprites/spr_element_zone_electicity/spr_element_zone_electicity.yy",
   },
   "spriteMaskId":null,
   "visible":true,

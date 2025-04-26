@@ -61,6 +61,7 @@
   "resources":[
     {"id":{"name":"font_1","path":"fonts/font_1/font_1.yy",},},
     {"id":{"name":"obj_bullet_default","path":"objects/obj_bullet_default/obj_bullet_default.yy",},},
+    {"id":{"name":"obj_bullet_electric","path":"objects/obj_bullet_electric/obj_bullet_electric.yy",},},
     {"id":{"name":"obj_bullet_explosive","path":"objects/obj_bullet_explosive/obj_bullet_explosive.yy",},},
     {"id":{"name":"obj_bullet_fire","path":"objects/obj_bullet_fire/obj_bullet_fire.yy",},},
     {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},},
