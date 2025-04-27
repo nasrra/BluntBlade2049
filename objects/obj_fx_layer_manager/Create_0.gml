@@ -178,7 +178,7 @@ function reset_old_film(){
     layer_set_visible("OldFilmFX", true);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerIntensity", .15);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerSpeed", 30);
-    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 6);
+    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 4);
     fx_set_parameter(old_film_fx, "g_OldFilmSaturation", 1);
     fx_set_parameter(old_film_fx, "g_OldFilmSpeckIntensity", 0);
     fx_set_parameter(old_film_fx, "g_OldFilmBarScale", 0); // 20

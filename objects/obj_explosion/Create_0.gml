@@ -1,41 +1,42 @@
 /// @description Insert description here
 // You can write your code in this editor
-particles = instance_create_layer(x,y,LAYER_BULLET,obj_particle_system);
-particles.initialise(part_type_explosion(), x,y);
-particles.set_emission_angle(0,360);
-light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(light_size,c_orange,360);
 current_hurt_frame = 0;
 hit_objects = ds_map_create();
 
-function handle_hurt_frames(){
-    var hit_list = ds_list_create();
-    var hits = collision_circle_list(x,y,hurt_radius, obj_enemy, false, true, hit_list, false);
-    for(var i = 0; i < hits; i++){
-        var enemy = ds_list_find_value(hit_list, i);
-        if(ds_map_find_value(hit_objects, enemy.id) == undefined){
-            enemy.hp.damage(1);
-            
-            // if the enemy didnt just die.
-            if(instance_exists(enemy) == true){
-                ds_map_add(hit_objects, enemy.id, true);
-            }
-        }
-    }
-    var hit = collision_circle(x,y,hurt_radius, obj_player, false, true);
-    if(hit != noone && ds_map_find_value(hit_objects, hit.id) == undefined){
-        hit.hp.damage(1);
 
-        // if the player didnt just die.
-        if(instance_exists(hit) == true){
-            ds_map_add(hit_objects, hit.id, true);
-        }
-    }
+light_size  = undefined;
+hurt_radius = undefined;
+hurt_frames = undefined;
+death_time  = undefined;
+part_type   = undefined;
+colour      = undefined;
+audio       = undefined;
+
+function handle_hurt_frames(){
+    check_hits(obj_dyn_entity);
+    check_hits(obj_dyn_environment);
 
     current_hurt_frame += 1;
     if(current_hurt_frame < hurt_frames){
         alarm_set(0, 1);
     }
+}
+
+function check_hits(_obj_to_hit){
+    var hit_list = ds_list_create();
+    var hits = collision_circle_list(x,y,hurt_radius, _obj_to_hit, false, true, hit_list, false);
+    for(var i = 0; i < hits; i++){
+        var entity = ds_list_find_value(hit_list, i);
+        if(ds_map_find_value(hit_objects, entity.id) == undefined){
+            entity.hp.damage(1);
+            
+            // if the enemy didnt just die.
+            if(instance_exists(entity) == true){
+                ds_map_add(hit_objects, entity.id, true);
+            }
+        }
+    }
+    ds_list_destroy(hit_list);
 }
 
 function decay_light(){
@@ -54,10 +55,17 @@ function decay_light(){
 function fx(){
     obj_camera.shake_camera(240,1,15);
     particles.emit(60);
-    audiomanager_play_explosion();
+    audio();
 }
 
-fx();
-alarm_set(0, 1);
-alarm_set(1, 1);
-alarm_set(2, death_time);
+function start(){
+	particles = instance_create_layer(x,y,LAYER_BULLET,obj_particle_system);
+	particles.initialise(part_type, x,y);
+	particles.set_emission_angle(0,360);
+	light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
+	light.initialise(light_size,colour,360);
+    fx();
+    alarm_set(0, 1);
+    alarm_set(1, 1);
+    alarm_set(2, death_time);
+}

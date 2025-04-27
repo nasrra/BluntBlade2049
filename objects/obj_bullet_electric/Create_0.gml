@@ -3,7 +3,7 @@
 
 event_inherited();
 create_trail_particle();
-trail_particle.initialise(part_type_electricity(), sprite_width, sprite_height);
+trail_particle.initialise(part_type_electric(), sprite_width, sprite_height);
 trail_particle.start_stream(3);
 
 // instance_destroy(light);

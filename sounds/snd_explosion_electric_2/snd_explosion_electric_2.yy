@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"snd_explosion_1",
+  "%Name":"snd_explosion_electric_2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":0,
   "bitRate":8,
-  "compression":0,
+  "compression":1,
   "conversionMode":0,
-  "duration":3.048,
-  "name":"snd_explosion_1",
+  "duration":1.992,
+  "name":"snd_explosion_electric_2",
   "parent":{
     "name":"explosion",
     "path":"folders/Sounds/explosion.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":5512,
-  "soundFile":"snd_explosion_1.mp3",
+  "soundFile":"snd_explosion_electric_2.mp3",
   "type":1,
   "volume":1.0,
 }

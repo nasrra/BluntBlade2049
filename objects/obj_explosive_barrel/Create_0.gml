@@ -10,7 +10,7 @@ hp.initialise(1,1);
 alarm_set(0, 1);
 
 function explode(){
-    instance_create_layer(x+8,y+8,LAYER_ENVIRONMENT,obj_explosion);
+    instance_create_layer(x+8,y+8,LAYER_ENVIRONMENT,obj_explosion_bomb);
     instance_create_layer(x+8,y+8,LAYER_ENVIRONMENT,obj_element_zone_fire);
     instance_destroy();
 }

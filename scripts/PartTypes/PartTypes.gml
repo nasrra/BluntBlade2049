@@ -30,7 +30,7 @@ function part_type_parry(){
     return _type;
 }
 
-function part_type_explosion(){
+function part_type_explosion_bomb(){
     var _type = part_type_create();
     
     part_type_shape(_type, pt_shape_square);
@@ -46,7 +46,22 @@ function part_type_explosion(){
     return _type;
 }
 
-function part_type_electricity(){
+function part_type_explosion_electric(){
+    var _type = part_type_create();
+    part_type_shape(_type, pt_shape_line);
+    part_type_color3(_type, make_colour_rgb(0,246,255), make_colour_rgb(0,123,255), c_blue);
+    part_type_alpha3(_type, 1, 0.75, 0);
+    part_type_life(_type, 60, 60);
+    part_type_scale(_type, 0.25, 0.25);
+    part_type_size(_type, 1.0, 2.0, -0.04, 0);
+    part_type_speed(_type,10, 25,-3,0);
+    part_type_direction(_type, 80, 100, 0, 0);
+    part_type_orientation(_type, 0, 360, 0, 45, true);
+
+    return _type;
+}
+
+function part_type_electric(){
     var _type = part_type_create();
 
     part_type_shape(_type, pt_shape_line);

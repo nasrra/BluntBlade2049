@@ -22,7 +22,7 @@ function set_status(_element_status){
             particles.initialise(part_type_fire_trail(), entity_id.sprite_width, entity_id.sprite_height);
             break;
         case ElementType.ELECTRIC:
-            particles.initialise(part_type_electricity(), entity_id.sprite_width, entity_id.sprite_height);
+            particles.initialise(part_type_electric(), entity_id.sprite_width, entity_id.sprite_height);
             break;
 
     }

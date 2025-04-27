@@ -5,7 +5,7 @@
 event_inherited();
 element_type = ElementType.ELECTRIC;
 particles = instance_create_layer(x,y,LAYER_ENVIRONMENT,obj_particle_system);
-particles.initialise(part_type_electricity(), sprite_width, sprite_height);
+particles.initialise(part_type_electric(), sprite_width, sprite_height);
 particles.start_stream(3);
 light = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2), LAYER_LIGHTING, obj_light);
 light.initialise(120, make_colour_rgb(0,246,255), 360);

@@ -2,6 +2,7 @@ hp = instance_create_layer(x,y,LAYER_ENVIRONMENT, obj_health);
 hp.initialise(1, 1);
 
 hp.on_death.set(function(){
+    explode();
     instance_destroy();
 });
 
@@ -41,4 +42,10 @@ function update_lights(){
         // set direction for light to point in.
         instance.dir = point_direction(x+(sprite_width*0.5),y+(sprite_height*0.5),instance.x,instance.y);
     }
+}
+
+function explode(){
+    instance_create_layer(x+8,y+8,LAYER_ENVIRONMENT,obj_explosion_electric);
+    instance_create_layer(x+8,y+8,LAYER_ENVIRONMENT,obj_element_zone_electric);
+    instance_destroy();
 }

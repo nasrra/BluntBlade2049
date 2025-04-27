@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_explosion_3",
+  "%Name":"snd_explosion_bomb_3",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,7 +10,7 @@
   "compression":1,
   "conversionMode":0,
   "duration":3.048,
-  "name":"snd_explosion_3",
+  "name":"snd_explosion_bomb_3",
   "parent":{
     "name":"explosion",
     "path":"folders/Sounds/explosion.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":5512,
-  "soundFile":"snd_explosion_3.mp3",
+  "soundFile":"snd_explosion_bomb_3.mp3",
   "type":1,
   "volume":1.0,
 }
