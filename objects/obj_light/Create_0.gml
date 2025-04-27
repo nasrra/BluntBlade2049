@@ -41,6 +41,10 @@ function initialise(_size, _colour, _fov){
     fov                         = _fov;
 }
 
+function timed_destroy(_time_in_frames){
+    alarm_set(11,_time_in_frames);
+}
+
 function _start_mod_size_alarm(_index){
     // stop the alarm that is currently going.
     if(mod_size_alarm_index != undefined){

@@ -94,6 +94,22 @@ function part_type_bullet_hit(){
     return _type;
 }
 
+function part_type_muzzle_flash(){
+    var _type = part_type_create();
+
+    part_type_shape(_type, pt_shape_square);  
+    part_type_color3(_type, c_yellow, c_yellow, c_yellow);
+    part_type_speed(_type,4, 10,-0.5,0);
+    part_type_scale(_type, 0.1, 0.12);
+    part_type_size(_type, 0.5, 1.0, -0.075, 0);
+    part_type_alpha3(_type, 0.77, 0.5, 0);
+    part_type_direction(_type, 80, 100, 0, 0);
+    part_type_orientation(_type, 0, 360, 0.075, 0.05, true);
+    part_type_life(_type, 40, 60);
+
+    return _type;
+}
+
 function part_type_heal(){
     var _type = part_type_create();
 

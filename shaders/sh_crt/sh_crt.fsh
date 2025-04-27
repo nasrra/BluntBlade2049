@@ -10,7 +10,8 @@ uniform float surface_height;
 void main()
 {
     vec4 colour = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
-    if(mod(floor(v_vTexcoord.y * surface_height), 4.0) < 2.0){
+    //if(mod(floor(v_vTexcoord.y * surface_height), 4.0) < 2.0){
+    if(mod(floor(v_vTexcoord.y * surface_height), 2.0) < 1.0){
         discard;
     }
     gl_FragColor = colour;

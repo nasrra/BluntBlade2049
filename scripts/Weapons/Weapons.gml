@@ -13,6 +13,7 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
     swivel_speed            = 1;
     shoot_loop_alarm_index  = _shoot_alarm_index;
     can_shoot               = true          ;
+    flash_light             = noone;
     
     // function that should be called.
 	shoot = undefined;
@@ -59,6 +60,21 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
         var angled_offset_x = lengthdir_x(offset_x, angle);
         var angled_offset_y = lengthdir_y(offset_y, angle);
         draw_sprite_ext(sprite, 0, x + angled_offset_x, y + angled_offset_y, 1, weapon_y_scale, angle, c_white, 1); // draw weapon.
+        if(instance_exists(flash_light) == true){
+            flash_light.x = x+lengthdir_x(offset_x+length, angle);;
+            flash_light.y = y+lengthdir_y(offset_y+length, angle);;
+        }
+    }
+
+    function spawn_muzzle_flash(_x,_y,_angle){
+        flash_light = instance_create_layer(_x,_y,LAYER_LIGHTING,obj_light);
+        flash_light.initialise(14.5, c_yellow, 145);
+        flash_light.dir = _angle;
+        flash_light.timed_destroy(6);
+        var particles = instance_create_layer(_x,_y,LAYER_PARTICLE, obj_particle_system);
+        particles.initialise(part_type_muzzle_flash(), 0, 0);
+        particles.set_emission_angle(angle-45, angle+45);
+        particles.emit_one_shot(15, 60);
     }
 }
 
@@ -73,6 +89,7 @@ function GunSingleShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
             bullet_instance.sender = holder_id;
+            spawn_muzzle_flash(shoot_point_x,shoot_point_y,angle);
             if(play_sound != undefined){
                 play_sound();
             }
@@ -93,6 +110,7 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
             var start_angle_offset = angle - spread_shot_spread * 0.5;
             var step = spread_shot_spread / max(1,spread_shot_amount - 1);
+            spawn_muzzle_flash(shoot_point_x,shoot_point_y,angle);
             for(var i = 0; i<spread_shot_amount; i++){
                 var angle_offset = start_angle_offset + i * step;
                 var bullet_instance  = instance_create_layer(shoot_point_x, shoot_point_y, LAYER_BULLET, bullet_object);
@@ -124,6 +142,7 @@ function GunBurstShot(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y,
             bullet_instance.move_in_direction(angle);
             array_push(bullets, bullet_instance);
             bullet_instance.sender = holder_id;
+            spawn_muzzle_flash(shoot_point_x,shoot_point_y,angle);
             if(play_sound != undefined){
                 play_sound();
             }
