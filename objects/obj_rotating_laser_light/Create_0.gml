@@ -13,10 +13,10 @@ lights = [
     instance_create_layer(x,y,LAYER_LIGHTING,obj_light)
 ]
 
-lights[0].initialise(500, c_aqua,    45);
-lights[1].initialise(500, c_lime,    45);
-lights[2].initialise(500, c_red,     45);
-lights[3].initialise(500, c_orange,  45);
+lights[0].initialise(light_size, c_aqua,    light_fov);
+lights[1].initialise(light_size, c_lime,    light_fov);
+lights[2].initialise(light_size, c_red,     light_fov);
+lights[3].initialise(light_size, c_orange,  light_fov);
 
 angles = [];
 var length = array_length(lights);
@@ -28,7 +28,9 @@ for (var i = 0; i < length; i++){
 function update_lights(){
     for(var i = 0; i < array_length(lights); i++){
         var instance = lights[i];
-        
+        // instance.size = light_size + (light_size*obj_lighting_manager.music_sync_factor);
+        instance.fov = light_fov + (light_fov * obj_lighting_manager.music_sync_factor);
+
         // clamp within 360 to avoid floating point errors.
 		angles[i] += orbit_speed;
         if(angles[i] >= 360){

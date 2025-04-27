@@ -137,3 +137,9 @@ function audiomanager_play_thunder(){
             break;
     }
 }
+
+function audiomanager_play_music(){
+    // if(audio_exists(snd_music) == false){
+        audio_play_sound(snd_music, 0, true, 1, 0, 1);
+    // }
+}

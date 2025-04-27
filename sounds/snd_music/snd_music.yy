@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_music",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":16,
+  "compression":1,
+  "conversionMode":0,
+  "duration":378.624,
+  "name":"snd_music",
+  "parent":{
+    "name":"music",
+    "path":"folders/Sounds/music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":5512,
+  "soundFile":"snd_music.mp3",
+  "type":1,
+  "volume":0.05,
+}

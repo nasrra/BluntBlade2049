@@ -29,4 +29,6 @@ with(obj_wall){
     Quad(_vb, x*_scale_factor,y*_scale_factor,(x+sprite_width)*_scale_factor, (y+sprite_height)*_scale_factor);
     Quad(_vb, (x+sprite_width)*_scale_factor,y*_scale_factor,x*_scale_factor, (y+sprite_height)*_scale_factor);
 }
-vertex_end(vb)
+vertex_end(vb);
+
+music_sync_loop();

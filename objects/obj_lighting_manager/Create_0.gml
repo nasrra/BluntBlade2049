@@ -24,3 +24,17 @@ vertex_format_add_position_3d();
 
 vf = vertex_format_end();
 vb = vertex_create_buffer();
+
+music_sync_factor = 0;
+music_sync_target_factor = 0.75;
+music_sync_frame_change = 13;
+music_sync_current_frame = 0;
+
+function music_sync_loop(){
+    music_sync_factor = lerp(music_sync_factor, music_sync_target_factor, 0.25);
+    music_sync_current_frame++;
+    if(music_sync_current_frame == music_sync_frame_change){
+        music_sync_target_factor = music_sync_target_factor == 0? 0.75 : 0;
+        music_sync_current_frame = 0;
+    }
+}
