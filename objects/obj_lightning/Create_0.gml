@@ -66,7 +66,7 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
                 continue;
             }
             hit = true;
-		    var lightning_instance = instance_create_layer(start_x, start_y, "Particles", obj_lightning);
+		    var lightning_instance = instance_create_layer(start_x, start_y, LAYER_PARTICLE, obj_lightning);
             lightning_instance.initialise(current_instance, 2,-6,6);
             lightning_instance.emit_to_instance(_segment_length, _points_per_segment, instance, _time_in_frames);    
             start_x = instance.x;
@@ -196,7 +196,7 @@ function _clear_lights(){
 
 function _create_light(_x1,_y1,_x2,_y2){
     var dir = point_direction(_x1,_y1,_x2,_y2);
-    var light = instance_create_layer(_x1,_y1,"Lighting",obj_light);
+    var light = instance_create_layer(_x1,_y1,LAYER_LIGHTING,obj_light);
     light.colour = colour;
     light.fov = 15;
     light.size = 40;

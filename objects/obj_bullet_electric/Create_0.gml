@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 event_inherited();
-particles = instance_create_layer(x,y,"Environment",obj_particle_system);
+particles = instance_create_layer(x,y,LAYER_PARTICLE,obj_particle_system);
 particles.initialise(part_type_electricity(), sprite_width, sprite_height);
 particles.start_stream(3);
 
@@ -14,7 +14,7 @@ light.start_pulse_random_size(120, 20, 220, 6, 0.66);
 lightning = noone;
 
 function _emit_chain_lightning_loop(){
-    lightning = instance_create_layer(x,y,"Particles", obj_lightning);
+    lightning = instance_create_layer(x,y,LAYER_PARTICLE, obj_lightning);
     var hits = lightning.emit_chain_lightning(20, 5, 20, object_to_damage)
     for(var i = 0; i < array_length(hits); i++){
         hits[i].hp.damage(damage);

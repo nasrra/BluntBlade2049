@@ -3,4 +3,4 @@
 #macro LAYER_BULLET       "Bullet"
 #macro LAYER_CHARACTER    "Character"
 #macro LAYER_ENEMY        "Enemy"
-#macro LAYER_PARTTICLE    "Particle"
+#macro LAYER_PARTICLE     "Particle"
