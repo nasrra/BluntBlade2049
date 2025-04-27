@@ -50,7 +50,7 @@ function check_collisions(){
 
 function _lower_status_charges(){
 	status_charges--;
-	if(status_charges < 0){
+	if(status_charges <= 0){
 		instance_destroy();
 	}
 }

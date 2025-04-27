@@ -39,7 +39,6 @@ function move(){
     move_x = lengthdir_x(current_speed, move_dir);
     move_y = lengthdir_y(current_speed, move_dir);
     move_and_collide(move_x, move_y, obj_environment);
-    update_ambient_light();
 }
 
 function block_input(){
@@ -237,6 +236,11 @@ hp.on_death.set(function(){
 });
 hp.on_heal.set(function(){
     obj_ui_manager.update_healthbar(hp.current_value);
+    var heal_particle = instance_create_layer(x,y,LAYER_CHARACTER, obj_particle_system);
+    heal_particle.initialise(part_type_heal(),0,0);
+    heal_particle.emit_one_shot(30,60);
+    light.start_pulse_size_cycled(20, 80, 12, 0.25, 3);
+    light.start_pulse_colour_cycled(c_green, 24, 0.33, 2);
 })
 hp.on_invincible.set(function(){
     // enter damaged state.
@@ -260,12 +264,12 @@ function snap_to_position(_x, _y){
     obj_camera.snap_to_target();
 }
 
-ambient_light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
-ambient_light.initialise(20,c_white);
+light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
+light.initialise(20,c_white);
 
-function update_ambient_light(){
-    ambient_light.x = x;
-    ambient_light.y = y;
+function update_light(){
+    light.x = x;
+    light.y = y;
 }
 
 function _handle_element_status(){

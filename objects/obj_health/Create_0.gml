@@ -66,10 +66,10 @@ function stop_tick_damage_loop(){
 
 function heal(_amount){
     current_value += _amount;
-    on_heal.invoke();
     if(current_value > max_value){
         current_value = max_value;
     }
+    on_heal.invoke();
 }
 
 function set_invincible_timed(_frames){

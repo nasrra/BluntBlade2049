@@ -1,5 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 if(instance_exists(particles) == true){
-	instance_destroy(particles);
+	particles.smooth_destroy(60);
 }

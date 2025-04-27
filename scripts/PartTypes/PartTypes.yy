@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ParticleHelper",
+  "%Name":"PartTypes",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ParticleHelper",
+  "name":"PartTypes",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

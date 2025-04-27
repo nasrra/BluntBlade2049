@@ -2,9 +2,9 @@
 // You can write your code in this editor
 
 event_inherited();
-particles = instance_create_layer(x,y,LAYER_PARTICLE,obj_particle_system);
-particles.initialise(part_type_electricity(), sprite_width, sprite_height);
-particles.start_stream(3);
+create_trail_particle();
+trail_particle.initialise(part_type_electricity(), sprite_width, sprite_height);
+trail_particle.start_stream(3);
 
 // instance_destroy(light);
 // light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_width/2),120, make_colour_rgb(0,246,255));

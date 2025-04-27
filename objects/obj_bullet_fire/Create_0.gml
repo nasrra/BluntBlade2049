@@ -1,7 +1,7 @@
 event_inherited();
-create_particles();
-particles.initialise(part_type_fire_trail(),sprite_width,sprite_height);
-particles.start_stream(6);
+create_trail_particle();
+trail_particle.initialise(part_type_fire_trail(),sprite_width,sprite_height);
+trail_particle.start_stream(6);
 
 on_hit.set(function(){
     if (variable_instance_exists(hit, "element_status")){

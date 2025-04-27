@@ -67,20 +67,28 @@ function update_light(){
     }
 }
 
-particles = noone;
-function create_particles(){
-    particles = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),LAYER_BULLET,obj_particle_system);
+trail_particle = noone;
+function create_trail_particle(){
+    trail_particle = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),LAYER_BULLET,obj_particle_system);
 }
 
 function update_particles(){
-    if(instance_exists(particles) == true){
-        particles.x = x;
-        particles.y = y;
+    if(instance_exists(trail_particle) == true){
+        trail_particle.x = x;
+        trail_particle.y = y;
     }
 }
 
 function set_trail_particle_direction(){
-    if(instance_exists(particles) == true){
-        particles.set_emission_angle(((direction+180) % 360) - 20, ((direction+180) % 360) + 20);
+    if(instance_exists(trail_particle) == true){
+        trail_particle.set_emission_angle(((direction+180) % 360) - 20, ((direction+180) % 360) + 20);
     }
+}
+
+function _spawn_hit_particle(){
+    var hit_particle = instance_create_layer(x+(sprite_width/2),y+(sprite_width/2),LAYER_BULLET, obj_particle_system);
+    var dir = (direction+180) % 360; //opposite of direction;
+    hit_particle.initialise(part_type_bullet_hit(),0,0);
+    hit_particle.set_emission_angle(dir-20, dir+20);
+    hit_particle.emit_one_shot(12,60);
 }

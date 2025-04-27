@@ -3,5 +3,5 @@
 instance_destroy(parry_particle);
 instance_destroy(ambient_light);
 instance_destroy(element_status);
-instance_destroy(damage_particle);
+damage_particle.smooth_destroy(60);
 instance_destroy(hp);

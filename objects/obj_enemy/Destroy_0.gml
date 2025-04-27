@@ -8,6 +8,6 @@ with(id){
 	if(instance_exists(light) == true){
 		instance_destroy(light);
 	}
-	instance_destroy(damage_particle);
+	damage_particle.smooth_destroy(60);
 	instance_destroy(hp);
 }

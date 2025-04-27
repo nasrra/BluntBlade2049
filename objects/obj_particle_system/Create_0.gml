@@ -56,6 +56,11 @@ function emit(_amount){
     part_particles_create(particle_system, x, y, particle_type, _amount);
 }
 
+function emit_one_shot(_amount, _smooth_destroy_time){
+    emit(_amount);
+    alarm_set(0,_smooth_destroy_time);
+}
+
 function set_emission_angle(_min, _max){
     part_type_direction(particle_type, _min, _max, 0, 0);
 }
