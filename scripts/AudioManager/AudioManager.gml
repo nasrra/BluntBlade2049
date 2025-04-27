@@ -1,3 +1,5 @@
+global.music_playing = false;
+
 function audiomanager_play_revolver_shot(){
     audio_play_sound(snd_revolver_1,0,false,1,0,random_range(0.8,1.1));
 }
@@ -139,7 +141,8 @@ function audiomanager_play_thunder(){
 }
 
 function audiomanager_play_music(){
-    // if(audio_exists(snd_music) == false){
+    if(global.music_playing == false){
         audio_play_sound(snd_music, 0, true, 1, 0, 1);
-    // }
+		global.music_playing = true;
+    }
 }
