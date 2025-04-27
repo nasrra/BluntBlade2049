@@ -107,6 +107,7 @@
     {"id":{"name":"obj_room_door_top","path":"objects/obj_room_door_top/obj_room_door_top.yy",},},
     {"id":{"name":"obj_room_door","path":"objects/obj_room_door/obj_room_door.yy",},},
     {"id":{"name":"obj_room_manager","path":"objects/obj_room_manager/obj_room_manager.yy",},},
+    {"id":{"name":"obj_rotating_laser_light_1","path":"objects/obj_rotating_laser_light_1/obj_rotating_laser_light_1.yy",},},
     {"id":{"name":"obj_rotating_laser_light","path":"objects/obj_rotating_laser_light/obj_rotating_laser_light.yy",},},
     {"id":{"name":"obj_spawner_enemy","path":"objects/obj_spawner_enemy/obj_spawner_enemy.yy",},},
     {"id":{"name":"obj_ui_manager","path":"objects/obj_ui_manager/obj_ui_manager.yy",},},
