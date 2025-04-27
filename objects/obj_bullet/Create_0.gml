@@ -40,9 +40,12 @@ function set_object_to_damage(_object){
 
 function check_collisions(){
     hit = noone;    
-    hit = instance_place(x,y,obj_explosive_barrel);
+    hit = instance_place(x,y,obj_dyn_environment);
     if(hit != noone){
-        hit.hp.damage(damage);
+
+        if(variable_instance_exists(hit, "hp")==true){
+            hit.hp.damage(damage);
+        }
         on_hit.invoke();
         instance_destroy();
     }

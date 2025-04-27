@@ -13,7 +13,7 @@
   ],
   "parent":{
     "name":"Enemies",
-    "path":"folders/Objects/Enemies.yy",
+    "path":"folders/Objects/Entity/Enemies.yy",
   },
   "parentObjectId":{
     "name":"obj_enemy",

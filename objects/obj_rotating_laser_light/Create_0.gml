@@ -1,3 +1,9 @@
+hp = instance_create_layer(x,y,LAYER_ENVIRONMENT, obj_health);
+hp.initialise(1, 1);
+
+hp.on_death.set(function(){
+    instance_destroy();
+});
 
 lights = [
     instance_create_layer(x,y,LAYER_LIGHTING,obj_light),

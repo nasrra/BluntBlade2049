@@ -16,11 +16,11 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Enemies",
-    "path":"folders/Objects/Enemies.yy",
+    "path":"folders/Objects/Entity/Enemies.yy",
   },
   "parentObjectId":{
-    "name":"obj_collision",
-    "path":"objects/obj_collision/obj_collision.yy",
+    "name":"obj_dyn_entity",
+    "path":"objects/obj_dyn_entity/obj_dyn_entity.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

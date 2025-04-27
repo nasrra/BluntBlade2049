@@ -16,10 +16,13 @@
   "name":"obj_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Entity",
+    "path":"folders/Objects/Entity.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_dyn_entity",
+    "path":"objects/obj_dyn_entity/obj_dyn_entity.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

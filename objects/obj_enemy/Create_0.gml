@@ -120,6 +120,9 @@ function can_see_target(){
         exit;
     }
     var flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
+    if(collision_line(x, y, target.x, target.y, obj_dyn_environment, true, true) != noone){
+        flag = true;
+    }
     return flag;
 }
 
