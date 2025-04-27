@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-light_size = 5000;
+light_size = 7500;
 hurt_radius = 100;
 hurt_frames = 10;
 death_time = 120;

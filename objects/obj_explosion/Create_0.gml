@@ -47,7 +47,7 @@ function decay_light(){
         instance_destroy(light);
     }
     else{
-        light.size = lerp(light.size, 0, 0.25);
+        light.size = lerp(light.size, 0, 0.33);
     }
     alarm_set(1,1);
 }

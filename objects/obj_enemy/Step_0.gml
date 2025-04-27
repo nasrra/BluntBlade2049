@@ -6,3 +6,4 @@ update_light();
 update_particles();
 update_weapon();
 face_target();
+check_collisions();

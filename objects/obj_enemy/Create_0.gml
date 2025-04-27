@@ -159,3 +159,8 @@ element_status.on_status_set.set(function(){
     hp.start_tick_damage_loop(1, 3, 120);
 });
 
+function check_collisions(){
+    if(place_meeting(x,y,obj_player) == true){
+        obj_player.hp.damage(1);
+    }
+}
