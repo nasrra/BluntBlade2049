@@ -6,7 +6,16 @@ acceleration = 0.25;
 deceleration = 0.50;
 move_dir = point_direction(0, 0, 0, 0);
 input_blocker = false;
+
 damage_flash = new sh_damage_flash_controller(id, c_white);
+damage_particle = instance_create_layer(x,y,LAYER_CHARACTER, obj_particle_system);
+damage_particle.initialise(part_type_entity_damaged(), 0, 0);
+function update_particles(){
+    damage_particle.x = x;
+    damage_particle.y = y;
+    parry_particle.x = x;
+    parry_particle.y = y;
+}
 
 element_status = instance_create_layer(0,0,LAYER_CHARACTER,obj_element_status);
 element_status.initialise(id);
@@ -83,8 +92,8 @@ parry_cbox_timer = 0;
 parry_cbox_alarm_index = 0;
 parry_cbox_hit = false;
 parry_direction = undefined;
-parry_particles = instance_create_layer(x,y,id.layer, obj_particle_system);
-parry_particles.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,id);
+parry_particle = instance_create_layer(x,y,id.layer, obj_particle_system);
+parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,id);
 function enable_parry_collision_box(_parry_direction){
     if(parry_cbox_active == false){
         parry_direction = _parry_direction;
@@ -102,22 +111,22 @@ function _handle_cbox_position(){
     if (parry_direction == PARRY_DIRECTION.LEFT) {
         parry_cbox_x = x - parry_cbox_width;  // Position to the left of the player
         parry_cbox_y = y;
-        parry_particles.set_emission_angle(135, 225);
+        parry_particle.set_emission_angle(135, 225);
     }
     else if (parry_direction == PARRY_DIRECTION.RIGHT) {
         parry_cbox_x = x + parry_cbox_width;  // Position to the right of the player
         parry_cbox_y = y;
-        parry_particles.set_emission_angle(-45, 45);
+        parry_particle.set_emission_angle(-45, 45);
     }
     else if (parry_direction == PARRY_DIRECTION.UP) {
         parry_cbox_x = x;
         parry_cbox_y = y - parry_cbox_height;  // Position above the player
-        parry_particles.set_emission_angle(45, 135);
+        parry_particle.set_emission_angle(45, 135);
     }
     else if (parry_direction == PARRY_DIRECTION.DOWN) {
         parry_cbox_x = x;
         parry_cbox_y = y + parry_cbox_height;  // Position below the player
-        parry_particles.set_emission_angle(225, 315);
+        parry_particle.set_emission_angle(225, 315);
     }
 }
 
@@ -143,9 +152,7 @@ function _check_cbox_collision(){
         if(parried == true){
             audiomanager_play_parry();
             obj_camera.shake_camera(44, 1, 12);
-            parry_particles.x = x;
-            parry_particles.y = y;
-            parry_particles.emit(15);
+            parry_particle.emit(15);
             set_room_speed(9, 1);
             parry_cbox_hit = true;
         }
@@ -214,6 +221,7 @@ hp.on_damage.set(function(){
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
+    damage_particle.emit(20);
 });
 hp.on_tick_damage.set(function(){
     audiomanager_play_player_damaged();
@@ -221,6 +229,7 @@ hp.on_tick_damage.set(function(){
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
+    damage_particle.emit(20);
 });
 hp.on_death.set(function(){
     gamemanager_death_state();

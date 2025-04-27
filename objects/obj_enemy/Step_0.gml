@@ -3,5 +3,6 @@
 set_direction_to_target();
 move();
 update_light();
+update_particles();
 update_weapon();
 face_target();

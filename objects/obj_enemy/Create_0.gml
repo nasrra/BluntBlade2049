@@ -107,7 +107,13 @@ function delete_movement_path(){
 }
 
 damage_flash = new sh_damage_flash_controller(id, c_white);
+damage_particle = instance_create_layer(x,y,LAYER_ENEMY, obj_particle_system);
+damage_particle.initialise(part_type_entity_damaged(), 0, 0);
 
+function update_particles(){
+    damage_particle.x = x;
+    damage_particle.y = y;
+}
 
 function can_see_target(){
     if(instance_exists(target) == false){
@@ -122,17 +128,19 @@ hp.initialise(health_max_value, health_max_value);
 hp.on_damage.set(function(){
     damage_flash.invoke(1,0.5);
     light.start_pulse_size_cycled(10, 80, 6, 0.5, 6);
+    damage_particle.emit(20);
 });
 hp.on_tick_damage.set(function(){
     damage_flash.invoke(1,0.5);
     light.start_pulse_size_cycled(10, 80, 6, 0.5, 6);
+    damage_particle.emit(20);
 });
 hp.on_death.set(function(){instance_destroy();});
 
 alarm_set(movement_path_alarm_index, 1);
 
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(20,c_orange);
+light.initialise(20,c_red);
 
 function update_light(){
     if(!instance_exists(light)){
@@ -147,3 +155,4 @@ element_status.initialise(id);
 element_status.on_status_set.set(function(){
     hp.start_tick_damage_loop(1, 3, 120);
 });
+

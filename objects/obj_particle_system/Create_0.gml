@@ -24,6 +24,7 @@ function update_emitter_position(){
 }
 
 function initialise(_particle_type, _emitter_region_right_offset, _emitter_region_top_offset){
+    // // refresh particle system.
     // if(particle_system != undefined){
     //     // wipe this one for reuse;
     //     emitter = undefined;

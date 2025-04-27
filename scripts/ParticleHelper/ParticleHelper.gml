@@ -19,7 +19,7 @@ function part_type_parry(){
 
     part_type_shape(_type, pt_shape_square);  
     part_type_color3(_type, c_white, c_white, c_white);
-    part_type_scale(_type, 0.075, 0.075);
+    part_type_scale(_type, 0.1, 0.12);
     part_type_size(_type, 0.5, 1.0, -0.05, 0);
     part_type_alpha3(_type, 1, 0.5, 0);
     part_type_speed(_type,3, 6,0,0);
@@ -58,6 +58,22 @@ function part_type_electricity(){
     part_type_speed(_type,2, 4,-0.25,0.25);
     part_type_direction(_type, 0, 360, 0, 0);
     part_type_orientation(_type, 0, 360, 360, 10, true);
+
+    return _type;
+}
+
+function part_type_entity_damaged(){
+    var _type = part_type_create();
+
+    part_type_shape(_type, pt_shape_square);  
+    part_type_color3(_type, c_white, c_red, c_white);
+    part_type_scale(_type, 0.125, 0.175);
+    part_type_size(_type, 0.5, 1.0, -0.05, 0);
+    part_type_alpha3(_type, 1, 0.5, 0);
+    part_type_speed(_type,4, 6,-0.25,0);
+    part_type_direction(_type, 0, 360, 0, 0);
+    part_type_orientation(_type, 0, 360, 0.075, 0.05, true);
+    part_type_life(_type, 60, 60);
 
     return _type;
 }

@@ -3,3 +3,4 @@
 handle_input();
 move();
 update_element_status();
+update_particles();
