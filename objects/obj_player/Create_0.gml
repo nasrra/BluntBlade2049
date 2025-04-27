@@ -265,7 +265,7 @@ function snap_to_position(_x, _y){
 }
 
 light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
-light.initialise(20,c_white);
+light.initialise(20,c_white, 360);
 
 function update_light(){
     light.x = x;

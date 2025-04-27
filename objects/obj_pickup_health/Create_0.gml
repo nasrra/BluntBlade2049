@@ -8,4 +8,4 @@ function check_collisions(){
     }
 }
 light = instance_create_layer(x+8,y+8,LAYER_LIGHTING,obj_light);
-light.initialise(20,c_green);
+light.initialise(20,c_green, 360);

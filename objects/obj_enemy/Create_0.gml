@@ -140,7 +140,7 @@ hp.on_death.set(function(){instance_destroy();});
 alarm_set(movement_path_alarm_index, 1);
 
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(20,c_red);
+light.initialise(20,c_red, 360);
 
 function update_light(){
     if(!instance_exists(light)){

@@ -33,11 +33,12 @@ mod_colour_current_cycle            = 0;
 
 
 // GENERIC:
-function initialise(_size, _colour){
+function initialise(_size, _colour, _fov){
     size                        = _size;
     mod_size_initial_size       = _size;
     colour                      = _colour;
     mod_colour_initial_colour   = _colour;
+    fov                         = _fov;
 }
 
 function _start_mod_size_alarm(_index){

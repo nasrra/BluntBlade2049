@@ -56,9 +56,9 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
 
     function draw(){
         var weapon_y_scale = (direction > 90 && direction < 270)? -1 : 1;
-        var _offset_x = lengthdir_x(offset_x, angle);
-        var _offset_y = lengthdir_y(offset_y, angle);
-        draw_sprite_ext(sprite, 0, x + _offset_x, y + _offset_y, 1, weapon_y_scale, angle, c_white, 1); // draw weapon.
+        var angled_offset_x = lengthdir_x(offset_x, angle);
+        var angled_offset_y = lengthdir_y(offset_y, angle);
+        draw_sprite_ext(sprite, 0, x + angled_offset_x, y + angled_offset_y, 1, weapon_y_scale, angle, c_white, 1); // draw weapon.
     }
 }
 
@@ -89,10 +89,6 @@ function GunSpreadShot(_holder_id,_sprite, _bullet_object, _offset_x, _offset_y,
         spread_shot_spread      = _shot_spread;
         shoot = function shoot(){
             var bullets = [];
-            // show_debug_message(x);
-            // show_debug_message(length);
-            // show_debug_message(offset_x);
-            // show_debug_message(angle);
             var shoot_point_x = x + lengthdir_x(length + offset_x, angle);
             var shoot_point_y = y + lengthdir_y(length + offset_y, angle);
             var start_angle_offset = angle - spread_shot_spread * 0.5;

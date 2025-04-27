@@ -4,7 +4,7 @@ particles = instance_create_layer(x,y,LAYER_BULLET,obj_particle_system);
 particles.initialise(part_type_explosion(), x,y);
 particles.set_emission_angle(0,360);
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(light_size,c_orange);
+light.initialise(light_size,c_orange,360);
 current_hurt_frame = 0;
 hit_objects = ds_map_create();
 
