@@ -62,7 +62,7 @@ function emit_chain_lightning(_segment_length, _points_per_segment, _time_in_fra
         // }
         for(var i = 0; i < ds_list_size(current_hits); i++){
             var instance = ds_list_find_value(current_hits,i);
-            if(ds_map_find_value(all_hits, instance.id) != undefined){
+            if(ds_map_find_value(all_hits, instance.id) != undefined || environment_block(start_x, start_y, instance) == true){
                 continue;
             }
             hit = true;
@@ -208,3 +208,15 @@ function _create_light(_x1,_y1,_x2,_y2){
 function start_death_timer(_time_in_frames){
 	alarm_set(2,_time_in_frames);
 }
+
+function environment_block(_x, _y,_target){
+    if(instance_exists(_target) == false){
+        exit;
+    }
+    var flag = collision_line(_x, _y, _target.x, _target.y, obj_environment, true, true) == noone? false : true;
+    if(collision_line(_x, _y, _target.x, _target.y, obj_dyn_environment, true, true) != noone){
+        flag = false;
+    }
+    return flag;
+}
+
