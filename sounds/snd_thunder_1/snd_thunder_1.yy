@@ -9,7 +9,7 @@
   "bitRate":8,
   "compression":1,
   "conversionMode":0,
-  "duration":2.04,
+  "duration":2.016,
   "name":"snd_thunder_1",
   "parent":{
     "name":"thunder",
@@ -21,5 +21,5 @@
   "sampleRate":5512,
   "soundFile":"snd_thunder_1.mp3",
   "type":1,
-  "volume":0.9,
+  "volume":1.0,
 }
