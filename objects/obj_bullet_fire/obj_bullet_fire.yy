@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bullet_fire",
-    "path":"sprites/spr_bullet_fire/spr_bullet_fire.yy",
+    "name":"spr_bullet_explosive",
+    "path":"sprites/spr_bullet_explosive/spr_bullet_explosive.yy",
   },
   "spriteMaskId":null,
   "visible":true,

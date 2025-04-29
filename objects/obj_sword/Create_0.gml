@@ -11,6 +11,9 @@ parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,i
 on_parry = new EventAction();
 slash_object = noone;
 entity_id = undefined;
+element_type = ElementType.FIRE;
+max_element_charges = 3;
+current_element_charge = max_element_charges;
 
 function initialise(_entity_id){
     entity_id = _entity_id;
@@ -23,12 +26,13 @@ function parry(){
         parry_active = true;
         slash_object = instance_create_layer(x,y,LAYER_PARTICLE,obj_sword_slash);
         slash_object.image_angle = image_angle;
+        _handle_element_type();
         with(slash_object){
             on_hit_bullet = new EventAction();
             on_hit_enemy = new EventAction();
         }
         slash_object.on_hit_bullet.set(function(){
-            if(slash_object.collisions == undefined){
+            if(slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false){
                 exit;
             }
             var instance = ds_map_find_first(slash_object.collisions);
@@ -38,22 +42,22 @@ function parry(){
                     instance.set_object_to_damage(obj_enemy);
                     instance.sender = entity_id;
                     parried = true;
+                    audiomanager_play_parry();
+                    obj_camera.shake_camera(44, 1, 12);
+				    parry_particle.x = x;
+				    parry_particle.y = y;
+                    parry_particle.set_emission_angle(image_angle-45, image_angle+45);
+                    parry_particle.emit(10);
+                    parry_particle.set_emission_angle(image_angle-45-180, image_angle+45-180);
+                    parry_particle.emit(10);
+                    parry_hit = true;
+                    on_parry.invoke();
                 }
-                audiomanager_play_parry();
-                obj_camera.shake_camera(44, 1, 12);
-				parry_particle.x = x;
-				parry_particle.y = y;
-                parry_particle.set_emission_angle(image_angle-45, image_angle+45);
-                parry_particle.emit(10);
-                parry_particle.set_emission_angle(image_angle-45-180, image_angle+45-180);
-                parry_particle.emit(10);
-                parry_hit = true;
-                on_parry.invoke();
                 instance = ds_map_find_next(slash_object.collisions, instance);
             }
         });
         slash_object.on_hit_enemy.set(function(){
-            if(slash_object.collisions == undefined){
+            if(slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false){
                 exit;
             }
             obj_camera.shake_camera(44, 1, 12);
@@ -96,49 +100,40 @@ function _parry_check_loop(){
 function _parry_finish(){
     parry_active = false;
     parry_hit    = false;
-    // show_debug_message("finished parry!");        
 }
 
 
-function _handle_element_status(){
-    if(element_status.status == undefined){
+function _handle_element_type(){
+    if(element_type == ElementType.NONE){
+        slash_object.sprite_index = spr_sword_slash_default;
         exit;
     }
     
     var angle = undefined;
     var parry_gun = undefined;
-
-    switch(parry_direction){
-        case PARRY_DIRECTION.UP:
-            angle = 90;
-            break;
-        case PARRY_DIRECTION.DOWN:
-            angle = 270;
-            break;
-        case PARRY_DIRECTION.LEFT:
-            angle = 180;
-            break;
-        case PARRY_DIRECTION.RIGHT:
-            angle = 0;
-            break;
-    }
-    switch(element_status.status){
+    switch(element_type){
         case ElementType.FIRE:
             show_debug_message("PARRY TYPE: [FIRE]");
             parry_gun = GunElementFire(id);
+            slash_object.sprite_index = spr_sword_slash_fire;
             break;
         case ElementType.ELECTRIC:
             show_debug_message("PARRY TYPE: [ELECTRIC]");
             parry_gun = GunElementElectric(id);
+            slash_object.sprite_index = spr_sword_slash_electric;
             break;
     }
-    parry_gun.angle = angle;
+    parry_gun.angle = image_angle;
     parry_gun.set_position(x,y);
     var bullets = parry_gun.shoot();
     for(var i = 0; i < array_length(bullets); i++){
         bullets[i].light.colour = c_white;
         bullets[i].object_to_damage = obj_enemy; 
+        bullets[i].sender = entity_id;
     }
-    element_status.clear_status();
-    hp.stop_tick_damage_loop();
+    current_element_charge--;
+    if(current_element_charge == 0){
+        current_element_charge = max_element_charges;
+        element_type = ElementType.NONE;
+    }
 }

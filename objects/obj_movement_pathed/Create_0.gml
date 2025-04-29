@@ -69,7 +69,6 @@ function _update_movement_path(){
     }
 
     movement_path_point_index = 1;
-    show_debug_message(array_length(movement_path_points));
     alarm_set(movement_path_alarm_index, 20);
 }
 

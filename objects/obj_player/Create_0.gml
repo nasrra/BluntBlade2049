@@ -27,14 +27,14 @@ element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
     hp.start_tick_damage_loop(1, 3, 120);
-    obj_fx_layer_manager.turn_on_heat_haze(0.25);
+    // obj_fx_layer_manager.turn_on_heat_haze(0.25);
 });
 element_status.on_clear_status.set(function(){
     obj_fx_layer_manager.turn_off_heat_haze(0.25);
 });
 function update_element_status(){
-    element_status.x = x;
-    element_status.y = y;
+    element_status.x = x-sprite_width*0.5;
+    element_status.y = y-sprite_height*0.5;
 }
 
 function block_input(){

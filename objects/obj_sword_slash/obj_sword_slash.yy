@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_slash",
-    "path":"sprites/spr_slash/spr_slash.yy",
+    "name":"spr_sword_slash_default",
+    "path":"sprites/spr_sword_slash_default/spr_sword_slash_default.yy",
   },
   "spriteMaskId":null,
   "visible":true,
