@@ -1,5 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+shield = instance_create_layer(x,y,LAYER_CHARACTER, obj_shield);
+shield_orbit = 20;
+shield_angle = 0;
+shield_keyboard_swivel_speed = 0.05;
+
 movement = instance_create_layer(0,0,LAYER_CHARACTER, obj_movement_input);
 movement.initialise(id, 5, 0.5, 0.75);
 input_blocker = false;
@@ -40,9 +45,12 @@ function handle_input(){
         movement.current_speed = 0;
         exit;
     }
-    var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-    var input_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
     
+    handle_shield_input();
+    
+    var input_x = input_get_move_x();
+    var input_y = input_get_move_y();
+
     if(input_x == 0 && input_y == 0){
         movement.decelerate();
     }
@@ -70,6 +78,41 @@ function handle_input(){
     }
 }
 
+function handle_shield_input(){
+    if(input_is_gamepad_connected() == true){
+        var input_angle = point_direction(0,0,input_get_gamepad_shield_swivel_x(),input_get_gamepad_shield_swivel_y());
+        shield_angle = input_angle > 0? input_angle : shield_angle;
+    }
+    else{
+        var left = input_get_keyboard_shield_swivel_left();
+        var right = input_get_keyboard_shield_swivel_right();
+        var additive = 0;
+        if(left >0 && right >0){
+            shield_angle = shield_angle;    
+        }
+        else if(left >0 && right ==0){
+            additive = point_direction(0,0,left,left) * shield_keyboard_swivel_speed;
+        }
+        else if(left ==0 && right >0){
+            additive = point_direction(0,0,right,right) * -shield_keyboard_swivel_speed;
+        }
+        shield_angle += additive;
+    }
+    if(shield_angle >= 360){
+        shield_angle -= 360;
+    }
+    if(shield_angle <= -360){
+        shield_angle += 360;
+    }
+}
+
+function update_shield(){
+    // set positions.
+    shield.x = x + lengthdir_x(shield_orbit, shield_angle);
+    shield.y = y + lengthdir_y(shield_orbit, shield_angle);
+    // set direction for light to point in.
+    shield.image_angle = point_direction(x,y,shield.x,shield.y);
+}
 
 parry_cbox_width = 30;
 parry_cbox_height = 30;

@@ -50,8 +50,13 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
     }
 
     function update_angle(){
-        var true_angle = angle + angle_difference(direction, angle) * swivel_speed;
-        var clamped_angle = (true_angle % 360 + 360) % 360;
+        var new_angle = angle + angle_difference(direction, angle) * swivel_speed;
+        if(new_angle >= 360){
+            new_angle -= 360;
+        }
+        if(new_angle <= -360){
+            new_angle += 360;
+        }
         angle = clamped_angle;
     }
 

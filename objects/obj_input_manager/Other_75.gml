@@ -1,0 +1,1 @@
+handle_gamepad(async_load[? "pad_index"], async_load[? "event_type"]);

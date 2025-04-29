@@ -36,6 +36,9 @@ function update_lights(){
         if(angles[i] >= 360){
             angles[i] -= 360;
         }
+        if(angles[i] <= -360){
+            angles[i] += 360;
+        }
 
         // set positions.
         instance.x = x +(sprite_width*0.5) + lengthdir_x(orbit_radius, angles[i]);
