@@ -1,10 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-max_speed = 5;
-current_speed = 0;
-acceleration = 0.25;
-deceleration = 0.50;
-move_dir = point_direction(0, 0, 0, 0);
+movement = instance_create_layer(0,0,LAYER_CHARACTER, obj_movement_input);
+movement.initialise(id, 5, 0.5, 0.75);
 input_blocker = false;
 
 damage_flash = new sh_damage_flash_controller(id, c_white);
@@ -33,33 +30,25 @@ function update_element_status(){
     element_status.y = y;
 }
 
-function move(){
-    // calc move direction, normalising the vector so we dont go faster diagonally.
-    // move_dir = point_direction(0,0,input_x, input_y);
-    move_x = lengthdir_x(current_speed, move_dir);
-    move_y = lengthdir_y(current_speed, move_dir);
-    move_and_collide(move_x, move_y, obj_environment);
-}
-
 function block_input(){
     input_blocker = true;
 }
 
 function handle_input(){
     if(input_blocker == true){
-        move_dir = 0;
-        current_speed = 0;
+        movement.move_dir = 0;
+        movement.current_speed = 0;
         exit;
     }
     var input_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
     var input_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
     
     if(input_x == 0 && input_y == 0){
-        current_speed = lerp(current_speed,0,deceleration);
+        movement.decelerate();
     }
     else{
-        current_speed = lerp(current_speed,max_speed,acceleration); 
-        move_dir = point_direction(0, 0, input_x, input_y);
+        movement.accelerate();
+        movement.set_move_direction_by_input(input_x, input_y)
     }
 
     var parry_up    = keyboard_check_pressed(vk_up);

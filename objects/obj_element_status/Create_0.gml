@@ -31,7 +31,6 @@ function set_status(_element_status){
     on_status_set.invoke();
 }    
 
-
 function start_status_loop(){
     current_status_loop_frame = 0; 
     alarm_set(0,1);

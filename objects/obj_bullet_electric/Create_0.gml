@@ -18,6 +18,7 @@ function _emit_chain_lightning_loop(){
     var hits = lightning.emit_chain_lightning(20, 5, 20, object_to_damage)
     for(var i = 0; i < array_length(hits); i++){
         hits[i].hp.damage(damage);
+        // hits[i].element_status.
     }
     alarm_set(0, 40);
 }

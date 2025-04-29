@@ -1,13 +1,11 @@
-* DONE damage flash when an entity is hit.
-* DONE room transitions and room swapping.
-* TODO player i-frames when hit.
-    * DONE timer for i-frames.
-    * DONE multi damage flashing for duration of i-frames.
-    * TODO camera effects when player is hit, (shake, etc..).
-    * TODO Red tint.
-    * TODO Dithering.
-* TODO animation locking during parry (parry window only last for half the time)
-* DONE door enter system.
-* TODO locked doors.
-* TODO knockback when entities are hit.
-* TODO multi shot enemies.
+* TODO Overwhelming with everything in the test room.
+* TODO parry feels awkward.
+* TODO electric bullet pausing enemies when hit.
+* TODO create movement component to attatch to entities.
+* TODO twin stick blocking.
+* TODO swivel blocking with shield.
+    * TODO remove parrying?
+* TODO power up bullets come from deflecting while powered up with status effects.
+* TODO Explosive bullets whittle down shield.
+    * Shield should be health bar?
+
