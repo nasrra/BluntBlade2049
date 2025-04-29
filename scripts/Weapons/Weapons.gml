@@ -189,7 +189,7 @@ function GunRevolver(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        100,
+        60,
         _shoot_alarm_index
     );
     base.play_sound = audiomanager_play_revolver_shot;
@@ -204,7 +204,7 @@ function GunShotgun(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        150,
+        100,
         _shoot_alarm_index,
         5,
         45
@@ -221,9 +221,9 @@ function GunBurstRifle(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        150,
+        100,
         _shoot_alarm_index,
-        20,
+        10,
         6
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;
@@ -238,7 +238,7 @@ function GunGrenadeLauncher(_holder_id, _shoot_alarm_index){
         20,
         20,
         26,
-        200,
+        150,
         _shoot_alarm_index,
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;

@@ -146,3 +146,11 @@ function audiomanager_play_music(){
 		global.music_playing = true;
     }
 }
+
+function audiomanager_play_sword_swing(){
+    audio_play_sound(snd_sword_swing, 0, false, 1, 0, random_range(0.9,1.2));
+}
+
+function audiomanager_play_sword_hit(){
+    audio_play_sound(snd_sword_hit_1, 0, false, 1, 0, random_range(0.9,1.2));
+}

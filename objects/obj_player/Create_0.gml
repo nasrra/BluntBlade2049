@@ -1,10 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-shield = instance_create_layer(x,y,LAYER_CHARACTER, obj_shield);
-shield_orbit = 32;
-shield_angle = 0;
-shield_keyboard_swivel_speed = 0.05;
-shield.on_parry.set(function(){
+sword = instance_create_layer(x,y,LAYER_PARTICLE, obj_sword);
+sword_orbit = 32;
+sword_angle = 0;
+sword_keyboard_swivel_speed = 0.05;
+sword.initialise(id);
+sword.on_parry.set(function(){
     set_room_speed(9, 1);
 });
 
@@ -18,8 +19,6 @@ damage_particle.initialise(part_type_entity_damaged(), 0, 0);
 function update_particles(){
     damage_particle.x = x;
     damage_particle.y = y;
-    parry_particle.x = x;
-    parry_particle.y = y;
 }
 
 element_status = instance_create_layer(0,0,LAYER_CHARACTER,obj_element_status);
@@ -49,7 +48,7 @@ function handle_input(){
         exit;
     }
     
-    handle_shield_input();
+    handle_sword_input();
     
     var input_x = input_get_move_x();
     var input_y = input_get_move_y();
@@ -63,170 +62,44 @@ function handle_input(){
     }
 
     if(input_get_parry() != 0){
-        shield.parry();
+        sword.parry();
     }
-
-    // var parry_up    = keyboard_check_pressed(vk_up);
-    // var parry_down  = keyboard_check_pressed(vk_down);
-    // var parry_left  = keyboard_check_pressed(vk_left);
-    // var parry_right = keyboard_check_pressed(vk_right);
-
-    // if(parry_up == true){
-    //     enable_parry_collision_box(PARRY_DIRECTION.UP);
-    // }
-    // else if(parry_down == true){
-    //     enable_parry_collision_box(PARRY_DIRECTION.DOWN);
-    // }
-    // else if(parry_right == true){
-    //     enable_parry_collision_box(PARRY_DIRECTION.RIGHT);
-    // }
-    // else if(parry_left == true){
-    //     enable_parry_collision_box(PARRY_DIRECTION.LEFT);
-    // }
 }
 
-function handle_shield_input(){
+function handle_sword_input(){
     if(input_is_gamepad_connected() == true){
-        var input_angle = point_direction(0,0,input_get_gamepad_shield_swivel_x(),input_get_gamepad_shield_swivel_y());
-        shield_angle = input_angle > 0? input_angle : shield_angle;
+        var input_angle = point_direction(0,0,input_get_gamepad_aim_swivel_x(),input_get_gamepad_aim_swivel_y());
+        sword_angle = input_angle > 0? input_angle : sword_angle;
     }
     else{
-        var left = input_get_keyboard_shield_swivel_left();
-        var right = input_get_keyboard_shield_swivel_right();
+        var left = input_get_keyboard_aim_swivel_left();
+        var right = input_get_keyboard_aim_swivel_right();
         var additive = 0;
         if(left >0 && right >0){
-            shield_angle = shield_angle;    
+            sword_angle = sword_angle;    
         }
         else if(left >0 && right ==0){
-            additive = point_direction(0,0,left,left) * shield_keyboard_swivel_speed;
+            additive = point_direction(0,0,left,left) * sword_keyboard_swivel_speed;
         }
         else if(left ==0 && right >0){
-            additive = point_direction(0,0,right,right) * -shield_keyboard_swivel_speed;
+            additive = point_direction(0,0,right,right) * -sword_keyboard_swivel_speed;
         }
-        shield_angle += additive;
+        sword_angle += additive;
     }
-    if(shield_angle >= 360){
-        shield_angle -= 360;
+    if(sword_angle >= 360){
+        sword_angle -= 360;
     }
-    if(shield_angle <= -360){
-        shield_angle += 360;
+    if(sword_angle <= -360){
+        sword_angle += 360;
     }
 }
 
-function update_shield(){
+function update_sword(){
     // set positions.
-    shield.x = x + lengthdir_x(shield_orbit, shield_angle);
-    shield.y = y + lengthdir_y(shield_orbit, shield_angle);
+    sword.x = x + lengthdir_x(sword_orbit, sword_angle);
+    sword.y = y + lengthdir_y(sword_orbit, sword_angle);
     // set direction for light to point in.
-    shield.image_angle = point_direction(x,y,shield.x,shield.y);
-}
-
-parry_cbox_width = 30;
-parry_cbox_height = 30;
-parry_cbox_x = 0;
-parry_cbox_y = 0;
-parry_cbox_active = false;
-parry_cbox_timer = 0;
-parry_cbox_alarm_index = 0;
-parry_cbox_hit = false;
-parry_direction = undefined;
-parry_particle = instance_create_layer(x,y,id.layer, obj_particle_system);
-parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,id);
-function enable_parry_collision_box(_parry_direction){
-    if(parry_cbox_active == false){
-        parry_direction = _parry_direction;
-        _handle_element_status();
-        _handle_cbox_position();
-        parry_cbox_timer = 20;
-        parry_cbox_active = true;
-        // show_debug_message("parry!");
-        alarm_set(parry_cbox_alarm_index, 1);
-    }
-}
-
-function _handle_cbox_position(){
-    // Adjust the position of the collision box based on the parry direction
-    if (parry_direction == PARRY_DIRECTION.LEFT) {
-        parry_cbox_x = x - parry_cbox_width;  // Position to the left of the player
-        parry_cbox_y = y;
-        parry_particle.set_emission_angle(135, 225);
-    }
-    else if (parry_direction == PARRY_DIRECTION.RIGHT) {
-        parry_cbox_x = x + parry_cbox_width;  // Position to the right of the player
-        parry_cbox_y = y;
-        parry_particle.set_emission_angle(-45, 45);
-    }
-    else if (parry_direction == PARRY_DIRECTION.UP) {
-        parry_cbox_x = x;
-        parry_cbox_y = y - parry_cbox_height;  // Position above the player
-        parry_particle.set_emission_angle(45, 135);
-    }
-    else if (parry_direction == PARRY_DIRECTION.DOWN) {
-        parry_cbox_x = x;
-        parry_cbox_y = y + parry_cbox_height;  // Position below the player
-        parry_particle.set_emission_angle(225, 315);
-    }
-}
-
-function _check_cbox_collision(){
-    var left = parry_cbox_x - parry_cbox_width / 2;
-    var top = parry_cbox_y - parry_cbox_height / 2;
-    var right = parry_cbox_x + parry_cbox_width / 2;
-    var bottom = parry_cbox_y + parry_cbox_height / 2;
-    var collisions = ds_list_create();
-    var parried = false;
-    collision_rectangle_list(left, top, right, bottom, obj_bullet, true, true, collisions, false);
-
-    // if we successfully parry a bullet.
-    if (ds_list_size(collisions) > 0) {
-        for(var i = 0; i < ds_list_size(collisions); i++){
-            var instance = ds_list_find_value(collisions, i);
-            if(instance.sender != id){
-                instance.send_back_to_sender();
-                instance.set_object_to_damage(obj_enemy);
-                parried = true;
-            }
-        }
-        if(parried == true){
-            audiomanager_play_parry();
-            obj_camera.shake_camera(44, 1, 12);
-            parry_particle.emit(15);
-            set_room_speed(9, 1);
-            parry_cbox_hit = true;
-        }
-    }
-    ds_list_destroy(collisions);
-}
-
-function _check_parry_collision_box(){
-    if(parry_cbox_timer > 0){
-        // check collision and draw collision box.
-        parry_cbox_timer -= 1;
-        _handle_cbox_position();
-        _check_cbox_collision();
-        if(parry_cbox_hit == true){
-            _parry_cbox_finish();
-        }
-        else{
-            alarm_set(parry_cbox_alarm_index, 1);
-        }
-    }
-    else{
-        _parry_cbox_finish();
-    }
-}
-
-function _parry_cbox_finish(){
-    parry_cbox_active = false;
-    parry_cbox_hit = false;
-    // show_debug_message("finished parry!");        
-}
-
-enum PARRY_DIRECTION{
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN
+    sword.image_angle = point_direction(x,y,sword.x,sword.y);
 }
 
 room_speed_timer = 0;
@@ -309,47 +182,4 @@ light.initialise(20,c_white, 360);
 function update_light(){
     light.x = x;
     light.y = y;
-}
-
-function _handle_element_status(){
-    if(element_status.status == undefined){
-        exit;
-    }
-    
-    var angle = undefined;
-    var parry_gun = undefined;
-
-    switch(parry_direction){
-        case PARRY_DIRECTION.UP:
-            angle = 90;
-            break;
-        case PARRY_DIRECTION.DOWN:
-            angle = 270;
-            break;
-        case PARRY_DIRECTION.LEFT:
-            angle = 180;
-            break;
-        case PARRY_DIRECTION.RIGHT:
-            angle = 0;
-            break;
-    }
-    switch(element_status.status){
-        case ElementType.FIRE:
-            show_debug_message("PARRY TYPE: [FIRE]");
-            parry_gun = GunElementFire(id);
-            break;
-        case ElementType.ELECTRIC:
-            show_debug_message("PARRY TYPE: [ELECTRIC]");
-            parry_gun = GunElementElectric(id);
-            break;
-    }
-    parry_gun.angle = angle;
-    parry_gun.set_position(x,y);
-    var bullets = parry_gun.shoot();
-    for(var i = 0; i < array_length(bullets); i++){
-        bullets[i].light.colour = c_white;
-        bullets[i].object_to_damage = obj_enemy; 
-    }
-    element_status.clear_status();
-    hp.stop_tick_damage_loop();
 }

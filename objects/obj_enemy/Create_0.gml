@@ -49,10 +49,11 @@ function can_see_target(){
     if(instance_exists(target) == false){
         exit;
     }
-    var flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
+    var flag = false;
     if(collision_line(x, y, target.x, target.y, obj_dyn_environment, true, true) != noone){
         flag = true;
     }
+    flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
     return flag;
 }
 

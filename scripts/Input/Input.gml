@@ -47,11 +47,11 @@ function input_get_move_y(){
 
 // SHIELD SWIVEL.
 
-function input_get_gamepad_shield_swivel_x(){
+function input_get_gamepad_aim_swivel_x(){
     return gamepad_axis_value(global.gamepad_main, gp_axisrh);
 }
 
-function input_get_gamepad_shield_swivel_y(){
+function input_get_gamepad_aim_swivel_y(){
     return gamepad_axis_value(global.gamepad_main, gp_axisrv);
 }
 
@@ -59,11 +59,11 @@ function input_is_gamepad_connected(){
     return array_length(global.gamepads) > 0;
 }
 
-function input_get_keyboard_shield_swivel_left(){
+function input_get_keyboard_aim_swivel_left(){
     return keyboard_check(vk_left);
 }
 
-function input_get_keyboard_shield_swivel_right(){
+function input_get_keyboard_aim_swivel_right(){
     return keyboard_check(vk_right);
 }
 

@@ -12,8 +12,8 @@
   "duration":2.04,
   "name":"snd_parry_1",
   "parent":{
-    "name":"parry",
-    "path":"folders/Sounds/parry.yy",
+    "name":"sword",
+    "path":"folders/Sounds/sword.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

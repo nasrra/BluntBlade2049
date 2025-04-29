@@ -32,7 +32,10 @@ function check_collisions(){
 		ds_map_add(current_frame_collision_map, list_instance.id, true);
 	}
 
-	var key = ds_map_find_first(previous_frame_collision_map);
+	var key = undefined;
+	if(ds_exists(previous_frame_collision_map, ds_type_map)){
+		key = ds_map_find_first(previous_frame_collision_map);
+	}
 	while(key != undefined){
 		var _instance_id = ds_map_find_value(current_frame_collision_map,key);
 		if(_instance_id == undefined){

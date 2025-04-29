@@ -27,6 +27,9 @@ function check_hits(_obj_to_hit){
     var hits = collision_circle_list(x,y,hurt_radius, _obj_to_hit, false, true, hit_list, false);
     for(var i = 0; i < hits; i++){
         var entity = ds_list_find_value(hit_list, i);
+        if(ds_exists(hit_objects, ds_type_map) == false){
+            continue;
+        }
         if(ds_map_find_value(hit_objects, entity.id) == undefined){
             entity.hp.damage(1);
             

@@ -5,4 +5,4 @@ movement.move();
 update_element_status();
 update_particles();
 update_light();
-update_shield();
+update_sword();

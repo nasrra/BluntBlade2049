@@ -1,6 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-instance_destroy(parry_particle);
 instance_destroy(light);
 instance_destroy(element_status);
 damage_particle.smooth_destroy(60);
