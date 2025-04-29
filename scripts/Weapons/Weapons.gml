@@ -54,10 +54,10 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
         if(new_angle >= 360){
             new_angle -= 360;
         }
-        if(new_angle <= -360){
+        if(new_angle <= 0){
             new_angle += 360;
         }
-        angle = clamped_angle;
+        angle = new_angle;
     }
 
     function draw(){
@@ -189,7 +189,7 @@ function GunRevolver(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        60,
+        100,
         _shoot_alarm_index
     );
     base.play_sound = audiomanager_play_revolver_shot;
@@ -204,7 +204,7 @@ function GunShotgun(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        100,
+        150,
         _shoot_alarm_index,
         5,
         45
@@ -221,9 +221,9 @@ function GunBurstRifle(_holder_id, _shoot_alarm_index){
         16,
         16,
         16,
-        100,
+        150,
         _shoot_alarm_index,
-        10,
+        20,
         6
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;
@@ -238,7 +238,7 @@ function GunGrenadeLauncher(_holder_id, _shoot_alarm_index){
         20,
         20,
         26,
-        150,
+        200,
         _shoot_alarm_index,
     );
     base.play_sound = audiomanager_play_burst_rifle_shot;

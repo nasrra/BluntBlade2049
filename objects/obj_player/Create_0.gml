@@ -1,12 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
 shield = instance_create_layer(x,y,LAYER_CHARACTER, obj_shield);
-shield_orbit = 20;
+shield_orbit = 32;
 shield_angle = 0;
 shield_keyboard_swivel_speed = 0.05;
+shield.on_parry.set(function(){
+    set_room_speed(9, 1);
+});
 
 movement = instance_create_layer(0,0,LAYER_CHARACTER, obj_movement_input);
-movement.initialise(id, 5, 0.5, 0.75);
+movement.initialise(id, 4.5, 0.5, 0.75);
 input_blocker = false;
 
 damage_flash = new sh_damage_flash_controller(id, c_white);
@@ -59,23 +62,27 @@ function handle_input(){
         movement.set_move_direction_by_input(input_x, input_y)
     }
 
-    var parry_up    = keyboard_check_pressed(vk_up);
-    var parry_down  = keyboard_check_pressed(vk_down);
-    var parry_left  = keyboard_check_pressed(vk_left);
-    var parry_right = keyboard_check_pressed(vk_right);
+    if(input_get_parry() != 0){
+        shield.parry();
+    }
 
-    if(parry_up == true){
-        enable_parry_collision_box(PARRY_DIRECTION.UP);
-    }
-    else if(parry_down == true){
-        enable_parry_collision_box(PARRY_DIRECTION.DOWN);
-    }
-    else if(parry_right == true){
-        enable_parry_collision_box(PARRY_DIRECTION.RIGHT);
-    }
-    else if(parry_left == true){
-        enable_parry_collision_box(PARRY_DIRECTION.LEFT);
-    }
+    // var parry_up    = keyboard_check_pressed(vk_up);
+    // var parry_down  = keyboard_check_pressed(vk_down);
+    // var parry_left  = keyboard_check_pressed(vk_left);
+    // var parry_right = keyboard_check_pressed(vk_right);
+
+    // if(parry_up == true){
+    //     enable_parry_collision_box(PARRY_DIRECTION.UP);
+    // }
+    // else if(parry_down == true){
+    //     enable_parry_collision_box(PARRY_DIRECTION.DOWN);
+    // }
+    // else if(parry_right == true){
+    //     enable_parry_collision_box(PARRY_DIRECTION.RIGHT);
+    // }
+    // else if(parry_left == true){
+    //     enable_parry_collision_box(PARRY_DIRECTION.LEFT);
+    // }
 }
 
 function handle_shield_input(){

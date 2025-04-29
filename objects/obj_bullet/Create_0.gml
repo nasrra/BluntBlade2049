@@ -32,6 +32,7 @@ function move(){
 function send_back_to_sender(){
     move_to_object(sender);
     light.colour = c_white;
+    speed *= 2;
 }
 
 function set_object_to_damage(_object){

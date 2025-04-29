@@ -70,7 +70,7 @@ function _update_movement_path(){
 
     movement_path_point_index = 1;
     show_debug_message(array_length(movement_path_points));
-    alarm_set(movement_path_alarm_index, 60);
+    alarm_set(movement_path_alarm_index, 20);
 }
 
 function delete_movement_path(){
@@ -80,4 +80,4 @@ function delete_movement_path(){
 }
 
 // start our movement pathing.
-alarm_set(movement_path_alarm_index, 60);
+alarm_set(movement_path_alarm_index, 20);
