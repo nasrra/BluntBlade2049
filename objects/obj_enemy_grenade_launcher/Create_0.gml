@@ -3,6 +3,9 @@
 
 // Inherit the parent event
 event_inherited();
+if(should_destroy == true){
+	exit;
+}
 id.weapon = GunGrenadeLauncher(id,0);
 id.weapon.swivel_speed = 0.1;
 id.weapon.start_shoot_loop();

@@ -11,12 +11,12 @@ switch(global.game_state){
         break;
 }
 
-if(room_transition_active == true){
-    draw_room_transition();
-}
 
 draw_text(0,15,fps);
 draw_text(0,30,instance_number(obj_light));
 
 draw_crt_lines();
 
+if(room_transition_active == true){
+    draw_room_transition();
+}

@@ -43,7 +43,7 @@ matrix_set(matrix_world, matrix_build(0,0,0,0,0,0,1,1,1));
 
 gpu_set_blendmode_ext(bm_zero, bm_src_color);
 shader_set(sh_shadow_surface);;
-draw_surface_ext(lighting_surface, 0, 0, 2, 2, 0, c_white, 0.8);
+draw_surface_ext(lighting_surface, 0, 0, 2, 2, 0, c_white, shadow_opacity);
 gpu_set_blendmode(bm_normal);
 
 shader_reset();

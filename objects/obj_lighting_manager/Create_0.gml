@@ -9,6 +9,7 @@ light_u_size = shader_get_uniform(sh_light, "u_size");
 light_u_fov = shader_get_uniform(sh_light, "u_fov");
 light_u_direction = shader_get_uniform(sh_light, "u_direction");
 light_u_strength = shader_get_uniform(sh_light, "u_strength");
+shadow_opacity = undefined;
 
 // surface to draw the lighting to, low resolution for performance and crunshy look.
 lighting_surface = surface_create(960, 540);
@@ -38,3 +39,15 @@ function music_sync_loop(){
         music_sync_current_frame = 0;
     }
 }
+
+function set_room_clear_shadow_opacity(){
+    if(roommanager_get_room_cleared(room) == true){
+        shadow_opacity = 0.4;
+    }
+    else{
+        shadow_opacity = 0.8;
+    }
+}
+
+set_room_clear_shadow_opacity();
+

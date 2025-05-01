@@ -11,7 +11,7 @@ parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,i
 on_parry = new EventAction();
 slash_object = noone;
 entity_id = undefined;
-element_type = ElementType.FIRE;
+element_type = ElementType.NONE;
 max_element_charges = 3;
 current_element_charge = max_element_charges;
 
@@ -63,7 +63,9 @@ function parry(){
             obj_camera.shake_camera(44, 1, 12);
             var instance = ds_map_find_first(slash_object.collisions);
             while(instance != undefined){
-                instance.hp.damage(1);
+                if(instance_exists(instance)== true){
+                    instance.hp.damage(1);
+                }
                 instance = ds_map_find_next(slash_object.collisions, instance);
             }
             audiomanager_play_sword_hit();

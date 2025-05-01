@@ -193,6 +193,10 @@ reset_old_film();
 
 
 
+
+
+// Heat Haze.
+
 heat_haze_alarm_index = 4;
 heat_haze_fx = layer_get_fx("HeatHazeFX");
 heat_haze_target_amount = undefined;
@@ -242,3 +246,21 @@ function turn_off_heat_haze(_speed){
     heat_haze_target_amount = 0;
     alarm_set(heat_haze_alarm_index,1);
 }
+
+
+
+
+
+// Zoom Blur
+
+zoom_blur_alarm_index = 5;
+zoom_blur_fx = layer_get_fx("ZoomBlurFX");
+
+function reset_zoom_blur(){
+    layer_set_visible("ZoomBlurFX", true);
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurCenter", [0.5, 0.5]);     // g_ZoomBlurCenter (Array)
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurIntensity", 0.015);        // g_ZoomBlurIntensity (Real)
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurFocusRadius", 0);         // g_ZoomBlurFocusRadius (Real)   
+}
+
+reset_zoom_blur();

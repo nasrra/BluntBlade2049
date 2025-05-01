@@ -5,14 +5,14 @@ waves = [];
 alive_enemies = 0;
 current_wave = 0;
 // loop_waves = false;
-loop_waves = true;
+loop_waves = false;
 function add_enemy(){
     alive_enemies += 1;
 }
 
 function remove_enemy(){
     alive_enemies -= 1;
-    if(alive_enemies <= 0){
+    if(alive_enemies <= 0 && roommanager_get_room_cleared(room) == false){
         spawn_wave(current_wave);
         current_wave +=1;
         if(current_wave >= array_length(waves) && loop_waves == true){
@@ -23,6 +23,8 @@ function remove_enemy(){
 
 function spawn_wave(_wave_index){
     if(_wave_index >= array_length(waves)){
+        roommanager_set_room_cleared(room, true);
+        obj_lighting_manager.set_room_clear_shadow_opacity();
         exit;
     }
     var wave = waves[_wave_index];
@@ -30,8 +32,6 @@ function spawn_wave(_wave_index){
     for(var i = 0; i < array_length(wave); ++i){
         if(wave[i] != undefined){
             var spawner = spawners[i];
-            show_debug_message(i);
-            show_debug_message(spawner.spawner_id);
             instance_create_layer(spawner.x, spawner.y, LAYER_ENEMY, wave[i]);
             add_enemy();
         }

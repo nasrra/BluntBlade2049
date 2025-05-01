@@ -1,10 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+should_destroy = false;
+
+if(roommanager_get_room_cleared(room) == true){
+    instance_destroy();
+    should_destroy = true;
+    exit;
+}
+
 target = obj_player;
 weapon = undefined;
 movement = instance_create_layer(0,0,LAYER_ENEMY,obj_movement_pathed);
 movement.target = target;
+
 
 function set_direction_to_target(){
     if(instance_exists(target)==false){
