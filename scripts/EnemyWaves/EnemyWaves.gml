@@ -7,10 +7,58 @@ function enemy_waves_room_test(){
 	];
 }
 
-function enemy_waves_room_floor_1_1(){
+function enemy_waves_room_1_1(){
 	return [
 		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
-		// [obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
-		// [obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+	];
+}
+
+function enemy_waves_room_1_2(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_revolver, obj_enemy_shotgun],
+		[obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun],
+	];
+}
+
+function enemy_waves_room_1_3(){
+	return [
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+	];
+}
+
+function enemy_waves_room_1_4(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_revolver, obj_enemy_shotgun],
+		[obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun],
+	];
+}
+
+function enemy_waves_room_1_5(){
+	return [
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+	];
+}
+
+function enemy_waves_room_1_6(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_revolver, obj_enemy_shotgun],
+		[obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun],
+	];
+}
+
+function enemy_waves_room_1_7(){
+	return [
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+	];
+}
+
+function enemy_waves_room_1_8(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_revolver, obj_enemy_shotgun],
+		[obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_shotgun],
 	];
 }

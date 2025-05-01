@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_room_cleared",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "bitRate":16,
+  "compression":1,
+  "conversionMode":0,
+  "duration":4.08,
+  "name":"snd_room_cleared",
+  "parent":{
+    "name":"UI",
+    "path":"folders/Sounds/UI.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":5512,
+  "soundFile":"snd_room_cleared.mp3",
+  "type":1,
+  "volume":0.66,
+}

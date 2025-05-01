@@ -154,3 +154,7 @@ function audiomanager_play_sword_swing(){
 function audiomanager_play_sword_hit(){
     audio_play_sound(snd_sword_hit_1, 0, false, 1, 0, random_range(0.9,1.2));
 }
+
+function audiomanager_play_room_cleared(){
+    audio_play_sound(snd_room_cleared, 0, false, 1, 0, 1);
+}
