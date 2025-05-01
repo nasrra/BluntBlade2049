@@ -25,6 +25,8 @@ function spawn_wave(_wave_index){
     if(_wave_index >= array_length(waves)){
         roommanager_set_room_cleared(room, true);
         obj_lighting_manager.set_room_clear_shadow_opacity();
+        var text = instance_create_layer(0,0,LAYER_TEXT, obj_text_wave_screen_space);
+        text.initialise("ROOM CLEARED!", 6.5, 0);
         exit;
     }
     var wave = waves[_wave_index];
