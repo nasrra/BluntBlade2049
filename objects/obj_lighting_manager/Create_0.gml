@@ -16,7 +16,6 @@ shadow_opacity = undefined;
 
 // surface to draw the lighting to, low resolution for performance and crunshy look.
 lighting_surface = surface_create(1920, 1080);
-scale_factor = 1;
 
 // creating a vertex buffer for shadows.
 vertex_format_begin();
