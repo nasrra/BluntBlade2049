@@ -70,7 +70,7 @@ hp = instance_create_layer(0,0,LAYER_ENEMY,obj_health);
 hp.initialise(health_max_value, health_max_value);
 hp.on_damage.set(function(){
     damage_flash.invoke(1,0.5);
-    light.start_pulse_size_cycled(20, 40, 10, 0.5, 2);
+    light.start_pulse_size_cycled(60, 120, 10, 0.5, 2);
     light.start_pulse_colour_cycled(c_white, 10, 0.5, 2);
     damage_particle.emit(20);
 });
@@ -83,7 +83,7 @@ hp.on_death.set(function(){instance_destroy();});
 
 
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(20,c_red, 360);
+light.initialise(60,c_red, 360, 0.00001);
 
 function update_light(){
     if(!instance_exists(light)){

@@ -62,7 +62,7 @@ function check_collisions(){
 }
 
 light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
-light.initialise(light_size,c_yellow, 360);
+light.initialise(light_size,c_yellow, 360, 1);
 
 function update_light(){
     if(instance_exists(light)){

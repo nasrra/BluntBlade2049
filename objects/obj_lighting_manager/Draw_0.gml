@@ -11,37 +11,32 @@ var _vb = vb;
 var _view_x = camera_get_view_x(0);
 var _view_y = camera_get_view_y(0);
 var matrix = matrix_build(-_view_x, -_view_y, 0, 0, 0, 0, 1, 1, 1);
+var surf_scale = 0.5;
+var cam_tx = obj_camera.target_x;
+var cam_ty = obj_camera.target_y;
+var surf_x = cam_tx * 0.5;
+var surf_y = cam_ty * 0.5;
 
-// Set up world matrix and draw base scene
 matrix_set(matrix_world, matrix);
 surface_set_target(lighting_surface);
 draw_clear_alpha(c_black, 0);
 
-var surf_x = obj_camera.target_x * 0.5;
-var surf_y = obj_camera.target_y * 0.5;
-var surf_scale = 0.5;
-
 // Low-opacity base pass
 draw_surface_ext(application_surface, surf_x, surf_y, surf_scale, surf_scale, 0, c_white, shadow_opacity);
 
-// Render lights and shadows
+// Shadow/light passes
 with (obj_light) {
-    var lx = (x - obj_camera.target_x * 0.5);
-    var ly = (y - obj_camera.target_y * 0.5);
+    var lx = x - cam_tx * 0.5;
+    var ly = y - cam_ty * 0.5;
 
-
-    // SHADOW PASS
+    // Shadow pass
     gpu_set_blendmode_ext_sepalpha(bm_zero, bm_one, bm_one, bm_zero);
     shader_set(sh_shadow);
     shader_set_uniform_f(_shadow_u_position, lx, ly);
     shader_set_uniform_f(_shadow_u_cam_pos, surf_x, surf_y);
-    // shader_set_uniform_f(_shadow_u_position, lx - lx, ly - ly);
-    // Pass the world matrix to the shader
-    // var u_matrix = shader_get_uniform(sh_shadow, "u_matrix");
-    // shader_set_uniform_matrix(u_matrix);    
     vertex_submit(_vb, pr_trianglelist, -1);
 
-    // LIGHT PASS
+    // Light pass
     gpu_set_blendmode_ext_sepalpha(bm_inv_dest_alpha, bm_one, bm_zero, bm_zero);
     shader_set(sh_light);
     shader_set_uniform_f(_light_u_position, lx, ly);
@@ -52,14 +47,13 @@ with (obj_light) {
     draw_surface_ext(application_surface, surf_x, surf_y, surf_scale, surf_scale, 0, colour, 1);
 }
 
-// Composite final image
+// Composite
 shader_reset();
 gpu_set_blendmode_ext(bm_zero, bm_src_alpha);
 draw_surface_ext(application_surface, surf_x, surf_y, surf_scale, surf_scale, 0, c_white, 1);
 
 surface_reset_target();
-matrix_set(matrix_world, matrix_build_identity());
-
+matrix_set(matrix_world, matrix_build_identity()); // Optional
 gpu_set_blendmode_ext(bm_dest_alpha, bm_inv_dest_alpha);
 draw_surface_ext(lighting_surface, surf_x, surf_y, 1, 1, 0, c_white, 1);
 gpu_set_blendmode(bm_normal);

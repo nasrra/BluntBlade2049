@@ -241,7 +241,15 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_spawner_enemy","path":"objects/obj_spawner_enemy/obj_spawner_enemy.yy",},"propertyId":{"name":"spawner_id","path":"objects/obj_spawner_enemy/obj_spawner_enemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1216.0,"y":576.0,},
       ],"layers":[],"name":"Spawners","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4284900966,"depth":1600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRTileLayer":"","%Name":"BackgroundTileSet","depth":1600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"BackgroundTileSet","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":26,"SerialiseWidth":45,"TileCompressedData":[
+          -6,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,
+          -33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,
+          -33,1,-12,-2147483648,-38,1,-7,-2147483648,-38,1,-7,-2147483648,-38,1,-7,-2147483648,-38,1,-7,-2147483648,
+          -38,1,-7,-2147483648,-38,1,-7,-2147483648,-33,1,-12,-2147483648,-33,1,-12,-2147483648,-33,1,-24,-2147483648,
+          -21,1,-26,-2147483648,-5,1,-40,-2147483648,-5,1,-40,-2147483648,-5,1,-40,-2147483648,-5,1,-40,-2147483648,
+          -5,1,-40,-2147483648,-5,1,-20,-2147483648,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4284900966,"depth":1700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "name":"room_1_4",
   "parent":{

@@ -33,12 +33,14 @@ mod_colour_current_cycle            = 0;
 
 
 // GENERIC:
-function initialise(_size, _colour, _fov){
+function initialise(_size, _colour, _fov, _strength){
     size                        = _size;
     mod_size_initial_size       = _size;
     colour                      = _colour;
     mod_colour_initial_colour   = _colour;
     fov                         = _fov;
+    strength                    = _strength;
+	show_debug_message(string_join(" ","LIGHT: ",strength));
 }
 
 function timed_destroy(_time_in_frames){

@@ -1,5 +1,4 @@
 attribute vec3 in_Position;
-
 uniform vec2 u_cam_pos;    // Camera position
 uniform vec2 u_position;   // Light source position
 

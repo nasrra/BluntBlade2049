@@ -7,6 +7,7 @@ layers_radius_additive = 0.33;
 layers_angle = 0;
 draw_x_position = undefined;
 draw_y_position = undefined;
+bounce = noone;
 function initialise(_text, _scale, _angle){
     base_initialise(_text, _scale, _angle);
     bounce = instance_create_layer(0,0,layer,obj_animation_bounce);

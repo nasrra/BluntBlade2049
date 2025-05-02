@@ -3,7 +3,7 @@
 current_hurt_frame = 0;
 hit_objects = ds_map_create();
 
-
+light       = noone; 
 light_size  = undefined;
 hurt_radius = undefined;
 hurt_frames = undefined;
@@ -11,6 +11,7 @@ death_time  = undefined;
 part_type   = undefined;
 colour      = undefined;
 audio       = undefined;
+light_strength = undefined;
 
 function handle_hurt_frames(){
     check_hits(obj_dyn_entity);
@@ -32,7 +33,7 @@ function check_hits(_obj_to_hit){
         }
         if(ds_map_find_value(hit_objects, entity.id) == undefined){
             entity.hp.damage(1);
-            
+                        
             // if the enemy didnt just die.
             if(instance_exists(entity) == true){
                 ds_map_add(hit_objects, entity.id, true);
@@ -61,12 +62,14 @@ function fx(){
     audio();
 }
 
-function start(){
+function initialise(){
 	particles = instance_create_layer(x,y,LAYER_BULLET,obj_particle_system);
 	particles.initialise(part_type, x,y);
 	particles.set_emission_angle(0,360);
 	light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-	light.initialise(light_size,colour,360);
+	show_debug_message(string_join(" ","EXPLOSION: ",light_strength));
+    light.initialise(light_size, colour, 360, light_strength);
+	light.strength = light_strength;
     fx();
     alarm_set(0, 1);
     alarm_set(1, 1);

@@ -131,7 +131,7 @@ hp.on_damage.set(function(){
     obj_ui_manager.update_healthbar(hp.current_value);
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
-    damage_flash.invoke(6,2);
+damage_flash.invoke(6,2);
     damage_particle.emit(20);
 });
 hp.on_tick_damage.set(function(){
@@ -151,7 +151,7 @@ hp.on_heal.set(function(){
     var heal_particle = instance_create_layer(x,y,LAYER_CHARACTER, obj_particle_system);
     heal_particle.initialise(part_type_heal(),0,0);
     heal_particle.emit_one_shot(30,60);
-    light.start_pulse_size_cycled(20, 80, 12, 0.25, 3);
+    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
     light.start_pulse_colour_cycled(c_green, 24, 0.33, 2);
 })
 hp.on_invincible.set(function(){
@@ -177,8 +177,7 @@ function snap_to_position(_x, _y){
 }
 
 light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
-light.initialise(100,c_white, 360);
-light.strength = 0.00001;
+light.initialise(100,c_white, 360, 0.00001);
 
 function update_light(){
     light.x = x;
