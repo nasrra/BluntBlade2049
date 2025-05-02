@@ -1,6 +1,7 @@
 // position of the pixel.
 varying vec2 position;
 varying vec4 colour;
+varying vec2 v_vTexcoord;
 
 // position of the light.
 uniform vec2 u_position;
@@ -17,8 +18,8 @@ void main(){
     vec2 distance = position - u_position;
 
     // set the strength to get stronger the closer this pixel is to the light source's position.
-    // float strength = 1./(sqrt(distance.x*distance.x + distance.y*distance.y + u_size*u_size)-u_size+1.-u_strength);
-    float strength = 1./(sqrt(distance.x*distance.x + distance.y*distance.y + u_size*u_size)-u_size)*u_strength;
+    float strength = 1./(sqrt(distance.x*distance.x + distance.y*distance.y + u_size*u_size)-u_size+1.-u_strength);
+    //float strength = 1./(sqrt(distance.x*distance.x + distance.y*distance.y + u_size*u_size)-u_size)*u_strength;
 
     float direction = radians(u_direction);
     float fov = radians(u_fov) * 0.5;
@@ -39,7 +40,9 @@ void main(){
         }
     }
 
-    gl_FragColor = colour * vec4(vec3(strength),1.);
+    vec4 frag = texture2D(gm_BaseTexture, v_vTexcoord);
+
+    gl_FragColor = colour * vec4(vec3(strength),1.)*frag;
 }
 
 

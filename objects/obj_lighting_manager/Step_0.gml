@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+// layer_set_visible(layer_get_id("Background"), false);
+
 function Quad(_vb, _x1, _y1, _x2, _y2){
     vertex_position_3d(_vb, _x1, _y1,0);
     vertex_position_3d(_vb, _x1, _y1,1);
@@ -10,6 +12,7 @@ function Quad(_vb, _x1, _y1, _x2, _y2){
     vertex_position_3d(_vb, _x2, _y2,0);
     vertex_position_3d(_vb, _x2, _y2,1);
 }
+
 
 if(mouse_check_button_pressed(mb_left)){
         instance_create_depth(mouse_x, mouse_y, depth, obj_light);

@@ -30,8 +30,8 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"orbit_radius","filters":[],"listItems":[],"multiselect":false,"name":"orbit_radius","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"orbit_speed","filters":[],"listItems":[],"multiselect":false,"name":"orbit_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"light_size","filters":[],"listItems":[],"multiselect":false,"name":"light_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5000","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"light_fov","filters":[],"listItems":[],"multiselect":false,"name":"light_fov","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.5","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"light_size","filters":[],"listItems":[],"multiselect":false,"name":"light_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"light_fov","filters":[],"listItems":[],"multiselect":false,"name":"light_fov","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"45","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"colour","filters":[],"listItems":[],"multiselect":false,"name":"colour","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"c_lime","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"reverse","filters":[],"listItems":[],"multiselect":false,"name":"reverse","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
   ],

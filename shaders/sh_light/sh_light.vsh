@@ -1,5 +1,8 @@
 attribute vec3 in_Position;                  // (x,y,z)
 attribute vec4 in_Colour;
+attribute vec2 in_TextureCoord;
+
+varying vec2 v_vTexcoord;
 
 // position of the pixel, passing to the frag shader.
 varying vec2 position;
@@ -13,4 +16,6 @@ void main(){
     // make position persist to the fragment shader.
     position = in_Position.xy;
     colour = in_Colour;
+
+    v_vTexcoord = in_TextureCoord;
 }

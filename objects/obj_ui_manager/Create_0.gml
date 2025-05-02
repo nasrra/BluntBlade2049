@@ -258,30 +258,3 @@ function update_room_transition_position(){
         alarm_set(room_transition_alarm_index, 1);
     }
 }
-
-// disable application drawing.
-application_surface_draw_enable(false);
-
-// surface variable.
-crt_surface =  surface_create(1920, 1080);
-
-// handle
-surface_width = shader_get_uniform(sh_crt, "surface_width");
-surface_height = shader_get_uniform(sh_crt, "surface_height");
-
-function draw_crt_lines(){
-    surface_copy(crt_surface, 0,0,application_surface);
-
-    shader_set(sh_crt);
-
-    shader_set_uniform_f(
-        surface_width,
-        surface_get_width(crt_surface)
-    );
-    shader_set_uniform_f(
-        surface_height,
-        surface_get_height(crt_surface)
-    );
-    draw_surface(crt_surface,0,0);
-    shader_reset();
-}
