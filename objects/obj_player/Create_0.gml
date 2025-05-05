@@ -6,10 +6,12 @@ sword_angle = 0;
 sword_keyboard_swivel_speed = 0.05;
 sword.initialise(id);
 sword.on_parry.set(function(){
+    obj_camera.shake_camera(44, 1, 12);
     set_room_speed(9, 1);
 });
 
 sword.on_hit.set(function(){
+    obj_camera.shake_camera(44, 1, 12);
     set_room_speed(9, 1);
 });
 
