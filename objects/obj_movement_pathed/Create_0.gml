@@ -18,7 +18,7 @@ move = function move(){
     var avoidance = 16;
     
     var other_enemy = instance_place(px, py, obj_enemy);
-    if(other_enemy != noone && other_enemy.id != id && point_distance(other_enemy.x, other_enemy.y, px, py) <= avoidance){
+    if(other_enemy != noone && other_enemy.id != entity_id && point_distance(other_enemy.x, other_enemy.y, px, py) <= avoidance){
         exit;
     } 
 

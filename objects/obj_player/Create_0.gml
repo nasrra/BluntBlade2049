@@ -124,15 +124,17 @@ function check_room_speed_timer(){
     }
 }
 
+var global_health = player_get_global_health();
 hp = instance_create_layer(0,0,LAYER_CHARACTER,obj_health);
-hp.initialise(4,4);
+hp.initialise(4,global_health!=undefined?global_health:4);
 hp.on_damage.set(function(){
     hp.set_invincible_timed(240);
     obj_ui_manager.update_healthbar(hp.current_value);
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
-damage_flash.invoke(6,2);
+    damage_flash.invoke(6,2);
     damage_particle.emit(20);
+    player_set_global_health(hp.current_value);
 });
 hp.on_tick_damage.set(function(){
     audiomanager_play_player_damaged();
@@ -141,9 +143,11 @@ hp.on_tick_damage.set(function(){
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
     damage_particle.emit(20);
+    player_set_global_health(hp.current_value);
 });
 hp.on_death.set(function(){
     gamemanager_death_state();
+    player_set_global_health(hp.max_value);
     instance_destroy();
 });
 hp.on_heal.set(function(){
@@ -153,6 +157,7 @@ hp.on_heal.set(function(){
     heal_particle.emit_one_shot(30,60);
     light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
     light.start_pulse_colour_cycled(c_green, 24, 0.33, 2);
+    player_set_global_health(hp.current_value);
 })
 hp.on_invincible.set(function(){
     // enter damaged state.

@@ -86,8 +86,7 @@ function draw_death_text(){
 function death_input(){
     var input = keyboard_check_pressed(vk_anykey);
     if(input == true){
-        room_restart();
-        gamemanager_gameplay_state();
+        gamemanager_restart_game();
     }
 }
 

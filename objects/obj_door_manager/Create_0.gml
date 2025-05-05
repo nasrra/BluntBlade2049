@@ -7,6 +7,7 @@ doors[DoorId.RIGHT] = undefined;
 
 function spawn_player_at_door(){
     if(global.room_to_load_enter_point != undefined){
+        show_debug_message("spawn_player_at_door()");
         var position = doors[global.room_to_load_enter_point].get_exit_position();
         obj_player.snap_to_position(position.x, position.y);
     }

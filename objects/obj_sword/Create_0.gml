@@ -36,7 +36,7 @@ function parry(){
                 exit;
             }
             var instance = ds_map_find_first(slash_object.collisions);
-            while(instance != undefined){
+            while(instance != undefined && instance_exists(instance) == true){
                 if(instance.sender != entity_id){
                     instance.send_back_to_sender();
                     instance.set_object_to_damage(obj_enemy);
