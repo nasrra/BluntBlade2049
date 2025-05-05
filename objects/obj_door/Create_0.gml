@@ -1,3 +1,5 @@
+/// @description Insert description here
+// You can write your code in this editor
 player_entered = false;
 locked = false;
 room_transition_movement = undefined;
@@ -22,10 +24,10 @@ function get_exit_position(){
 
 function set_locked(){
     locked = true;
-    sprite_index = spr_door_locked;
+    sprite_index = sprite_locked;
 }
 
 function set_unlocked(){
     locked = false;
-    sprite_index = spr_door_unlocked;
+    sprite_index = sprite_unlocked;
 }

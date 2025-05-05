@@ -67,3 +67,7 @@ function set_left_door(_id){
 function set_right_door(_id){
     doors[DoorId.RIGHT] = _id;
 }
+
+function set_floor_door(_id){
+    doors[DoorId.FLOOR] = _id;
+}

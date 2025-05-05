@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_room_door",
+  "%Name":"obj_door",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_room_door",
+  "name":"obj_door",
   "overriddenProperties":[],
   "parent":{
     "name":"Room Doors",
@@ -28,16 +28,15 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"room_to_goto","filters":[],"listItems":[],"multiselect":false,"name":"room_to_goto","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"sprite_locked","filters":[],"listItems":[],"multiselect":false,"name":"sprite_locked","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"sprite_unlocked","filters":[],"listItems":[],"multiselect":false,"name":"sprite_unlocked","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
     {"$GMObjectProperty":"v1","%Name":"exit_position_x","filters":[],"listItems":[],"multiselect":false,"name":"exit_position_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"exit_position_y","filters":[],"listItems":[],"multiselect":false,"name":"exit_position_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_door_unlocked",
-    "path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

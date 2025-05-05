@@ -137,7 +137,7 @@ function check_room_transition(){
     if(global.current_room_transition_movement == undefined){
         exit;
     }
-    show_debug_message(global.current_room_transition_movement);
+    // show_debug_message(global.current_room_transition_movement);
     var set_up = global.current_room_transition_setup == RoomTransitionSetup.EXIT? RoomTransitionSetup.ENTER : RoomTransitionSetup.EXIT;
     start_room_transition(global.current_room_transition_movement, set_up);
 }
@@ -152,7 +152,7 @@ function start_room_transition(_room_transition_movement, _room_transition_setup
     }
     global.current_room_transition_movement = _room_transition_movement;
     global.current_room_transition_setup = _room_transition_setup;
-    show_debug_message("start room transition!");
+    // show_debug_message("start room transition!");
     alarm_set(room_transition_alarm_index, 1);
 }
 
@@ -242,10 +242,10 @@ function update_room_transition_position(){
 
     room_transition_current_offset_x+=lengthdir_x(movement, dir);
     room_transition_current_offset_y+=lengthdir_y(movement, dir);
-    show_debug_message(room_transition_current_offset_x);
-    show_debug_message(room_transition_current_offset_y);
+    // show_debug_message(room_transition_current_offset_x);
+    // show_debug_message(room_transition_current_offset_y);
     if(dist <= 1){
-        show_debug_message("room transition completed!");
+        // show_debug_message("room transition completed!");
         // if we are entering a room, dont transition;
         if(global.current_room_transition_setup == RoomTransitionSetup.ENTER){
             exit;

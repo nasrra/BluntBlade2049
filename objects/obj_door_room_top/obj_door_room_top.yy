@@ -1,21 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"obj_room_door_right",
+  "%Name":"obj_door_room_top",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_room_door_right",
+  "name":"obj_door_room_top",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_room_door","path":"objects/obj_room_door/obj_room_door.yy",},"propertyId":{"name":"exit_position_x","path":"objects/obj_room_door/obj_room_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-16",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"exit_position_y","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"24",},
   ],
   "parent":{
     "name":"Room Doors",
     "path":"folders/Objects/Room Doors.yy",
   },
   "parentObjectId":{
-    "name":"obj_room_door",
-    "path":"objects/obj_room_door/obj_room_door.yy",
+    "name":"obj_door_room",
+    "path":"objects/obj_door_room/obj_door_room.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

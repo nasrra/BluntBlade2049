@@ -63,7 +63,7 @@ function parry(){
             obj_camera.shake_camera(44, 1, 12);
             var instance = ds_map_find_first(slash_object.collisions);
             while(instance != undefined){
-                if(instance_exists(instance)== true){
+                if(is_string(instance) == false && instance_exists(instance)== true){
                     instance.hp.damage(1);
                 }
                 instance = ds_map_find_next(slash_object.collisions, instance);
