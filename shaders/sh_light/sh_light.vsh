@@ -1,3 +1,5 @@
+precision lowp float;
+
 attribute vec3 in_Position;                  // (x,y,z)
 attribute vec4 in_Colour;
 attribute vec2 in_TextureCoord;

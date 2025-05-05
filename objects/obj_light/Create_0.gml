@@ -40,7 +40,7 @@ function initialise(_size, _colour, _fov, _strength){
     mod_colour_initial_colour   = _colour;
     fov                         = _fov;
     strength                    = _strength;
-	show_debug_message(string_join(" ","LIGHT: ",strength));
+	// show_debug_message(string_join(" ","LIGHT: ",strength));
 }
 
 function timed_destroy(_time_in_frames){

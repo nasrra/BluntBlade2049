@@ -1,4 +1,4 @@
-target          = obj_player;
+target          = obj_camera_target;
 
 // 480p for pixel art stuff.
 camera_width       = 960;
@@ -28,8 +28,8 @@ function update_position(){
     target_y += offset_y;
 
     // clamp the x and y of the camera so it desnt go outside of the room.
-    target_x = clamp(target_x, 0, room_width - camera_width);
-    target_y = clamp(target_y, 0, room_height - camera_height);
+    // target_x = clamp(target_x, 0, room_width - camera_width);
+    // target_y = clamp(target_y, 0, room_height - camera_height);
 
     // lerp to desired position.
     target_x = lerp(previous_x, target_x, smooth_factor);

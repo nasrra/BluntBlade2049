@@ -15,7 +15,7 @@ light_u_strength = shader_get_uniform(sh_light, "u_strength");
 shadow_opacity = undefined;
 
 // surface to draw the lighting to, low resolution for performance and crunshy look.
-lighting_surface = surface_create(1920, 1080);
+lighting_surface = surface_create(960, 540);
 
 // creating a vertex buffer for shadows.
 vertex_format_begin();
@@ -44,10 +44,10 @@ function music_sync_loop(){
 
 function set_room_clear_shadow_opacity(){
     if(roommanager_get_room_cleared(room) == true){
-        shadow_opacity = 0.6;
+        shadow_opacity = 0.33;
     }
     else{
-        shadow_opacity = 0.2;
+        shadow_opacity = 0.15;
     }
 }
 

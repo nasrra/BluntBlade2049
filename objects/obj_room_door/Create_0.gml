@@ -19,3 +19,13 @@ function handle_collisions(){
 function get_exit_position(){
     return new Vector2(x+exit_position_x, y+exit_position_y);
 }
+
+function set_locked(){
+    locked = true;
+    sprite_index = spr_door_locked;
+}
+
+function set_unlocked(){
+    locked = false;
+    sprite_index = spr_door_unlocked;
+}
