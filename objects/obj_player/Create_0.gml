@@ -9,6 +9,10 @@ sword.on_parry.set(function(){
     set_room_speed(9, 1);
 });
 
+sword.on_hit.set(function(){
+    set_room_speed(9, 1);
+});
+
 movement = instance_create_layer(0,0,LAYER_CHARACTER, obj_movement_input);
 movement.initialise(id, 4.5, 0.5, 0.75);
 input_blocker = false;

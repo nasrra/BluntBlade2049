@@ -32,6 +32,7 @@ function spawn_wave(_wave_index){
         else{
             text.initialise("FLOOR CLEARED!", 6.5, 0);
         }
+        text.start_lifetime_timer(240);
         obj_lighting_manager.set_room_clear_shadow_opacity();
         audiomanager_play_room_cleared();
         obj_door_manager.unlock_doors();

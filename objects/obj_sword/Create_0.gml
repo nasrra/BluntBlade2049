@@ -9,6 +9,7 @@ parry_hit               = false;
 parry_particle          = instance_create_layer(x,y,id.layer, obj_particle_system);
 parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,id);
 on_parry = new EventAction();
+on_hit = new EventAction();
 slash_object = noone;
 entity_id = undefined;
 element_type = ElementType.NONE;
@@ -68,6 +69,7 @@ function parry(){
                 }
                 instance = ds_map_find_next(slash_object.collisions, instance);
             }
+            on_hit.invoke();
             audiomanager_play_sword_hit();
         });
         audiomanager_play_sword_swing();

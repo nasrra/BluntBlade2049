@@ -11,7 +11,7 @@ bounce = noone;
 function initialise(_text, _scale, _angle){
     base_initialise(_text, _scale, _angle);
     bounce = instance_create_layer(0,0,layer,obj_animation_bounce);
-    bounce.initialise(scale, scale, scale*0.5, 30, 0.05);
+    bounce.initialise(scale, scale, scale*bounce_factor, 30, 0.05);
     bounce.start_bounce_from_zero();
     scale = 0;
 }
@@ -30,8 +30,6 @@ function draw(){
     draw_set_color(c_white);
     layers_angle += 8;
 }
-
-start_lifetime_timer(240);
 on_lifetime_end.set(function(){
     start_destroy_timer(120);
     bounce.start_bounce_to_zero();
