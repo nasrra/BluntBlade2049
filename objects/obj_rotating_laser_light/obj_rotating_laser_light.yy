@@ -14,8 +14,8 @@
     "path":"folders/Objects/Environment/Dynamics.yy",
   },
   "parentObjectId":{
-    "name":"obj_dyn_environment",
-    "path":"objects/obj_dyn_environment/obj_dyn_environment.yy",
+    "name":"obj_environment",
+    "path":"objects/obj_environment/obj_environment.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

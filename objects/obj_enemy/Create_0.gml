@@ -84,6 +84,7 @@ hp.on_tick_damage.set(function(){
             break;
         case ElementType.ELECTRIC:
             light.start_pulse_colour_cycled(c_electric, 24, 0.33, 2);
+            stun();
             break;
     }
     audiomanager_play_player_damaged();
@@ -115,4 +116,9 @@ function check_collisions(){
     if(place_meeting(x,y,obj_player) == true){
         obj_player.hp.damage(1);
     }
+}
+
+
+function stun(){
+    movement.mod_speed_timed(0,30);
 }

@@ -161,6 +161,7 @@ hp.on_tick_damage.set(function(){
             break;
         case ElementType.ELECTRIC:
             light.start_pulse_colour_cycled(c_electric, 24, 0.33, 2);
+            stun();
             break;
     }
 
@@ -213,4 +214,8 @@ light.initialise(100,c_white, 360, 0.00001);
 function update_light(){
     light.x = x;
     light.y = y;
+}
+
+function stun(){
+    movement.mod_speed_timed(0,30);
 }

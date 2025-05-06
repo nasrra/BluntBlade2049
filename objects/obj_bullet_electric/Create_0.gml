@@ -9,6 +9,7 @@ trail_particle.start_stream(3);
 // instance_destroy(light);
 // light = obj_lighting_manager.create_light_source(x+(sprite_width/2),y+(sprite_width/2),120, make_colour_rgb(0,246,255));
 light.colour = make_colour_rgb(0,246,255);
+light.strength = 0.025;
 light.start_pulse_random_size(120, 20, 220, 6, 0.66);
 
 lightning = noone;
@@ -17,6 +18,7 @@ function _emit_chain_lightning_loop(){
     lightning = instance_create_layer(x,y,LAYER_PARTICLE, obj_lightning);
     var hits = lightning.emit_chain_lightning(20, 5, 20, object_to_damage)
     for(var i = 0; i < array_length(hits); i++){
+        hits[i].stun();
         hits[i].hp.damage(damage);
         // hits[i].element_status.
     }

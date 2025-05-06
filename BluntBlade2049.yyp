@@ -118,6 +118,7 @@
     {"id":{"name":"obj_movement_pathed","path":"objects/obj_movement_pathed/obj_movement_pathed.yy",},},
     {"id":{"name":"obj_movement","path":"objects/obj_movement/obj_movement.yy",},},
     {"id":{"name":"obj_particle_system","path":"objects/obj_particle_system/obj_particle_system.yy",},},
+    {"id":{"name":"obj_pickup_electric","path":"objects/obj_pickup_electric/obj_pickup_electric.yy",},},
     {"id":{"name":"obj_pickup_fire","path":"objects/obj_pickup_fire/obj_pickup_fire.yy",},},
     {"id":{"name":"obj_pickup_health","path":"objects/obj_pickup_health/obj_pickup_health.yy",},},
     {"id":{"name":"obj_pickup","path":"objects/obj_pickup/obj_pickup.yy",},},

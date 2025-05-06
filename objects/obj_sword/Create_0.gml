@@ -129,7 +129,7 @@ function handle_on_hit_bullet(){
     }
     var instance = ds_map_find_first(slash_object.collisions);
     while(instance != undefined && instance_exists(instance) == true){
-        if(instance.sender != entity_id){
+        if(instance.sender != entity_id && instance_exists(entity_id)){
             if(collision_line(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, false, true) == noone){
                 instance.send_back_to_sender();
                 instance.set_object_to_damage(obj_enemy);
