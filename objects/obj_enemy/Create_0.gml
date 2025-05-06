@@ -73,10 +73,20 @@ hp.on_damage.set(function(){
     light.start_pulse_size_cycled(60, 120, 10, 0.5, 2);
     light.start_pulse_colour_cycled(c_white, 10, 0.5, 2);
     damage_particle.emit(20);
+    audiomanager_play_player_damaged();
 });
 hp.on_tick_damage.set(function(){
     damage_flash.invoke(1,0.5);
-    light.start_pulse_size_cycled(10, 80, 6, 0.5, 6);
+    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
+    switch(element_status.status){
+        case ElementType.FIRE:
+            light.start_pulse_colour_cycled(c_fire_light, 24, 0.33, 2);
+            break;
+        case ElementType.ELECTRIC:
+            light.start_pulse_colour_cycled(c_electric, 24, 0.33, 2);
+            break;
+    }
+    audiomanager_play_player_damaged();
     damage_particle.emit(20);
 });
 hp.on_death.set(function(){instance_destroy();});
@@ -95,6 +105,8 @@ function update_light(){
 
 element_status = instance_create_layer(0,0,LAYER_ENEMY, obj_element_status);
 element_status.initialise(id);
+element_status.particle_offset_x = -sprite_width*0.5;
+element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
     hp.start_tick_damage_loop(1, 3, 120);
 });

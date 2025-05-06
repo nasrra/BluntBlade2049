@@ -8,6 +8,7 @@ enum GameState{
 }
 
 function gamemanager_death_state(){
+    room_speed = 60;
     global.game_state = GameState.DEATH;
 }
 

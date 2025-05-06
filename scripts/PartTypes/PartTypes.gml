@@ -2,7 +2,7 @@ function part_type_fire_trail() {
     var _type = part_type_create();
     // Manually set particle properties (you'll need to define these values)
     part_type_shape(_type, pt_shape_square);  // Example: shape of the particle
-    part_type_color3(_type, c_orange, c_red, c_red);  // Color
+    part_type_color3(_type, c_fire_light, c_fire, c_fire);  // Color
     part_type_alpha3(_type, 1, 0.25, 0);  // Alpha values (transparency)
     part_type_scale(_type, 0.1, 0.1);  // Scale
     part_type_size(_type, 1.0, 1.0, -0.075, 0);  // Size range
@@ -49,7 +49,7 @@ function part_type_explosion_bomb(){
 function part_type_explosion_electric(){
     var _type = part_type_create();
     part_type_shape(_type, pt_shape_line);
-    part_type_color3(_type, make_colour_rgb(0,246,255), make_colour_rgb(0,123,255), c_blue);
+    part_type_color3(_type, c_electric_light, c_electric, c_electric_dark);
     part_type_alpha3(_type, 1, 0.75, 0);
     part_type_life(_type, 60, 60);
     part_type_scale(_type, 0.25, 0.25);
@@ -65,7 +65,7 @@ function part_type_electric(){
     var _type = part_type_create();
 
     part_type_shape(_type, pt_shape_line);
-    part_type_color3(_type, make_colour_rgb(0,246,255), make_colour_rgb(0,123,255), c_blue);
+    part_type_color3(_type, c_electric_light, c_electric, c_electric_dark);
     part_type_alpha3(_type, 1, 0.75, 0);
     part_type_life(_type, 60, 60);
     part_type_scale(_type, 0.1, 0.1);

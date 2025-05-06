@@ -117,7 +117,7 @@ function handle_on_hit_enemy(){
         instance = ds_map_find_next(slash_object.collisions, instance);
     }
     if(hit == true){
-        audiomanager_play_sword_hit();
+        // audiomanager_play_sword_hit();
         on_hit.invoke();
     }
 }

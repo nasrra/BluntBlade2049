@@ -142,6 +142,9 @@ hp.on_damage.set(function(){
     damage_flash.invoke(6,2);
     damage_particle.emit(20);
     player_set_global_health(hp.current_value);
+    light.start_pulse_size_cycled(100, 200, 12, 0.1, 10);
+    light.start_pulse_colour_cycled(c_red, 24, 0.1, 10);
+
 });
 hp.on_tick_damage.set(function(){
     audiomanager_play_player_damaged();
@@ -150,6 +153,16 @@ hp.on_tick_damage.set(function(){
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
     damage_particle.emit(20);
+    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
+    switch(element_status.status){
+        case ElementType.FIRE:
+            light.start_pulse_colour_cycled(c_fire_light, 24, 0.33, 2);
+            break;
+        case ElementType.ELECTRIC:
+            light.start_pulse_colour_cycled(c_electric, 24, 0.33, 2);
+            break;
+    }
+
     player_set_global_health(hp.current_value);
 });
 hp.on_death.set(function(){
