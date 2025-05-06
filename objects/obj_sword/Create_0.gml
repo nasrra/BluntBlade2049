@@ -13,7 +13,7 @@ on_hit = new EventAction();
 slash_object = noone;
 entity_id = undefined;
 element_type = ElementType.NONE;
-max_element_charges = 3;
+max_element_charges = 6;
 current_element_charge = max_element_charges;
 
 function initialise(_entity_id){
@@ -27,11 +27,11 @@ function parry(){
         parry_active = true;
         slash_object = instance_create_layer(x,y,LAYER_PARTICLE,obj_sword_slash);
         slash_object.image_angle = image_angle;
-        _handle_element_type();
         slash_object.on_hit_bullet.set(function(){handle_on_hit_bullet();});
         slash_object.on_hit_enemy.set(function(){handle_on_hit_enemy();});
         slash_object.on_hit_dyn_environment.set(function(){handle_on_hit_dyn_environment();});
         audiomanager_play_sword_swing();
+        _handle_element_type();
         alarm_set(parry_alarm_index, 1);
     }
 }

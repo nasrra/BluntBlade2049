@@ -59,3 +59,5 @@ function _lower_status_charges(){
 		instance_destroy();
 	}
 }
+
+alarm_set(0,720);

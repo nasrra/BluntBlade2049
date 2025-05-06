@@ -1,4 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
-instance_destroy(particles);
+particles.smooth_destroy(60);
 instance_destroy(light);

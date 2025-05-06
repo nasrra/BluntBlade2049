@@ -221,6 +221,7 @@
     {"id":{"name":"spr_explosive_barrel","path":"sprites/spr_explosive_barrel/spr_explosive_barrel.yy",},},
     {"id":{"name":"spr_healthbar_heart","path":"sprites/spr_healthbar_heart/spr_healthbar_heart.yy",},},
     {"id":{"name":"spr_pickup_electric","path":"sprites/spr_pickup_electric/spr_pickup_electric.yy",},},
+    {"id":{"name":"spr_pickup_fire_1","path":"sprites/spr_pickup_fire_1/spr_pickup_fire_1.yy",},},
     {"id":{"name":"spr_pickup_fire","path":"sprites/spr_pickup_fire/spr_pickup_fire.yy",},},
     {"id":{"name":"spr_pickup_health","path":"sprites/spr_pickup_health/spr_pickup_health.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},

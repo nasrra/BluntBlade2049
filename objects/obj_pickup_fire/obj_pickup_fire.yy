@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pickup_fire",
-    "path":"sprites/spr_pickup_fire/spr_pickup_fire.yy",
+    "name":"spr_pickup_fire_1",
+    "path":"sprites/spr_pickup_fire_1/spr_pickup_fire_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,
