@@ -5,6 +5,7 @@ sword_orbit = 32;
 sword_angle = 0;
 sword_keyboard_swivel_speed = 0.05;
 sword.initialise(id);
+can_parry = true;
 sword.on_parry.set(function(){
     obj_camera.shake_camera(44, 1, 12);
     set_room_speed(9, 1);
@@ -67,7 +68,7 @@ function handle_input(){
         movement.set_move_direction_by_input(input_x, input_y)
     }
 
-    if(input_get_parry() != 0){
+    if(input_get_parry() != 0 && can_parry == true){
         sword.parry();
     }
 }
@@ -172,6 +173,7 @@ hp.on_invincible.set(function(){
     obj_fx_layer_manager.turn_on_desaturate(0.1);
     obj_fx_layer_manager.turn_on_vignette(0.25);
     obj_fx_layer_manager.turn_on_rgb_noise(0.045);
+    can_parry = false;
 });
 hp.on_vincible.set(function(){
     // exit damaged state.
@@ -179,6 +181,7 @@ hp.on_vincible.set(function(){
     obj_fx_layer_manager.turn_off_desaturate(0.15);
     obj_fx_layer_manager.turn_off_vignette(0.25);
     obj_fx_layer_manager.turn_off_rgb_noise(0.045);
+    can_parry = true;
 });
 
 function snap_to_position(_x, _y){
