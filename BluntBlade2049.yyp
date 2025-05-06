@@ -132,6 +132,7 @@
     {"id":{"name":"obj_text_wave_world_space","path":"objects/obj_text_wave_world_space/obj_text_wave_world_space.yy",},},
     {"id":{"name":"obj_text_wave","path":"objects/obj_text_wave/obj_text_wave.yy",},},
     {"id":{"name":"obj_text","path":"objects/obj_text/obj_text.yy",},},
+    {"id":{"name":"obj_tutorial_text_manager","path":"objects/obj_tutorial_text_manager/obj_tutorial_text_manager.yy",},},
     {"id":{"name":"obj_ui_manager","path":"objects/obj_ui_manager/obj_ui_manager.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"prt_electricity_1","path":"particles/prt_electricity_1/prt_electricity_1.yy",},},

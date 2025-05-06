@@ -5,3 +5,4 @@
 #macro LAYER_ENEMY          "Enemy"
 #macro LAYER_PARTICLE       "Particle"
 #macro LAYER_TEXT           "Text"
+#macro LAYER_TUTORIAL       "TutorialText"
