@@ -25,12 +25,12 @@ function spawn_wave(_wave_index){
     if(_wave_index >= array_length(waves)){
         roommanager_set_room_cleared(room, true);
         roommanager_decrement_floor_rooms_to_clear();
-        var text = instance_create_layer(0,0,LAYER_TEXT, obj_text_wave_screen_space);
+        var text = instance_create_layer(0,0,LAYER_TEXT, obj_text_wave);
         if(roommanager_is_floor_cleared() == false){
-            text.initialise("ROOM CLEARED!", 6.5, 0);
+            text.initialise("ROOM CLEARED!", 6.5, 0, false);
         }
         else{
-            text.initialise("FLOOR CLEARED!", 6.5, 0);
+            text.initialise("FLOOR CLEARED!", 6.5, 0, false);
         }
         text.start_lifetime_timer(240);
         obj_lighting_manager.set_room_clear_shadow_opacity();
@@ -39,7 +39,7 @@ function spawn_wave(_wave_index){
         exit;
     }
     var wave = waves[_wave_index];
-    show_debug_message("spawning wave of enemies");
+    // show_debug_message("spawning wave of enemies");
     for(var i = 0; i < array_length(wave); ++i){
         if(wave[i] != undefined){
             var spawner = spawners[i];

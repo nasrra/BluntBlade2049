@@ -257,3 +257,27 @@ function update_room_transition_position(){
         alarm_set(room_transition_alarm_index, 1);
     }
 }
+
+
+function draw(){
+    switch(global.game_state){
+        case GameState.GAMEPLAY:
+            draw_healthbar_hearts();
+            break;
+        case GameState.DEATH:
+            draw_death_background();
+            draw_death_text();
+            death_input();
+            break;
+    }
+
+    draw_text_transformed(20, 1020, string_join(" ","[FPS]:",fps), 2, 2, 0);
+    draw_text_transformed(20, 990, string_join(" ","[LIGHT COUNT]:",instance_number(obj_light)), 2, 2, 0);
+    // draw_text(0,30,string_join(" ","[LIGHT COUNT]:",instance_number(obj_light)));
+}
+
+function draw_room_transition_when_active(){
+    if(room_transition_active == true){
+        draw_room_transition();
+    }
+}

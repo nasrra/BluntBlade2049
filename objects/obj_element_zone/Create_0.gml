@@ -24,6 +24,9 @@ function check_collisions(){
 	instance_place_list(x,y,obj_enemy,in_zone,false);
 	for(var i = 0; i < ds_list_size(in_zone); i++){
 		var list_instance = ds_list_find_value(in_zone, i);
+		if(ds_exists(previous_frame_collision_map, ds_type_map) == false){
+			continue;
+		}
 		if(ds_map_find_value(previous_frame_collision_map, list_instance.id) == undefined){
 			// entered the collision area.
 			list_instance.element_status.set_status(element_type);

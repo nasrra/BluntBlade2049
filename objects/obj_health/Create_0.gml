@@ -23,7 +23,7 @@ function damage(_amount){
     if(invincible == true){
         return;
     }
-    show_debug_message(current_value);
+    // show_debug_message(current_value);
     current_value -= _amount;
     on_damage.invoke();
     if(current_value <= 0){
@@ -43,7 +43,7 @@ function tick_damage(_amount){
 }
 
 function start_tick_damage_loop(_tick_damage, _max_cycle, _time_in_frames){
-    show_debug_message("start tick damage loop!");
+    // show_debug_message("start tick damage loop!");
     tick_damage_loop_frame_time = _time_in_frames;
     tick_damage_loop_max_cycle = _max_cycle;
     tick_damage_loop_cycle = 0;
@@ -78,13 +78,13 @@ function set_invincible_timed(_frames){
 }
 
 function set_invincible(){
-    show_debug_message("invincible!");
+    // show_debug_message("invincible!");
     invincible = true;
     on_invincible.invoke();
 }
 
 function set_vincible(){
-    show_debug_message("vincible!");
+    // show_debug_message("vincible!");
     invincible = false;
     on_vincible.invoke();
 }
