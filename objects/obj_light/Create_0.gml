@@ -58,7 +58,9 @@ function _start_mod_size_alarm(_index){
 }
 
 function stop_mod_size(){
-    alarm_set(mod_size_alarm_index, 0);
+    if(mod_size_alarm_index != undefined){
+        alarm_set(mod_size_alarm_index, 0);
+    }
     reset_mod_size();
 }
 
@@ -103,7 +105,9 @@ function _start_mod_colour_alarm(_index){
 }
 
 function stop_mod_colour(){
-    alarm_set(mod_colour_alarm_index, 0);
+    if(mod_colour_alarm_index != undefined){
+        alarm_set(mod_colour_alarm_index, 0);
+    }
     reset_mod_colour();
 }
 
@@ -260,7 +264,7 @@ function _alarm_pulse_size_loop(){
 
     mod_size_current_frame++;
 
-    if(mod_size_current_frame = mod_size_frame_change){
+    if(mod_size_current_frame == mod_size_frame_change){
         mod_size_current_frame = 0;
         if(mod_size_current_cycle != undefined){
             mod_size_current_cycle++;
@@ -332,7 +336,7 @@ function _alarm_pulse_colour_loop(){
 
     mod_colour_current_frame++;
     
-    if(mod_colour_current_frame = mod_colour_frame_change){
+    if(mod_colour_current_frame == mod_colour_frame_change){
         mod_colour_current_frame = 0;
         if(mod_colour_current_cycle != undefined){
             mod_colour_current_cycle++;

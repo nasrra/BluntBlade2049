@@ -37,7 +37,8 @@ element_status.on_status_set.set(function(){
     // obj_fx_layer_manager.turn_on_heat_haze(0.25);
 });
 element_status.on_clear_status.set(function(){
-    obj_fx_layer_manager.turn_off_heat_haze(0.25);
+    // obj_fx_layer_manager.turn_off_heat_haze(0.25);
+    hp.stop_tick_damage_loop();
 });
 function update_element_status(){
     element_status.x = x-sprite_width*0.5;
@@ -178,6 +179,7 @@ hp.on_heal.set(function(){
     light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
     light.start_pulse_colour_cycled(c_green, 24, 0.33, 2);
     player_set_global_health(hp.current_value);
+    element_status.clear_status();
 })
 hp.on_invincible.set(function(){
     // enter damaged state.
@@ -194,6 +196,8 @@ hp.on_vincible.set(function(){
     obj_fx_layer_manager.turn_off_desaturate(0.15);
     obj_fx_layer_manager.turn_off_vignette(0.25);
     obj_fx_layer_manager.turn_off_rgb_noise(0.045);
+    light.stop_mod_colour();
+    light.stop_mod_size();
     can_parry = true;
 });
 

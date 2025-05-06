@@ -48,6 +48,9 @@ function _status_loop(){
 }
 
 function clear_status(){
+    if(status == undefined){
+        exit;
+    }
     status = undefined;
     stop_status_loop();
     on_clear_status.invoke();

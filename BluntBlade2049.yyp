@@ -208,6 +208,8 @@
     {"id":{"name":"spr_bullet_explosive","path":"sprites/spr_bullet_explosive/spr_bullet_explosive.yy",},},
     {"id":{"name":"spr_crt_lines","path":"sprites/spr_crt_lines/spr_crt_lines.yy",},},
     {"id":{"name":"spr_door_locked","path":"sprites/spr_door_locked/spr_door_locked.yy",},},
+    {"id":{"name":"spr_door_test_locked","path":"sprites/spr_door_test_locked/spr_door_test_locked.yy",},},
+    {"id":{"name":"spr_door_test_unlocked","path":"sprites/spr_door_test_unlocked/spr_door_test_unlocked.yy",},},
     {"id":{"name":"spr_door_unlocked","path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",},},
     {"id":{"name":"spr_element_zone_electicity","path":"sprites/spr_element_zone_electicity/spr_element_zone_electicity.yy",},},
     {"id":{"name":"spr_element_zone_fire","path":"sprites/spr_element_zone_fire/spr_element_zone_fire.yy",},},
