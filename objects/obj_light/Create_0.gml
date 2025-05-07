@@ -322,7 +322,7 @@ function start_pulse_colour_cycled(_colour_target, _colour_frame_change, _colour
 }
 
 function _alarm_pulse_colour_loop(){
-    if(mod_colour_infinite == false && mod_colour_current_frame == mod_colour_max_frame || mod_colour_current_cycle == mod_colour_max_cycle){
+    if(mod_colour_infinite == false && (mod_colour_current_frame == mod_colour_max_frame || mod_colour_current_cycle == mod_colour_max_cycle)){
         stop_mod_colour();
         exit;
     }

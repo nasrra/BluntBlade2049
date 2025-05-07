@@ -189,7 +189,7 @@ hp.on_invincible.set(function(){
     obj_fx_layer_manager.turn_on_desaturate(0.1);
     obj_fx_layer_manager.turn_on_vignette(0.25);
     obj_fx_layer_manager.turn_on_rgb_noise(0.045);
-    can_parry = false;
+    // can_parry = false;
 });
 hp.on_vincible.set(function(){
     // exit damaged state.
@@ -218,4 +218,16 @@ function update_light(){
 
 function stun(){
     movement.mod_speed_timed(0,30);
+}
+
+function set_power_up_state(_element_type){
+    sword.element_type = _element_type;
+    switch(_element_type){
+        case ElementType.FIRE:
+            light.start_pulse_colour(c_fire_light, 30, 0.15);            
+        break;
+        case ElementType.ELECTRIC:
+            light.start_pulse_colour(c_electric, 30, 0.15);            
+        break;
+    }
 }

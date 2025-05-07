@@ -3,7 +3,7 @@
 event_inherited();
 function check_collisions(){
     if(place_meeting(x,y,obj_player) == true){
-        obj_player.sword.element_type = ElementType.ELECTRIC;
+        obj_player.set_power_up_state(ElementType.ELECTRIC);
         audiomanager_play_pickup_power_up();
         instance_destroy();
     }
