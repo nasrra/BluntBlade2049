@@ -71,6 +71,28 @@ function input_get_keyboard_aim_swivel_right(){
 
 
 
+// Death Input.
+
+function input_get_gamepad_game_restart(){
+    return gamepad_button_check(global.gamepad_main, gp_shoulderl);
+}
+
+function input_get_keyboard_game_restart(){
+    return keyboard_check(vk_tab);
+}
+
+function input_get_game_restart(){
+    return(
+        input_is_gamepad_connected() == false?
+            input_get_keyboard_game_restart() :
+            input_get_gamepad_game_restart()
+    );
+}
+
+
+
+
+
 //
 
 function input_get_gamepad_parry(){

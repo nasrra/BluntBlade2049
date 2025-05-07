@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_pickup",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_pickup",
   "overriddenProperties":[],
@@ -9,10 +11,7 @@
     "name":"Pickups",
     "path":"folders/Objects/Environment/Pickups.yy",
   },
-  "parentObjectId":{
-    "name":"obj_environment",
-    "path":"objects/obj_environment/obj_environment.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

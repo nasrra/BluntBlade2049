@@ -68,7 +68,7 @@ function draw_death_text(){
     );
 
 
-    text = "|Press [ANY KEY] to Restart|";
+    text = "|Press [TAB] or [LEFT BUMPER]to Restart|";
     size = 2.5;
     text_w = string_width(text) * size;
     text_h = string_height(text) * size;
@@ -84,7 +84,7 @@ function draw_death_text(){
 }
 
 function death_input(){
-    var input = keyboard_check_pressed(vk_anykey);
+    var input = input_get_game_restart();
     if(input == true){
         gamemanager_restart_game();
     }

@@ -142,7 +142,7 @@ function audiomanager_play_thunder(){
 
 function audiomanager_play_music(){
     if(global.music_playing == false){
-        audio_play_sound(snd_music, 0, true, 1, 0, 1);
+        audio_play_sound(snd_music_1, 0, true, 1, 0, 1);
 		global.music_playing = true;
     }
 }

@@ -8,8 +8,8 @@
   "managed":true,
   "name":"obj_door_floor",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_locked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_test_locked","path":"sprites/spr_door_test_locked/spr_door_test_locked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_locked",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_unlocked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_test_unlocked","path":"sprites/spr_door_test_unlocked/spr_door_test_unlocked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_unlocked",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_locked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_locked","path":"sprites/spr_door_locked/spr_door_locked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_locked",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_unlocked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_unlocked","path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_unlocked",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"exit_position_y","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"32",},
   ],
   "parent":{
@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_door_test_unlocked",
-    "path":"sprites/spr_door_test_unlocked/spr_door_test_unlocked.yy",
+    "name":"spr_door_unlocked",
+    "path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -134,7 +134,7 @@ function check_room_speed_timer(){
 
 var global_health = player_get_global_health();
 hp = instance_create_layer(0,0,LAYER_CHARACTER,obj_health);
-hp.initialise(4,global_health!=undefined?global_health:4);
+hp.initialise(6,global_health!=undefined?global_health:6);
 hp.on_damage.set(function(){
     hp.set_invincible_timed(240);
     obj_ui_manager.update_healthbar(hp.current_value);

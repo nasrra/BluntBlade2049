@@ -107,7 +107,7 @@ function handle_on_hit_enemy(){
         exit;
     }
     var instance = ds_map_find_first(slash_object.collisions);
-    while(instance != undefined){
+    while(instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true){
         if(collision_line(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, false, true) == noone){
             if(is_string(instance) == false && instance_exists(instance) == true){
                 hit = true; 
@@ -128,7 +128,7 @@ function handle_on_hit_bullet(){
         exit;
     }
     var instance = ds_map_find_first(slash_object.collisions);
-    while(instance != undefined && instance_exists(instance) == true){
+    while(instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true){
         if(instance.sender != entity_id && instance_exists(entity_id)){
             if(collision_line(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, false, true) == noone){
                 instance.send_back_to_sender();
