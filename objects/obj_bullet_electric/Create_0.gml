@@ -22,9 +22,9 @@ function _emit_chain_lightning_loop(){
         hits[i].hp.damage(damage);
         // hits[i].element_status.
     }
-    alarm_set(0, 40);
+    alarm_set(0, 60);
 }
-alarm_set(0, 40);
+alarm_set(0, 60);
 
 function _update_chain_lightning(){
     if(instance_exists(lightning) == true){

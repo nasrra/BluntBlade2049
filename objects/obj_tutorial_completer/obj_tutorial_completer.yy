@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_spawner_enemy",
+  "%Name":"obj_tutorial_completer",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_spawner_enemy",
+  "name":"obj_tutorial_completer",
   "overriddenProperties":[],
   "parent":{
-    "name":"Spawners",
-    "path":"folders/Objects/Spawners.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -25,16 +25,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"spawner_id","filters":[],"listItems":[],"multiselect":false,"name":"spawner_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_enemy_spawn_instant",
-    "path":"sprites/spr_enemy_spawn_instant/spr_enemy_spawn_instant.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

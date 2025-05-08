@@ -1,9 +1,10 @@
 global.room_to_load_enter_point = undefined;
-global.room_to_load = undefined;
-global.room_clears = undefined;
-global.floor_rooms_to_clear = undefined; // start on floor one.
-global.current_floor = undefined;
-global.starting_room = asset_get_index("room_1_start");
+global.room_to_load             = undefined;
+global.room_clears              = undefined;
+global.floor_rooms_to_clear     = undefined; // start on floor one.
+global.current_floor            = undefined;
+global.room_1           = asset_get_index("room_1_start");
+global.starting_room    = asset_get_index("room_T_start");
 
 function roommanager_set_room_to_load(_room, _enter_point){
     global.room_to_load             = _room;
@@ -67,6 +68,10 @@ function roommanager_get_room_cleared(_room_index){
 function roommanager_set_starting_room_to_load(){
     global.room_to_load_enter_point = undefined;
     global.room_to_load = global.starting_room;
+}
+
+function roommanager_tutorial_complete(){
+    global.starting_room = global.room_1;
 }
 
 function roommanager_reset_data(){

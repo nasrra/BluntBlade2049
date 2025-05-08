@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_pickup",
+  "%Name":"obj_spawn_enemies_on_pickup",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_pickup",
+  "name":"obj_spawn_enemies_on_pickup",
   "overriddenProperties":[],
   "parent":{
-    "name":"Pickups",
-    "path":"folders/Objects/Environment/Pickups.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -25,10 +25,7 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"heal_amount","filters":[],"listItems":[],"multiselect":false,"name":"heal_amount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"destroy_if_room_cleared","filters":[],"listItems":[],"multiselect":false,"name":"destroy_if_room_cleared","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

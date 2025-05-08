@@ -1,3 +1,10 @@
+function enemy_waves_room_T_3(){
+	return [
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
+	];
+}
+
 function enemy_waves_room_test(){
 	return [
 		[obj_enemy_revolver, obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_grenade_launcher],
