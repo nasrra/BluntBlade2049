@@ -16,6 +16,11 @@ sword.on_hit.set(function(){
     set_room_speed(9, 1);
 });
 
+sword.on_element_charges_exhausted.set(function(){
+    light.stop_mod_colour();
+    light.stop_mod_size();
+});
+
 movement = instance_create_layer(0,0,LAYER_CHARACTER, obj_movement_input);
 movement.initialise(id, 4.5, 0.5, 0.75);
 input_blocker = false;
@@ -136,15 +141,16 @@ var global_health = player_get_global_health();
 hp = instance_create_layer(0,0,LAYER_CHARACTER,obj_health);
 hp.initialise(6,global_health!=undefined?global_health:6);
 hp.on_damage.set(function(){
-    hp.set_invincible_timed(240);
+    audiomanager_play_player_damaged();
+    hp.set_invincible_timed(60);
     obj_ui_manager.update_healthbar(hp.current_value);
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
     damage_flash.invoke(6,2);
     damage_particle.emit(20);
     player_set_global_health(hp.current_value);
-    light.start_pulse_size_cycled(100, 200, 12, 0.1, 10);
-    light.start_pulse_colour_cycled(c_red, 24, 0.1, 10);
+    light.start_pulse_size_cycled(100, 200, 12, 0.1, 4);
+    light.start_pulse_colour_cycled(c_red, 12, 0.1, 4);
 
 });
 hp.on_tick_damage.set(function(){
@@ -184,8 +190,7 @@ hp.on_heal.set(function(){
 })
 hp.on_invincible.set(function(){
     // enter damaged state.
-    audiomanager_play_player_damaged();
-    audiomanager_play_hit_glitch();
+    // audiomanager_play_hit_glitch();
     obj_fx_layer_manager.turn_on_desaturate(0.1);
     obj_fx_layer_manager.turn_on_vignette(0.25);
     obj_fx_layer_manager.turn_on_rgb_noise(0.045);
@@ -224,10 +229,10 @@ function set_power_up_state(_element_type){
     sword.element_type = _element_type;
     switch(_element_type){
         case ElementType.FIRE:
-            light.start_pulse_colour(c_fire_light, 30, 0.15);            
+            light.start_pulse_colour(c_fire_light, 6, 0.5);            
         break;
         case ElementType.ELECTRIC:
-            light.start_pulse_colour(c_electric, 30, 0.15);            
+            light.start_pulse_colour(c_electric, 6, 0.5);            
         break;
     }
 }

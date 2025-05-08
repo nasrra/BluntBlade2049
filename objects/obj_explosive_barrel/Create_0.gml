@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 light = instance_create_layer(x,y,LAYER_LIGHTING,obj_light);
-light.initialise(60, c_orange, 360, 0.1);
+light.initialise(60, c_orange, 360, 0.00001);
 // _size_min, _size_max, _size_frame_change, _size_lerp_speed
 light.start_pulse_size(120,240, 30,0.33);
 

@@ -10,6 +10,7 @@ parry_particle          = instance_create_layer(x,y,id.layer, obj_particle_syste
 parry_particle.initialise(part_type_parry(),sprite_width*0.5,sprite_height*0.5,id);
 on_parry = new EventAction();
 on_hit = new EventAction();
+on_element_charges_exhausted = new EventAction();
 slash_object = noone;
 entity_id = undefined;
 element_type = ElementType.NONE;
@@ -98,6 +99,7 @@ function _handle_element_type(){
     if(current_element_charge == 0){
         current_element_charge = max_element_charges;
         element_type = ElementType.NONE;
+        on_element_charges_exhausted.invoke();
     }
 }
 
