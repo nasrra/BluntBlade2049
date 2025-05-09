@@ -3,7 +3,7 @@
 light = instance_create_layer(x,y,LAYER_LIGHTING,obj_light);
 light.initialise(60, c_orange, 360, 0.00001);
 // _size_min, _size_max, _size_frame_change, _size_lerp_speed
-light.start_pulse_size(120,240, 30,0.33);
+light.start_pulse_size(120,240, 30,0.44);
 
 hp = instance_create_layer(0,0,LAYER_ENVIRONMENT,obj_health);
 hp.initialise(1,1);

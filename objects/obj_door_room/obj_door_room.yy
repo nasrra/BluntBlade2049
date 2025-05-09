@@ -8,8 +8,8 @@
   "managed":true,
   "name":"obj_door_room",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_locked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_locked","path":"sprites/spr_door_locked/spr_door_locked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_locked",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_unlocked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_unlocked_old","path":"sprites/spr_door_unlocked_old/spr_door_unlocked_old.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_unlocked",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_locked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_locked_old","path":"sprites/spr_door_locked_old/spr_door_locked_old.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_locked",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"sprite_unlocked","path":"objects/obj_door/obj_door.yy",},"resource":{"name":"spr_door_unlocked","path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_door_unlocked",},
   ],
   "parent":{
     "name":"Room Doors",

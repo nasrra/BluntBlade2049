@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"spr_wall_front_facing",
   "bboxMode":2,
-  "bbox_bottom":31,
+  "bbox_bottom":47,
   "bbox_left":0,
   "bbox_right":15,
   "bbox_top":0,

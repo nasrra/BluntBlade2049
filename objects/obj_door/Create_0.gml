@@ -29,9 +29,11 @@ function get_exit_position(){
 function set_locked(){
     locked = true;
     sprite_index = sprite_locked;
+    light.colour = c_red;
 }
 
 function set_unlocked(){
     locked = false;
     sprite_index = sprite_unlocked;
+    light.colour = c_white;
 }
