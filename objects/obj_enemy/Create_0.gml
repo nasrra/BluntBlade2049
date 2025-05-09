@@ -94,7 +94,7 @@ hp.on_death.set(function(){instance_destroy();});
 
 
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(60,c_red, 360, 0.00001);
+light.initialise(60,c_red, 360, 0.5);
 
 function update_light(){
     if(!instance_exists(light)){

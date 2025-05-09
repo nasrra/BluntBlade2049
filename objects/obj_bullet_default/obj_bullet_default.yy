@@ -7,7 +7,9 @@
   ],
   "managed":true,
   "name":"obj_bullet_default",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"light_size","path":"objects/obj_bullet/obj_bullet.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"12",},
+  ],
   "parent":{
     "name":"Bullets",
     "path":"folders/Objects/Bullets.yy",
