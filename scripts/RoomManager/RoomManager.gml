@@ -4,7 +4,8 @@ global.room_clears              = undefined;
 global.floor_rooms_to_clear     = undefined; // start on floor one.
 global.current_floor            = undefined;
 global.room_1           = asset_get_index("room_1_start");
-global.starting_room    = asset_get_index("room_T_start");
+// global.starting_room    = asset_get_index("room_T_0_start");
+global.starting_room    = asset_get_index("room_2_start");
 
 function roommanager_set_room_to_load(_room, _enter_point){
     global.room_to_load             = _room;

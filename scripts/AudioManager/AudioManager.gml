@@ -158,3 +158,11 @@ function audiomanager_play_sword_hit(){
 function audiomanager_play_room_cleared(){
     audio_play_sound(snd_room_cleared, 0, false, 1, 0, 1);
 }
+
+function audiomanager_play_logo_chime(){
+    audio_play_sound(snd_logo_chime, 0, false, 1, 0, 1);
+}
+
+function audiomanager_play_controller_pop_up(){
+    audio_play_sound(snd_controller_pop_up, 0, false, 1, 0, 1);
+}

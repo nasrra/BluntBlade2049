@@ -13,10 +13,10 @@ lights = [
     instance_create_layer(x,y,LAYER_LIGHTING,obj_light)
 ]
 
-lights[0].initialise(light_size, colour,    light_fov, 1);
-lights[1].initialise(light_size, colour,    light_fov, 1);
-lights[2].initialise(light_size, colour,    light_fov, 1);
-lights[3].initialise(light_size, colour,    light_fov, 1);
+lights[0].initialise(light_size, colour,    light_fov, 0.001);
+lights[1].initialise(light_size, colour,    light_fov, 0.001);
+lights[2].initialise(light_size, colour,    light_fov, 0.001);
+lights[3].initialise(light_size, colour,    light_fov, 0.001);
 
 angles = [];
 var length = array_length(lights);

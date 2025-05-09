@@ -5,6 +5,10 @@ locked = false;
 room_transition_movement = undefined;
 room_to_goto_enter_point = undefined; // the door the player enters from in the next room.
 
+light = instance_create_layer(x,y-sprite_height*0.66,LAYER_LIGHTING, obj_light);
+light.initialise(300,c_white, 140, 1);
+light.dir = 270;
+
 function handle_collisions(){
     if(locked == false && player_entered == false && place_meeting(x,y,obj_player) == true){
         if(room_transition_movement == undefined){

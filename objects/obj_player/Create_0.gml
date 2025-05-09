@@ -139,7 +139,7 @@ function check_room_speed_timer(){
 
 var global_health = player_get_global_health();
 hp = instance_create_layer(0,0,LAYER_CHARACTER,obj_health);
-hp.initialise(6,global_health!=undefined?global_health:6);
+hp.initialise(5,global_health!=undefined?global_health:5);
 hp.on_damage.set(function(){
     audiomanager_play_player_damaged();
     hp.set_invincible_timed(60);

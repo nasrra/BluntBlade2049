@@ -44,10 +44,10 @@ function music_sync_loop(){
 
 function set_room_clear_shadow_opacity(){
     if(roommanager_get_room_cleared(room) == true){
-        shadow_opacity = 0.2;
+        shadow_opacity = 0.66;
     }
     else{
-        shadow_opacity = 0.1;
+        shadow_opacity = 0.33;
     }
 }
 

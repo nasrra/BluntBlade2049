@@ -178,7 +178,7 @@ function reset_old_film(){
     layer_set_visible("OldFilmFX", true);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerIntensity", .15);
     fx_set_parameter(old_film_fx, "g_OldFilmFlickerSpeed", 30);
-    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 4);
+    fx_set_parameter(old_film_fx, "g_OldFilmJitterIntensity", 6);
     fx_set_parameter(old_film_fx, "g_OldFilmSaturation", 1);
     fx_set_parameter(old_film_fx, "g_OldFilmSpeckIntensity", 0);
     fx_set_parameter(old_film_fx, "g_OldFilmBarScale", 0); // 20
@@ -253,14 +253,14 @@ function turn_off_heat_haze(_speed){
 
 // Zoom Blur
 
-// zoom_blur_alarm_index = 5;
-// zoom_blur_fx = layer_get_fx("ZoomBlurFX");
+zoom_blur_alarm_index = 5;
+zoom_blur_fx = layer_get_fx("ZoomBlurFX");
 
-// function reset_zoom_blur(){
-//     layer_set_visible("ZoomBlurFX", true);
-//     fx_set_parameter(zoom_blur_fx, "g_ZoomBlurCenter", [0.5, 0.5]);     // g_ZoomBlurCenter (Array)
-//     fx_set_parameter(zoom_blur_fx, "g_ZoomBlurIntensity", 0.015);        // g_ZoomBlurIntensity (Real)
-//     fx_set_parameter(zoom_blur_fx, "g_ZoomBlurFocusRadius", 0);         // g_ZoomBlurFocusRadius (Real)   
-// }
+function reset_zoom_blur(){
+    layer_set_visible("ZoomBlurFX", true);
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurCenter", [0.5, 0.5]);     // g_ZoomBlurCenter (Array)
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurIntensity", 0.01);        // g_ZoomBlurIntensity (Real)
+    fx_set_parameter(zoom_blur_fx, "g_ZoomBlurFocusRadius", 0);         // g_ZoomBlurFocusRadius (Real)   
+}
 
-// reset_zoom_blur();
+reset_zoom_blur();

@@ -1,3 +1,5 @@
+// Wave 1:
+
 function enemy_waves_room_T_3(){
 	return [
 		[obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver, obj_enemy_revolver],
@@ -70,6 +72,8 @@ function enemy_waves_room_1_8(){
 	];
 }
 
+// Wave 2:
+
 function enemy_waves_room_2_1(){
 	return [
 		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_shotgun],
@@ -80,6 +84,53 @@ function enemy_waves_room_2_1(){
 function enemy_waves_room_2_2(){
 	return [
 		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_grenade_launcher],
-		[obj_enemy_burst_rifle, obj_enemy_grenade_launcher, obj_enemy_grenade_launcher, obj_enemy_burst_rifle],
+		[obj_enemy_burst_rifle, obj_enemy_grenade_launcher, obj_enemy_shotgun, obj_enemy_burst_rifle],
 	];
 }
+
+function enemy_waves_room_2_3(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_shotgun],
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+function enemy_waves_room_2_4(){
+	return [
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_grenade_launcher],
+		[obj_enemy_burst_rifle, obj_enemy_grenade_launcher, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+function enemy_waves_room_2_5(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_shotgun],
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+function enemy_waves_room_2_6(){
+	return [
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_grenade_launcher],
+		[obj_enemy_burst_rifle, obj_enemy_grenade_launcher, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+function enemy_waves_room_2_7(){
+	return [
+		[obj_enemy_revolver, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_shotgun],
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+function enemy_waves_room_2_8(){
+	return [
+		[obj_enemy_burst_rifle, obj_enemy_shotgun, obj_enemy_burst_rifle, obj_enemy_grenade_launcher],
+		[obj_enemy_burst_rifle, obj_enemy_grenade_launcher, obj_enemy_shotgun, obj_enemy_burst_rifle],
+	];
+}
+
+
+
+
+

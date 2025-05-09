@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_grenade_launcher",
-    "path":"sprites/spr_enemy_grenade_launcher/spr_enemy_grenade_launcher.yy",
+    "name":"spr_enemy_shotgun_1",
+    "path":"sprites/spr_enemy_shotgun_1/spr_enemy_shotgun_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,
