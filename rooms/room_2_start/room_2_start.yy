@@ -17,7 +17,6 @@
     {"name":"inst_56A3861F_2_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_4F448903_2_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_50FE32D5_2_2","path":"rooms/room_2_start/room_2_start.yy",},
-    {"name":"inst_22EF5343_1_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_5D1A6C24_1_1","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_42298D99_1_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_68FE0066_1_2","path":"rooms/room_2_start/room_2_start.yy",},
@@ -31,6 +30,7 @@
     {"name":"inst_925F320_1_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_6764AA4C_1_2","path":"rooms/room_2_start/room_2_start.yy",},
     {"name":"inst_74997350_1","path":"rooms/room_2_start/room_2_start.yy",},
+    {"name":"inst_22EF5343_1_2","path":"rooms/room_2_start/room_2_start.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -91,7 +91,9 @@
         {"$GMRInstance":"v1","%Name":"inst_64ED7DAD_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_64ED7DAD_2_2","objectId":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"propertyId":{"name":"target","path":"objects/obj_camera/obj_camera.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"inst_14D14DFC",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":288.0,"y":224.0,},
-        {"$GMRInstance":"v1","%Name":"inst_22EF5343_1_2","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_22EF5343_1_2","objectId":{"name":"obj_room_manager","path":"objects/obj_room_manager/obj_room_manager.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":-64.0,},
+        {"$GMRInstance":"v1","%Name":"inst_22EF5343_1_2","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_22EF5343_1_2","objectId":{"name":"obj_room_manager","path":"objects/obj_room_manager/obj_room_manager.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_room_manager","path":"objects/obj_room_manager/obj_room_manager.yy",},"propertyId":{"name":"floor_name","path":"objects/obj_room_manager/obj_room_manager.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"FLOOR 2",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":-64.0,},
         {"$GMRInstance":"v1","%Name":"inst_68FE0066_1_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68FE0066_1_2","objectId":{"name":"obj_input_manager","path":"objects/obj_input_manager/obj_input_manager.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":-64.0,},
         {"$GMRInstance":"v1","%Name":"inst_3FB66705_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3FB66705_1","objectId":{"name":"obj_camera_target","path":"objects/obj_camera_target/obj_camera_target.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":480.0,"y":272.0,},
         {"$GMRInstance":"v1","%Name":"inst_F73AF4E_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_F73AF4E_1","objectId":{"name":"obj_render_pipeline","path":"objects/obj_render_pipeline/obj_render_pipeline.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":-64.0,},

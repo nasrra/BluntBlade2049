@@ -4,8 +4,9 @@ global.room_clears              = undefined;
 global.floor_rooms_to_clear     = undefined; // start on floor one.
 global.current_floor            = undefined;
 global.room_1           = asset_get_index("room_1_start");
-// global.starting_room    = asset_get_index("room_T_0_start");
-global.starting_room    = asset_get_index("room_2_start");
+global.room_2           = asset_get_index("room_2_start");
+global.room_t           = asset_get_index("room_T_0_start");
+global.starting_room    = undefined;
 
 function roommanager_set_room_to_load(_room, _enter_point){
     global.room_to_load             = _room;
@@ -71,8 +72,31 @@ function roommanager_set_starting_room_to_load(){
     global.room_to_load = global.starting_room;
 }
 
-function roommanager_tutorial_complete(){
+function roommanager_set_start_to_tutorial(){
+    if(global.starting_room == global.room_t){
+        exit;
+    }
+    global.starting_room = global.room_t;
+    audiomanager_stop_music();
+    audiomanager_play_music_tutorial();
+}
+
+function roommanager_set_start_to_floor_1(){
+    if(global.starting_room == global.room_1){
+        exit;
+    }
     global.starting_room = global.room_1;
+    audiomanager_stop_music();
+    audiomanager_play_music_floor_1();
+}
+
+function roommanager_set_start_to_floor_2(){
+    if(global.starting_room == global.room_2){
+        exit;
+    }
+    global.starting_room = global.room_2;
+    audiomanager_stop_music();
+    audiomanager_play_music_floor_2();
 }
 
 function roommanager_reset_data(){

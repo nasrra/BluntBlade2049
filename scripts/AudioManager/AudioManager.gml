@@ -140,11 +140,23 @@ function audiomanager_play_thunder(){
     }
 }
 
-function audiomanager_play_music(){
-    if(global.music_playing == false){
-        audio_play_sound(snd_music_1, 0, true, 1, 0, 1);
-		global.music_playing = true;
-    }
+function audiomanager_play_music_floor_1(){
+    audio_play_sound(snd_music_floor_1, 0, true, 1, 0, 1);
+}
+
+function audiomanager_play_music_floor_2(){
+    audio_play_sound(snd_music_floor_2, 0, true, 1, 0, 1);
+}
+
+function audiomanager_play_music_tutorial(){
+    audio_play_sound(snd_music_tutorial, 0, true, 1, 0, 1);
+}
+
+
+function audiomanager_stop_music(){
+    audio_stop_sound(snd_music_tutorial);
+    audio_stop_sound(snd_music_floor_1);
+    audio_stop_sound(snd_music_floor_2);
 }
 
 function audiomanager_play_sword_swing(){
