@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_door_unlocked_old",
-    "path":"sprites/spr_door_unlocked_old/spr_door_unlocked_old.yy",
+    "name":"spr_door_unlocked",
+    "path":"sprites/spr_door_unlocked/spr_door_unlocked.yy",
   },
   "spriteMaskId":null,
   "visible":true,
