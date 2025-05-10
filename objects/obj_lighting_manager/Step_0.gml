@@ -14,15 +14,15 @@ function Quad(_vb, _x1, _y1, _x2, _y2){
 }
 
 
-if(mouse_check_button_pressed(mb_left)){
-        instance_create_depth(mouse_x, mouse_y, depth, obj_light);
-}
+// if(mouse_check_button_pressed(mb_left)){
+//         instance_create_depth(mouse_x, mouse_y, depth, obj_light);
+// }
 
-if(mouse_check_button_pressed(mb_right)){
-    for(var i = 0; i < 100; i++){
-        instance_create_depth(mouse_x, mouse_y, depth, obj_light);
-    }
-}
+// if(mouse_check_button_pressed(mb_right)){
+//     for(var i = 0; i < 100; i++){
+//         instance_create_depth(mouse_x, mouse_y, depth, obj_light);
+//     }
+// }
 
 vertex_begin(vb, vf);
 var _vb = vb;

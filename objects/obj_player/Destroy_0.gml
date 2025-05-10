@@ -5,3 +5,4 @@ instance_destroy(element_status);
 damage_particle.smooth_destroy(60);
 instance_destroy(hp);
 instance_destroy(movement);
+room_speed = 60;

@@ -320,8 +320,9 @@ function draw(){
             break;
     }
 
+    draw_set_font(font_1);
     draw_text_transformed(20, 1020, string_join(" ","[FPS]:",fps), 2, 2, 0);
-    draw_text_transformed(20, 990, string_join(" ","[LIGHT COUNT]:",instance_number(obj_light)), 2, 2, 0);
+    // draw_text_transformed(20, 990, string_join(" ","[LIGHT COUNT]:",instance_number(obj_light)), 2, 2, 0);
     // draw_text(0,30,string_join(" ","[LIGHT COUNT]:",instance_number(obj_light)));
 }
 
