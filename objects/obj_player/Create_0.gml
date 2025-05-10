@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+sprite_index = spr_player_d;
+sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
+
 sword = instance_create_layer(x,y,LAYER_PARTICLE, obj_sword);
 sword_orbit = 32;
 sword_angle = 0;
@@ -68,10 +71,26 @@ function handle_input(){
 
     if(input_x == 0 && input_y == 0){
         movement.decelerate();
+        sprite_set_speed(sprite_index, 0, spritespeed_framespersecond);
+        image_index = 0;
     }
     else{
         movement.accelerate();
-        movement.set_move_direction_by_input(input_x, input_y)
+        var move_dir = point_direction(x,y,x+input_x,y+input_y);
+        movement.move_dir = move_dir;
+        sprite_set_speed(sprite_index, 6, spritespeed_framespersecond);
+        if(move_dir >= 225 && move_dir <= 330){
+            sprite_index = spr_player_d;
+        }
+        else if(move_dir >= 45 && move_dir <= 135){
+            sprite_index = spr_player_u;
+        }
+        else if(move_dir >= 135 && move_dir <= 225){
+            sprite_index = spr_player_l;
+        }
+        else if(move_dir >= 330 || move_dir <= 45){
+            sprite_index = spr_player_r;
+        }
     }
 
     if(input_get_parry() != 0 && can_parry == true){

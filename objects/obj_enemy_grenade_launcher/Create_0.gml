@@ -10,3 +10,7 @@ id.weapon = GunGrenadeLauncher(id,0);
 id.weapon.swivel_speed = 0.1;
 id.weapon.start_shoot_loop();
 movement.initialise(id, 2, 1, 1);
+sprite_left     = spr_enemy_revolver_l;
+sprite_right    = spr_enemy_revolver_r;
+sprite_down     = spr_enemy_revolver_d;
+sprite_up       = spr_enemy_revolver_u;

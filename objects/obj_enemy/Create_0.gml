@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+sprite_left     = undefined;
+sprite_right    = undefined;
+sprite_down     = undefined;
+sprite_up       = undefined;
 
 should_destroy = false;
 
@@ -31,17 +35,27 @@ function update_weapon(){
 }
 
 function face_target(){
-    if(direction >= 330 || direction <= 45){
-        // show_debug_message("face_right");        
+    show_debug_message(id.direction);
+
+    if(direction >= 225 && direction <= 330){
+        if(sprite_down != undefined){
+            sprite_index = sprite_down;
+        }
     }
     else if(direction >= 45 && direction <= 135){
-        // show_debug_message("face_up");
+        if(sprite_up != undefined){
+            sprite_index = sprite_up;
+        }
     }
     else if(direction >= 135 && direction <= 225){
-        // show_debug_message("face_left");
+        if(sprite_left != undefined){
+            sprite_index = sprite_left;
+        }
     }
-    else if(direction >= 225 && direction <= 330){
-        // show_debug_message("face_down");
+    else if(direction >= 330 || direction <= 45){
+        if(sprite_right != undefined){
+            sprite_index = sprite_right;
+        }
     }
 }
 
@@ -70,8 +84,8 @@ hp = instance_create_layer(0,0,LAYER_ENEMY,obj_health);
 hp.initialise(health_max_value, health_max_value);
 hp.on_damage.set(function(){
     damage_flash.invoke(1,0.5);
-    light.start_pulse_size_cycled(200, 400, 10, 0.5, 2);
-    light.start_pulse_colour_cycled(c_white, 10, 0.5, 2);
+    light.start_pulse_size_cycled(200, 440, 10, 0.5, 3);
+    light.start_pulse_colour_cycled(c_white, 10, 0.5, 3);
     damage_particle.emit(20);
     audiomanager_play_player_damaged();
 });
@@ -94,7 +108,7 @@ hp.on_death.set(function(){instance_destroy();});
 
 
 light = instance_create_layer(x,y,LAYER_LIGHTING, obj_light);
-light.initialise(200,c_red, 360, 0.5);
+light.initialise(200,c_white, 360, 0.5);
 
 function update_light(){
     if(!instance_exists(light)){
