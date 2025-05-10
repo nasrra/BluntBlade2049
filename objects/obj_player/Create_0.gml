@@ -6,7 +6,7 @@ sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
 sword = instance_create_layer(x,y,LAYER_PARTICLE, obj_sword);
 sword_orbit = 32;
 sword_angle = 0;
-sword_keyboard_swivel_speed = 0.05;
+sword_keyboard_swivel_speed = 0.033;
 sword.initialise(id);
 can_parry = true;
 sword.on_parry.set(function(){
@@ -41,7 +41,7 @@ element_status.initialise(id);
 element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
-    hp.start_tick_damage_loop(1, 3, 120);
+    hp.start_tick_damage_loop(1, 1, 120);
     // obj_fx_layer_manager.turn_on_heat_haze(0.25);
 });
 element_status.on_clear_status.set(function(){

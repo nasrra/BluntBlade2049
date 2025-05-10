@@ -135,7 +135,7 @@ element_status.initialise(id);
 element_status.particle_offset_x = -sprite_width*0.5;
 element_status.particle_offset_y = -sprite_height*0.5;
 element_status.on_status_set.set(function(){
-    hp.start_tick_damage_loop(1, 3, 120);
+    hp.start_tick_damage_loop(1, 1, 120);
 });
 
 function check_collisions(){

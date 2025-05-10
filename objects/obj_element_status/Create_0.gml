@@ -37,7 +37,7 @@ function start_status_loop(){
 }
 
 function _status_loop(){
-    if(current_status_loop_frame > 360){
+    if(current_status_loop_frame > 140){
         clear_status();
         exit;
     }

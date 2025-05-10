@@ -128,8 +128,11 @@ function draw_demo_end_text(){
 function demo_end_input(){
     var input = input_get_game_restart();
     if(input == true){
+        global.room_to_load = global.room_1;
+        global.starting_room = global.room_1;
+        gamemanager_restart_game();
+        global.starting_room = undefined;
         gamemanager_gameplay_state();
-        room_goto(global.room_1);
     }
 }
 

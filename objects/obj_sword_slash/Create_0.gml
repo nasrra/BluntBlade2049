@@ -15,6 +15,9 @@ function _check_collision_against_object(_object, _callback){
     collisions_list = ds_list_create();
     instance_place_list(x, y, _object, collisions_list, false);
     for(var i = 0; i < ds_list_size(collisions_list); i++){
+        if(ds_exists(all_collisions, ds_type_map) == false){
+            continue;
+        }
         if(all_collisions[? collisions_list[| i]] == undefined){
             ds_map_add(collisions, collisions_list[| i], true);
             ds_map_add(all_collisions, collisions_list[| i], true);
