@@ -24,6 +24,9 @@ function remove_enemy(){
             }
             else{
                 text.initialise("FLOOR CLEARED!", 6.5, 0, false);
+                audiomanager_stop_music();
+                audiomanager_play_record_scratch();
+                alarm_set(0,20);
             }
             text.start_lifetime_timer(240);
             obj_lighting_manager.set_room_clear_shadow_opacity();

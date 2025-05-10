@@ -21,5 +21,5 @@
   "sampleRate":5512,
   "soundFile":"snd_thunder_2.mp3",
   "type":1,
-  "volume":1.0,
+  "volume":0.75,
 }

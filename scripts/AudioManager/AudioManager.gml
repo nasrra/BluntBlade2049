@@ -157,6 +157,7 @@ function audiomanager_stop_music(){
     audio_stop_sound(snd_music_tutorial);
     audio_stop_sound(snd_music_floor_1);
     audio_stop_sound(snd_music_floor_2);
+    audio_stop_sound(snd_music_floor_cleared);
 }
 
 function audiomanager_play_sword_swing(){
@@ -177,4 +178,12 @@ function audiomanager_play_logo_chime(){
 
 function audiomanager_play_controller_pop_up(){
     audio_play_sound(snd_controller_pop_up, 0, false, 1, 0, 1);
+}
+
+function audiomanager_play_music_floor_cleared(){
+    audio_play_sound(snd_music_floor_cleared, 0, true, 1, 0, 1);
+}
+
+function audiomanager_play_record_scratch(){
+    audio_play_sound(snd_record_scratch, 0, false, 1, 0, 1);
 }
