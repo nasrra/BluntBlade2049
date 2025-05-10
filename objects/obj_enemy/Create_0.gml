@@ -72,11 +72,23 @@ function can_see_target(){
     if(instance_exists(target) == false){
         exit;
     }
-    var flag = false;
+    var flag = true;
     if(collision_line(x, y, target.x, target.y, obj_dyn_environment, true, true) != noone){
         flag = true;
     }
-    flag = collision_line(x, y, target.x, target.y, obj_environment, true, true) == noone? true : false;
+    var wall_list = ds_list_create();
+    collision_line_list(x, y, target.x, target.y, obj_environment, true, true, wall_list, true);
+    for(var i = 0; i < ds_list_size(wall_list); i++){
+        var wall = wall_list[| i];
+        if(wall.shoot_through == false){
+            flag = false;
+            break;
+        }
+        else{
+            flag = true;
+        }
+    }
+    ds_list_destroy(wall_list);
     return flag;
 }
 

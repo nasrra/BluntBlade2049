@@ -4,6 +4,7 @@ enum GameState{
     DEATH,
     GAMEPLAY,
     MENU,
+    DEMO_END,
 }
 
 function gamemanager_death_state(){
@@ -18,6 +19,11 @@ function gamemanager_gameplay_state(){
 function gamemanager_menu_state(){
     global.game_state = GameState.MENU;
 }
+
+function gamemanager_demo_end_state(){
+    global.game_state = GameState.DEMO_END;
+}
+
 
 function gamemanager_restart_game(){
     roommanager_reset_data();

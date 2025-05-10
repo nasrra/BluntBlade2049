@@ -56,7 +56,8 @@ function check_collisions(){
         on_hit.invoke();
         instance_destroy();
     }
-    if(place_meeting(x, y, obj_environment)){
+    hit = instance_place(x,y,obj_environment);
+    if(hit != noone && hit.shoot_through == false){
         instance_destroy();
     }
 }

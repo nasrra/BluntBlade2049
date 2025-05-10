@@ -9,7 +9,6 @@ move = function move(){
     if(movement_path_points == undefined || movement_path_point_index >= array_length(movement_path_points)){
         exit;
     }
-
     
     var point = movement_path_points[movement_path_point_index];
     var px = point[0];
@@ -34,9 +33,16 @@ move = function move(){
         x+=lengthdir_x(movement, dir);
         y+=lengthdir_y(movement, dir);
     }
+    // if(dist < 1.0){
+    //     movement_path_point_index += 1;
+    // }
     if(dist < 1.0){
+        with(entity_id) {
+            x = px;
+            y = py;
+        }
         movement_path_point_index += 1;
-    }
+    }   
 }
 
 // make it so the path stops when knocking back enemies as they are hit by bullet.

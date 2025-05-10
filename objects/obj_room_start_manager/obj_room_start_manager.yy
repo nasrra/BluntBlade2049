@@ -11,8 +11,8 @@
   "name":"obj_room_start_manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"RoomSpecial",
+    "path":"folders/Objects/RoomSpecial.yy",
   },
   "parentObjectId":null,
   "persistent":false,

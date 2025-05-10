@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"spr_enemy_revolver_d",
   "bboxMode":2,
-  "bbox_bottom":30,
+  "bbox_bottom":31,
   "bbox_left":9,
   "bbox_right":22,
   "bbox_top":1,

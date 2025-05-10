@@ -68,7 +68,7 @@ function draw_death_text(){
     );
 
 
-    text = "|Press [TAB] or [LEFT BUMPER]to Restart|";
+    text = "|Press [TAB] Or [LEFT BUMPER] To Restart|";
     size = 2.5;
     text_w = string_width(text) * size;
     text_h = string_height(text) * size;
@@ -90,6 +90,48 @@ function death_input(){
     }
 }
 
+function draw_demo_end_text(){
+    var text = "[THANKS FOR PLAYING]";
+    var size = 7.5;
+
+    draw_set_font(font_1);
+    draw_set_color(c_white);
+
+    var text_w = string_width(text) * size;
+    var text_h = string_height(text) * size;
+
+    draw_text_transformed(
+        (gui_w / 2) - (text_w * 0.5),
+        (gui_h / 2) - (gui_h*0.25),
+        text,
+        size,
+        size,
+        0
+    );
+
+
+    text = "|Press [TAB] Or [LEFT BUMPER] To Play Again|";
+    size = 2.5;
+    text_w = string_width(text) * size;
+    text_h = string_height(text) * size;
+
+    draw_text_transformed(
+        (gui_w / 2) - (text_w * 0.5),
+        (gui_h / 2) + (gui_h*0.05),
+        text,
+        size,
+        size,
+        0
+    );
+}
+
+function demo_end_input(){
+    var input = input_get_game_restart();
+    if(input == true){
+        gamemanager_gameplay_state();
+        room_goto(global.room_1);
+    }
+}
 
 
 
@@ -268,6 +310,10 @@ function draw(){
             draw_death_background();
             draw_death_text();
             death_input();
+            break;
+        case GameState.DEMO_END:
+            draw_demo_end_text();
+            demo_end_input();
             break;
     }
 

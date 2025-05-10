@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_wall_side_facing",
+  "%Name":"obj_shadow_caster",
   "eventList":[],
   "managed":true,
-  "name":"obj_wall_side_facing",
+  "name":"obj_shadow_caster",
   "overriddenProperties":[],
   "parent":{
     "name":"Environment",
     "path":"folders/Objects/Environment.yy",
   },
-  "parentObjectId":{
-    "name":"obj_wall",
-    "path":"objects/obj_wall/obj_wall.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wall_side_facing",
-    "path":"sprites/spr_wall_side_facing/spr_wall_side_facing.yy",
+    "name":"spr_shadow_caster",
+    "path":"sprites/spr_shadow_caster/spr_shadow_caster.yy",
   },
   "spriteMaskId":null,
   "visible":false,

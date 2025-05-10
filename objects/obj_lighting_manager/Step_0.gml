@@ -26,10 +26,7 @@ if(mouse_check_button_pressed(mb_right)){
 
 vertex_begin(vb, vf);
 var _vb = vb;
-with(obj_wall){
-    if(cast_shadows == false){
-        continue;
-    }
+with(obj_shadow_caster){
     // defining two quads, the diagonals, of an object to draw a shadow from.
     Quad(_vb, x,y,(x+sprite_width), (y+sprite_height));
     Quad(_vb, (x+sprite_width),y,x, (y+sprite_height));
