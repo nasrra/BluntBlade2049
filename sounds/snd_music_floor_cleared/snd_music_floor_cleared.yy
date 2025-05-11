@@ -21,5 +21,5 @@
   "sampleRate":22050,
   "soundFile":"snd_music_floor_cleared.mp3",
   "type":1,
-  "volume":0.7,
+  "volume":0.66,
 }

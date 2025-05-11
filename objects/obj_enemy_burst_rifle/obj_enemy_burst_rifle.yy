@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_revolver_2",
-    "path":"sprites/spr_enemy_revolver_2/spr_enemy_revolver_2.yy",
+    "name":"spr_enemy_revolver_d",
+    "path":"sprites/spr_enemy_revolver_d/spr_enemy_revolver_d.yy",
   },
   "spriteMaskId":null,
   "visible":true,

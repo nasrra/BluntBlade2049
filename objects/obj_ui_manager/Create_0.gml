@@ -133,6 +133,7 @@ function demo_end_input(){
         gamemanager_restart_game();
         global.starting_room = undefined;
         gamemanager_gameplay_state();
+        player_set_global_health(5);
     }
 }
 

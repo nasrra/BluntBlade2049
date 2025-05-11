@@ -37,9 +37,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_shotgun",
-    "path":"sprites/spr_enemy_shotgun/spr_enemy_shotgun.yy",
+    "name":"spr_enemy_revolver_d",
+    "path":"sprites/spr_enemy_revolver_d/spr_enemy_revolver_d.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_enemy_revolver_d",
+    "path":"sprites/spr_enemy_revolver_d/spr_enemy_revolver_d.yy",
+  },
   "visible":true,
 }

@@ -60,4 +60,4 @@ function _lower_status_charges(){
 	}
 }
 
-alarm_set(0,720);
+alarm_set(0,540);
