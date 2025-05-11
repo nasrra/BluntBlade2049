@@ -9,6 +9,6 @@ function check_collisions(){
     }
 }
 light = instance_create_layer(x,y,LAYER_LIGHTING,obj_light);
-light.initialise(120,c_orange, 360, 0.001);
-light.start_pulse_random_size(120, 20, 40, 12, 0.15);
+light.initialise(360,c_orange, 360, 0.25);
+light.start_pulse_random_size(360, 80, 80, 12, 0.15);
 room_check();

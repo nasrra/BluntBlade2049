@@ -1,5 +1,6 @@
 global.player_health = undefined;
 
+// player_set_global_health(5);
 function player_set_global_health(_amount){
     global.player_health = _amount;
     show_debug_message(string_join(" ","[=] global.player_health:", global.player_health));
