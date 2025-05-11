@@ -73,7 +73,7 @@ function BaseGun(_holder_id, _sprite, _bullet_object, _offset_x, _offset_y, _len
 
     function spawn_muzzle_flash(_x,_y,_angle){
         flash_light = instance_create_layer(_x,_y,LAYER_LIGHTING,obj_light);
-        flash_light.initialise(145, c_yellow, 145, 0.025);
+        flash_light.initialise(200, c_yellow, 145, 0.15);
         flash_light.dir = _angle;
         flash_light.timed_destroy(6);
         var particles = instance_create_layer(_x,_y,LAYER_PARTICLE, obj_particle_system);
