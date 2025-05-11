@@ -104,21 +104,30 @@ function _handle_element_type(){
 }
 
 function handle_on_hit_enemy(){
-    var hit = false;
+    var enemy_hit = false;
+    var wall_hit = false;
     if(slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false){
         exit;
     }
     var instance = ds_map_find_first(slash_object.collisions);
     while(instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true){
-        if(collision_line(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, false, true) == noone){
-            if(is_string(instance) == false && instance_exists(instance) == true){
-                hit = true; 
-                instance.hp.damage(1);
+        var wall_list = ds_list_create();
+        collision_line_list(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, true, true, wall_list, true)
+        for(var i = 0; i < ds_list_size(wall_list); i++){
+            var wall = wall_list[| i];
+            wall_hit = !wall.shoot_through;
+            if(wall_hit == true){
+                break;
             }
         }
+        if(wall_hit == false && is_string(instance) == false && instance_exists(instance) == true){
+            instance.hp.damage(1);
+            enemy_hit = true;
+        }
+        ds_list_destroy(wall_list);
         instance = ds_map_find_next(slash_object.collisions, instance);
     }
-    if(hit == true){
+    if(enemy_hit == true){
         // audiomanager_play_sword_hit();
         on_hit.invoke();
     }
@@ -126,29 +135,41 @@ function handle_on_hit_enemy(){
 
 function handle_on_hit_bullet(){
     var hit = false;
-    if(slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false){
+    var wall_hit = false;
+    if (slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false) {
         exit;
     }
     var instance = ds_map_find_first(slash_object.collisions);
-    while(instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true){
-        if(variable_instance_exists(instance, "sender") == true && instance.sender != entity_id && instance_exists(entity_id)){
-            if(collision_line(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, false, true) == noone){
+    while (instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true) {
+        if (variable_instance_exists(instance, "sender") && instance.sender != entity_id) {
+            var wall_list = ds_list_create();
+            collision_line_list(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, true, true, wall_list, true);
+            wall_hit = false;
+            for (var i = 0; i < ds_list_size(wall_list); i++) {
+                var wall = wall_list[| i];
+                wall_hit = !wall.shoot_through;
+                if(wall_hit == true){
+                    break;
+                }
+            }
+            if (wall_hit == false) {
                 instance.send_back_to_sender();
                 instance.set_object_to_damage(obj_enemy);
                 instance.sender = entity_id;
                 parried = true;
                 hit = true;
             }
+            ds_list_destroy(wall_list);
         }
         instance = ds_map_find_next(slash_object.collisions, instance);
     }
-    if(hit == true){
+    if (hit == true) {
         audiomanager_play_parry();
         parry_particle.x = x;
         parry_particle.y = y;
-        parry_particle.set_emission_angle(image_angle-45, image_angle+45);
+        parry_particle.set_emission_angle(image_angle - 45, image_angle + 45);
         parry_particle.emit(10);
-        parry_particle.set_emission_angle(image_angle-45-180, image_angle+45-180);
+        parry_particle.set_emission_angle(image_angle - 45 - 180, image_angle + 45 - 180);
         parry_particle.emit(10);
         parry_hit = true;
         on_parry.invoke();
@@ -157,23 +178,30 @@ function handle_on_hit_bullet(){
 
 function handle_on_hit_dyn_environment(){
     var hit = false;
-    if(slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false){
+    var wall_hit = false;
+    if (slash_object.collisions == undefined || ds_exists(slash_object.collisions, ds_type_map) == false) {
         exit;
     }
     var instance = ds_map_find_first(slash_object.collisions);
-    var _entity_id = entity_id;
-    var _can_hit = false;
-    while(instance != undefined && instance_exists(instance) == true){
-        with(instance){
-            _can_hit = collision_line(_entity_id.x, _entity_id.y, x, y, obj_environment,false,true);
+    while (instance != undefined && is_string(instance) == false && instance_exists(instance) == true && instance_exists(entity_id) == true) {
+        var wall_list = ds_list_create();
+        collision_line_list(entity_id.x, entity_id.y, instance.x, instance.y, obj_environment, true, true, wall_list, true);
+        wall_hit = false;
+        for (var i = 0; i < ds_list_size(wall_list); i++) {
+            var wall = wall_list[| i];
+            wall_hit = !wall.shoot_through;
+            if(wall_hit == true){
+                break;
+            }
         }
-        if(_can_hit == noone){
+        if (wall_hit == false && instance_exists(instance)) {
             instance.hp.damage(1);
             hit = true;
         }
+        ds_list_destroy(wall_list);
         instance = ds_map_find_next(slash_object.collisions, instance);
     }
-    if(hit == true){
+    if (hit == true) {
         on_hit.invoke();
     }
 }
