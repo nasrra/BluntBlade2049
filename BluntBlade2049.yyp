@@ -263,6 +263,7 @@
     {"id":{"name":"LampPost___Copy","path":"sprites/LampPost___Copy/LampPost___Copy.yy",},},
     {"id":{"name":"spr_bullet_default","path":"sprites/spr_bullet_default/spr_bullet_default.yy",},},
     {"id":{"name":"spr_bullet_explosive","path":"sprites/spr_bullet_explosive/spr_bullet_explosive.yy",},},
+    {"id":{"name":"spr_bullet_fire","path":"sprites/spr_bullet_fire/spr_bullet_fire.yy",},},
     {"id":{"name":"spr_crt_lines","path":"sprites/spr_crt_lines/spr_crt_lines.yy",},},
     {"id":{"name":"spr_door_locked_old","path":"sprites/spr_door_locked_old/spr_door_locked_old.yy",},},
     {"id":{"name":"spr_door_locked","path":"sprites/spr_door_locked/spr_door_locked.yy",},},
@@ -343,9 +344,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"room_2_start","path":"rooms/room_2_start/room_2_start.yy",},},
     {"roomId":{"name":"room_T_3","path":"rooms/room_T_3/room_T_3.yy",},},
     {"roomId":{"name":"room_start","path":"rooms/room_start/room_start.yy",},},
-    {"roomId":{"name":"room_2_start","path":"rooms/room_2_start/room_2_start.yy",},},
     {"roomId":{"name":"room_T_4_start","path":"rooms/room_T_4_start/room_T_4_start.yy",},},
     {"roomId":{"name":"room_T_5_start","path":"rooms/room_T_5_start/room_T_5_start.yy",},},
     {"roomId":{"name":"room_2_8","path":"rooms/room_2_8/room_2_8.yy",},},

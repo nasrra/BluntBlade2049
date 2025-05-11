@@ -103,7 +103,7 @@ hp.on_damage.set(function(){
 });
 hp.on_tick_damage.set(function(){
     damage_flash.invoke(1,0.5);
-    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
+    light.start_pulse_size_cycled(200, 440, 10, 0.5, 3);
     switch(element_status.status){
         case ElementType.FIRE:
             light.start_pulse_colour_cycled(c_fire_light, 24, 0.33, 2);

@@ -43,7 +43,6 @@ function check_collisions(){
     hit = noone;    
     hit = instance_place(x,y,obj_dyn_environment);
     if(hit != noone){
-
         if(variable_instance_exists(hit, "hp")==true){
             hit.hp.damage(damage);
         }

@@ -7,9 +7,9 @@
   },
   "bitDepth":1,
   "bitRate":56,
-  "compression":3,
+  "compression":2,
   "conversionMode":0,
-  "duration":249.80898,
+  "duration":289.64572,
   "name":"snd_music_floor_1",
   "parent":{
     "name":"music",
@@ -21,5 +21,5 @@
   "sampleRate":22050,
   "soundFile":"snd_music_floor_1.mp3",
   "type":1,
-  "volume":0.1,
+  "volume":0.11,
 }

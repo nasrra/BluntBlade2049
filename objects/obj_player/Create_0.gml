@@ -165,11 +165,11 @@ hp.on_damage.set(function(){
     obj_ui_manager.update_healthbar(hp.current_value);
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
-    damage_flash.invoke(6,2);
+    damage_flash.invoke(6,1);
     damage_particle.emit(20);
     player_set_global_health(hp.current_value);
-    light.start_pulse_size_cycled(100, 200, 12, 0.1, 4);
-    light.start_pulse_colour_cycled(c_red, 12, 0.1, 4);
+    light.start_pulse_size_cycled(200, 440, 10, 0.5, 3);
+    light.start_pulse_colour_cycled(c_white, 12, 0.1, 4);
 
 });
 hp.on_tick_damage.set(function(){
@@ -177,9 +177,9 @@ hp.on_tick_damage.set(function(){
     obj_ui_manager.update_healthbar(hp.current_value);
     set_room_speed(5, 1);
     obj_camera.shake_camera(75, 1, 12);
-    damage_flash.invoke(6,2);
+    damage_flash.invoke(6,1);
     damage_particle.emit(20);
-    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
+    light.start_pulse_size_cycled(200, 440, 10, 0.5, 3);
     switch(element_status.status){
         case ElementType.FIRE:
             light.start_pulse_colour_cycled(c_fire_light, 24, 0.33, 2);
@@ -233,7 +233,7 @@ function snap_to_position(_x, _y){
 }
 
 light = instance_create_layer(x+(sprite_width/2),y+(sprite_height/2),LAYER_LIGHTING, obj_light);
-light.initialise(100,c_white, 360, 0.00001);
+light.initialise(200,c_white, 360, 0.00001);
 
 function update_light(){
     light.x = x;
