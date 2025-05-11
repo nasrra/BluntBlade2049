@@ -9,7 +9,9 @@
   ],
   "managed":true,
   "name":"obj_explosive_barrel",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_environment","path":"objects/obj_environment/obj_environment.yy",},"propertyId":{"name":"shoot_through","path":"objects/obj_environment/obj_environment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+  ],
   "parent":{
     "name":"Dynamics",
     "path":"folders/Objects/Environment/Dynamics.yy",

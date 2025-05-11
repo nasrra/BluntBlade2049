@@ -21,5 +21,5 @@
   "sampleRate":22050,
   "soundFile":"snd_music_floor_2.mp3",
   "type":1,
-  "volume":0.11,
+  "volume":0.09,
 }

@@ -11,10 +11,14 @@ alarm_set(0, 1);
 
 function explode(){
     instance_create_layer(x,y,LAYER_ENVIRONMENT,obj_explosion_bomb);
-    instance_create_layer(x,y,LAYER_ENVIRONMENT,obj_element_zone_fire);
+    instance_create_layer(x-8,y-8,LAYER_ENVIRONMENT,obj_element_zone_fire);
     instance_destroy();
 }
 
 hp.on_death.set(function(){
     explode();
 });
+
+if(roommanager_get_room_cleared(room) == true){
+    instance_destroy();
+}

@@ -25,20 +25,37 @@ function handle_hurt_frames(){
 
 function check_hits(_obj_to_hit){
     var hit_list = ds_list_create();
-    var hits = collision_circle_list(x,y,hurt_radius, _obj_to_hit, false, true, hit_list, false);
-    for(var i = 0; i < hits; i++){
+    collision_circle_list(x,y,hurt_radius, _obj_to_hit, false, true, hit_list, false);
+    
+    
+    for(var i = 0; i < ds_list_size(hit_list); i++){
         var entity = ds_list_find_value(hit_list, i);
-        if(ds_exists(hit_objects, ds_type_map) == false){
+        if(ds_exists(hit_objects, ds_type_map) == false || instance_exists(entity) == false){
             continue;
         }
-        if(ds_map_find_value(hit_objects, entity.id) == undefined){
-            entity.hp.damage(1);
-                        
-            // if the enemy didnt just die.
-            if(instance_exists(entity) == true){
-                ds_map_add(hit_objects, entity.id, true);
+        
+        // if(instance_exists(entity) == true){
+            var wall_list = ds_list_create();
+            collision_line_list(x, y, entity.x, entity.y, obj_environment, true, true, wall_list, true);
+            wall_hit = false;
+            for (var j = 0; j < ds_list_size(wall_list); j++) {
+                var wall = wall_list[| j];
+                wall_hit = !wall.shoot_through;
+                if(wall_hit == true){
+                    break;
+                }
             }
-        }
+            ds_list_destroy(wall_list);
+            
+            if(wall_hit == false && ds_map_find_value(hit_objects, entity.id) == undefined){
+                entity.hp.damage(1);
+                            
+                // if the enemy didnt just die.
+                if(instance_exists(entity) == true){
+                    ds_map_add(hit_objects, entity.id, true);
+                }
+            }
+        // }
     }
     ds_list_destroy(hit_list);
 }

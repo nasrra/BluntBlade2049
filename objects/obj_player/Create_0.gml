@@ -202,7 +202,7 @@ hp.on_heal.set(function(){
     var heal_particle = instance_create_layer(x,y,LAYER_CHARACTER, obj_particle_system);
     heal_particle.initialise(part_type_heal(),0,0);
     heal_particle.emit_one_shot(30,60);
-    light.start_pulse_size_cycled(100, 200, 12, 0.25, 3);
+    light.start_pulse_size_cycled(200, 440, 12, 0.25, 3);
     light.start_pulse_colour_cycled(c_green, 24, 0.33, 2);
     player_set_global_health(hp.current_value);
     element_status.clear_status();
