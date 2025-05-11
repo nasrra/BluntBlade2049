@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":56,
-  "compression":2,
+  "compression":3,
   "conversionMode":0,
   "duration":249.80898,
   "name":"snd_music_floor_2",
