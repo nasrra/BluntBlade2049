@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset_room_dark_1",
-    "path":"sprites/spr_tileset_room_dark_1/spr_tileset_room_dark_1.yy",
+    "name":"spr_tileset_room_dark",
+    "path":"sprites/spr_tileset_room_dark/spr_tileset_room_dark.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{

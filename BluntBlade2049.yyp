@@ -312,7 +312,6 @@
     {"id":{"name":"spr_tileset_accessories_2","path":"sprites/spr_tileset_accessories_2/spr_tileset_accessories_2.yy",},},
     {"id":{"name":"spr_tileset_accessories_3","path":"sprites/spr_tileset_accessories_3/spr_tileset_accessories_3.yy",},},
     {"id":{"name":"spr_tileset_floors_2","path":"sprites/spr_tileset_floors_2/spr_tileset_floors_2.yy",},},
-    {"id":{"name":"spr_tileset_room_dark_1","path":"sprites/spr_tileset_room_dark_1/spr_tileset_room_dark_1.yy",},},
     {"id":{"name":"spr_tileset_room_dark","path":"sprites/spr_tileset_room_dark/spr_tileset_room_dark.yy",},},
     {"id":{"name":"spr_tileset_room","path":"sprites/spr_tileset_room/spr_tileset_room.yy",},},
     {"id":{"name":"spr_tileset_signs","path":"sprites/spr_tileset_signs/spr_tileset_signs.yy",},},
@@ -345,8 +344,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"room_start","path":"rooms/room_start/room_start.yy",},},
-    {"roomId":{"name":"room_1_6","path":"rooms/room_1_6/room_1_6.yy",},},
     {"roomId":{"name":"room_1_start","path":"rooms/room_1_start/room_1_start.yy",},},
+    {"roomId":{"name":"room_1_6","path":"rooms/room_1_6/room_1_6.yy",},},
     {"roomId":{"name":"room_T_5_start","path":"rooms/room_T_5_start/room_T_5_start.yy",},},
     {"roomId":{"name":"room_1_2","path":"rooms/room_1_2/room_1_2.yy",},},
     {"roomId":{"name":"room_T_3","path":"rooms/room_T_3/room_T_3.yy",},},
